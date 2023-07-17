@@ -2,7 +2,7 @@
 
 const { MongoClient } = require('mongodb');
 
-const uri = "mongodb+srv://d99c137:KioMtgdZQRgLsDtn@cluster0.ssyma3l.mongodb.net/?retryWrites=true&w=majority"
+const uri = process.env.MONGODB_URI;
 const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,

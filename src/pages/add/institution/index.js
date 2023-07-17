@@ -103,7 +103,7 @@ export default function EditInstitutionPage(props) {
   };
 
   const submit = async (e) => {
-    const confirm = "fundi-t3st"
+    const confirm = process.env.NEXT_PUBLIC_PASSWORD;
     let password = await prompt('Enter password', "");
     e.preventDefault();
     password === confirm ? await doRequest() : alert('Wrong password');
