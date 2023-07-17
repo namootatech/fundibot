@@ -1,0 +1,2249 @@
+[
+    {
+        "name": "Civil Engineering (Bricklaying and Plastering)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Civil Engineering (Plumbing)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Civil Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Mechanical Engineering (Motor Trade)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Mechanical Engineering (Fitting and Machining)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Mechanical Engineering (Welders Trade)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Mechanical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Electrical Engineering (Heavy Current)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Electrical Engineering (Heavy Current)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Electrical Engineering (Light Current/Instrumentation)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Electrical Engineering (Light Current/Instrumentation)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Chemical Engineering (Water and Waste Water Treatment Practice)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Chemical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Business Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Public Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Marketing Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Management Assistant",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Financial Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Public Relations",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Legal Secretary",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Medical Secretary",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Supply Chain Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Journalism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Information Technology",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "PC Support and Networking",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "End-User Computing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Technical Support",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "System Development",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Post Graduate Certificate: Teaching",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "National Professional Diploma in Educare",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "National Professional Certificate in Career Guidance Development Counselling",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Hospitality and Catering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Travel and Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Certificate: Career Development Information Officer (SAQA ID 96372, NQF 5, Credits 120)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Certificate: Developmental Psychology (SAQA ID 21129, NQF 5, Credits 120)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Certificate: Basic Mechanical Engineering (SAQA ID 21102, NQF 4, Credits 120)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Certificate: Chemical Laboratory Assistant (SAQA ID 21139, NQF 4, Credits 120)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Certificate: Electrical Engineering (SAQA ID 21105, NQF 4, Credits 120)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Certificate: Human Resource Development (SAQA ID 21038, NQF 5, Credits 120)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Certificate: Introduction: Project Management (SAQA ID 21046, NQF 4, Credits 120)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Certificate: Secretarial Studies (SAQA ID 21055, NQF 4, Credits 120)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Diploma: Analytical Chemistry (SAQA ID 21140, NQF 3-6, LVL 101-202)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Diploma: Architectural Draughting (SAQA ID 21153, NQF 3-6, LVL 101-202)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Diploma: Construction Technology: Civil Engineering (SAQA ID 21156, NQF 5, Credits 240)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Diploma: Mechanical Engineering (SAQA ID 21120, NQF 5, Credits 240)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Diploma: Paralegal Studies (SAQA ID 21138, NQF 5, Credits 240)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "National Diploma: Policing (SAQA ID 61729, NQF 6, Credits 248)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Berea Technical College"
+    },
+    {
+        "name": "Postgraduate Diploma In Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Commerce In Management Marketing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Accounting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Commerce In Law",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Commerce In Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Social Science",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Systems Development",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Network Systems",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Financial Accounting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Business Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Marketing Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Event Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Advertising & Integrated Communication Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Marketing Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Business Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Hiv/Aids Counselling & Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Human Resource Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Accounting Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Hospitality Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Tourism & Travel Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Logistics & Supply Chain Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Postgraduate Diploma In Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Commerce In Management Marketing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Business Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Marketing Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Business Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Marketing Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Logistics & Supply Chain Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Marketing Specialisation Social Media",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Commerce In General Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Project Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "The Retail Marketer",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "The Sales Representative",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Marketing 101",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "The Essentials Of Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "The Small Business Owner",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "The Warehouse Supervisor",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Accounting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Financial Accounting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Accounting Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bookkeeper",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Assistant Bookkeeper",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Credit Controller / Assistant Bookkeeper",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Executive Secretary Financial",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Commerce In Law",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Commerce In Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Human Resource Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Commerce In Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "National Certificate: Paralegal Practice – Human Relations & Employee Relations",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Conveyancing Secretary",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Executive Secretary Legal",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Paralegal",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Fundamentals For Ict",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Microsoft Certified: Devops Engineer Expert",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Introduction To Programming",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Mobile App Development",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Systems Development",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Microsoft Certified: Devops Engineer Expert",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Network Systems",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Microsoft Certified: Devops Engineer Expert",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Secure Infrastructure Associate",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Software Specialist",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Security Analytics Specialist",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Networking Specialist",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Computer Clerk",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Computer Technician",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Data Capturer",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Microsoft Certified: Devops Engineer Expert",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Microsoft Certified: Azure Administrator Associate",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Networking Technician",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Introduction To Web & Graphic Design",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Business Information Systems & Virtual Computing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Continuous Professional Development With Cisco",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Commerce In Public Relations",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Advertising And Integrated Communication Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Commerce In Public Relations",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Public Relations Assistant",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Media Consultant",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Brand Ambassador",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Diploma In Event Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Hospitality Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Tourism & Travel Management Practice",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Marketing Specialisation Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Travel And Tourism Operations",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "The Event Planner",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Hotel And Catering Operations",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Hospitality Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Booking Agent",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Bachelor Of Social Science",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Hiv/Aids Counselling And Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "The Lay Counsellor",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate In Marketing Specialisation Sport",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Further Education & Training Certificate: Sport Administration",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Sports Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Football Coaching & Administration",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Sports Club Administration",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Administrative Assistant",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Customer Helpdesk Consultant",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Executive Secretary",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "General Secretary",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Call Centre Operator",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Office Assistant",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Debt Collector",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Receptionist Secretary",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Receptionist",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Stock Controller",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Higher Certificate in Marketing Specialisation Digital Music",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Introduction to Digital Music Composition & Production",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Digital Music Composition and Production",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Dj 101",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "The Music Business",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Micro-Credential Badges",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "Nano-Credential Badges",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Boston City Campus"
+    },
+    {
+        "name": "National Certificate (Vocational): Finance, Economics and Accounting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Marketing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Office Administration",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Information Technology and Computer Science",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Civil Engineering & Building Construction (Masonry/Plumbing/Carpentry)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Electrical Infrastructure Construction",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Engineering and Related Design (Automotive/Fabrication/Fitter and Turner)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Education and Development",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Hospitality",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Primary Agriculture",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Financial Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Management Assistant",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Marketing Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Public Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Civil Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Electrical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Mechanical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Nated: Multi-Disciplinary Drawing Office Practice / Draughting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Computer Studies",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Cabinet Making",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Carpentry",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Welding / Boilermaking",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Fitting & Machining",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Electronics",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Electricity",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Plumbing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Bricklaying",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Motor Mechanics",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Know Your Car",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Tool, Jig and Die Making",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Printing & Silkscreen",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "Hairdressing (Diploma City & Guilds)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Coastal KZN TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Finance, Economics & Accounting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "National Certificate (Vocational): Transport & Logistics",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "National Certificate (Vocational): Engineering & Related Design",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "National Certificate (Vocational): Electrical Infrastructure Construction",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "National Certificate (Vocational): Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "National Certificate (Vocational): Hospitality",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "National Certificate (Vocational): Primary Agriculture",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Business Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Financial Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Electrical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Mechanical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Public Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Financial Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Hospitality",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Travel Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Farm Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Popular Music: Studio Work",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Popular Music: Performance",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Popular Music: Introductory Phase",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Introductory Art & Design",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Art & Design",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "NATED: Travel & Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "Graphic Design",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "Sound Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "Video Production",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "Panel Beating",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "Spray Painting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "Welding",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "National Certificate (Vocational): Office Administration"
+    },
+    {
+        "name": "National Certificate (Vocational): Finance, Economics & Accounting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Business Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Financial Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Public Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Management Assistant",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Junior Bookkeeper: Level 3",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Senior Bookkeeper: Level 4",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Accounting Technician: Level 3",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Bookkeeping: Level 3",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Office Administrator: Level 5",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Office Administration",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "GETC: Adult Basic Education and Training",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Merchandising",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Wholesale and Retail: Help Desk",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate N1-N3",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Electrical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Electrical Infrastructure Construction",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Motor Mechanics",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Fitting and Turning",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Fabrication",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Automotive Body Repair L2",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Automotive Repair and Maintenance NQF L2",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Automotive Spray Painting L2",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Furniture Making (Wood)",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Competency-Based Modular Training",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Trade Level Testing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Building and Civil Construction",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Skills Programmes",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Mechanical Fitting",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Rigging",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Welding Application and Practices",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "NCV: Hospitality",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Hospitality and Catering Services",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "NCV: Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Assistant Chef",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Early Childhood Development: Level 1-5",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Educare",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "CAPS TRAINING",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Diploma: Early Childhood Development Level 5",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Yacht & Boat Building",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Safety in Society",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "2D Animation",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Cisco CCNA – Discovery 1 & 2",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate (Vocational): Information Technology & Computer Science",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Higher Certificate: Information Technology Services Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Funded: ICT Programmes",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: IT Systems Support",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: Technical Support",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "National Certificate: End User Computing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "False Bay TVET College"
+    },
+    {
+        "name": "Business Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Financial Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Hospitality And Catering Services",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Marketing Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Public Relations",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Educare – Teaching",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Civil Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Electrical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Mechanical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "International Travel And Tourism",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Information Technology",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "End User Computing (N3)­",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "3 Month Pc Skills",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "6 Month Pc Executive",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Project Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Managing HIV And AIDS",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Logistics",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Stock And Stores",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Purchasing And Supply",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Occupational Health And Safety",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Leadership And Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Supervisory Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Inventory Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "Warehousing",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "PAX College"
+    },
+    {
+        "name": "National Certificates N4-N6: Business Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Financial Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Public Relations",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Public Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Human Resource Management",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "National Certificates N4-N6: Educare",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "National Certificates N1-N6: Electrical Engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "National Certificates N1-N6: Mechanical engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "National Certificates N1-N6: Civil engineering",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "Office Administration",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "Social Auxiliary Worker",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "Clearing & Forwarding",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    },
+    {
+        "name": "Educare",
+        "faculty": "N/A",
+        "duration": "N/A",
+        "location": "On Campus",
+        "institution": "Thekwini TVET College"
+    }
+]

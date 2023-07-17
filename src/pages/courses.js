@@ -11,7 +11,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Image from "next/image";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   AiFillFacebook,
   AiFillTwitterCircle,
@@ -26,37 +26,39 @@ import {
 
 import { FaPencilAlt } from "react-icons/fa";
 import { BsGlobeEuropeAfrica } from "react-icons/bs";
+import { uniq } from "ramda";
+
 
 const navItems = [
-  { name: "Institutions", href: "/" },
+  { name: "Intitutions", href: "/" },
   { name: "Courses", href: "/courses" },
   { name: "Schools", href: "/schools" },
 ];
 
 export const getServerSideProps = async () => {
-  const institutions = await axios.get(
-    "http://localhost:3001/api/institutions"
+  const courses = await axios.get(
+    "http://localhost:3001/api/courses"
   );
   return {
     props: {
-      institutions: institutions.data,
+      courses: courses.data,
     },
   };
 };
 
-const CollapsibleTableRow = ({ institution, index }) => {
+const CollapsibleTableRow = ({ course, index }) => {
   const [open, setOpen] = useState(false);
   return (
     <Fragment>
       <tr>
         <td>{index}</td>
-        <td>{institution.institution}</td>
-        <td>{institution.region}</td>
+        <td>{course.name}</td>
+        <td>{course.institution.institution}</td>
         <td>
           <Button
             variant="primary"
             size="sm"
-            href={`/edit/institution/${institution._id}`}
+            href={`/edit/course/${course._id}`}
             className="mr-3"
             style={{ marginRight: "5px" }}
           >
@@ -75,7 +77,7 @@ const CollapsibleTableRow = ({ institution, index }) => {
       {open && (
         <tr>
           <td colSpan="4">
-            {/* two by two grid showing institution information such as name, address, contact number, email, website, region etc */}
+            {/* two by two grid showing course information such as name, address, contact number, email, website, region etc */}
             <Row>
               <Col md={12} className="mb-3">
                 <Card>
@@ -83,11 +85,11 @@ const CollapsibleTableRow = ({ institution, index }) => {
 
                   <Card.Body>
                     <img
-                      src={institution.logoUrl}
+                      src={course.logoUrl}
                       width={200}
                       className="mb-3"
                     />
-                    <Card.Text>{institution.bio}</Card.Text>
+                    <Card.Text>{course.bio}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -95,11 +97,11 @@ const CollapsibleTableRow = ({ institution, index }) => {
                 <Card>
                   <Card.Header>Main Campus Address</Card.Header>
                   <Card.Body>
-                    <Card.Text>{institution?.address?.street}</Card.Text>
-                    <Card.Text>{institution?.address?.suburb}</Card.Text>
-                    <Card.Text>{institution?.address?.city}</Card.Text>
-                    <Card.Text>{institution?.address?.province}</Card.Text>
-                    <Card.Text>{institution?.address?.country}</Card.Text>
+                    <Card.Text>{course?.address?.street}</Card.Text>
+                    <Card.Text>{course?.address?.suburb}</Card.Text>
+                    <Card.Text>{course?.address?.city}</Card.Text>
+                    <Card.Text>{course?.address?.province}</Card.Text>
+                    <Card.Text>{course?.address?.country}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -111,23 +113,21 @@ const CollapsibleTableRow = ({ institution, index }) => {
                       <Card.Body>
                         <Card.Text>
                           <AiFillMail />{" "}
-                          <a href={`mailto:${institution.contact?.email}`}>
-                            {institution.contact?.email}
+                          <a href={`mailto:${course.contact?.email}`}>
+                            {course.contact?.email}
                           </a>
                         </Card.Text>
                         <Card.Text>
                           <AiFillPhone />{" "}
-                          <a href={`tel:${institution.contact?.phone}`}>
-                            {institution.contact?.phone}
+                          <a href={`tel:${course.contact?.phone}`}>
+                            {course.contact?.phone}
                           </a>
                         </Card.Text>
                         <Card.Text>
-                          <BsGlobeEuropeAfrica />{" "}
-                          <a
-                            href={institution.contact?.website}
-                            target="_blank"
-                          >
-                            {institution.contact?.website}
+                        <BsGlobeEuropeAfrica />{" "}
+                          <a href={course.contact?.website} target="_blank">
+                            
+                            {course.contact?.website}
                           </a>
                         </Card.Text>
                       </Card.Body>
@@ -140,27 +140,27 @@ const CollapsibleTableRow = ({ institution, index }) => {
                         <Card.Text>
                           <Row>
                             <Col md={1}>
-                              <a href={institution.socials?.facebookUrl}>
+                              <a href={course.socials?.facebookUrl}>
                                 <AiFillFacebook />
                               </a>
                             </Col>
                             <Col md={1}>
-                              <a href={institution.socials?.twitterUrl}>
+                              <a href={course.socials?.twitterUrl}>
                                 <AiFillTwitterCircle />
                               </a>
                             </Col>
                             <Col md={1}>
-                              <a href={institution.socials?.instagramUrl}>
+                              <a href={course.socials?.instagramUrl}>
                                 <AiFillInstagram />
                               </a>
                             </Col>
                             <Col md={1}>
-                              <a href={institution.socials?.linkedinUrl}>
+                              <a href={course.socials?.linkedinUrl}>
                                 <AiFillLinkedin />
                               </a>
                             </Col>
                             <Col md={1}>
-                              <a href={institution.socials?.youtubeUrl}>
+                              <a href={course.socials?.youtubeUrl}>
                                 <AiFillYoutube />
                               </a>
                             </Col>
@@ -180,49 +180,40 @@ const CollapsibleTableRow = ({ institution, index }) => {
 };
 
 export default function Home(props) {
-  const [institutions, setInstitutions] = useState(props.institutions);
+  const [courses, setcourses] = useState(props.courses);
   const [search, setSearch] = useState("");
-  const fuse = new Fuse(institutions, {
+  const fuse = new Fuse(courses, {
     includeScore: false,
-    keys: ["institution", "region"],
+    keys: ["name", "institution.institution"],
   });
 
   const runSearch = (e) => {
     setSearch(e.target.value);
     if (e.target.value.length > 0) {
       const results = fuse.search(e.target.value);
-      setInstitutions(results.map((r) => r.item));
+      setcourses(results.map((r) => r.item));
     } else {
-      setInstitutions(props.institutions);
+      setcourses(props.courses);
     }
   };
 
   const clearSearch = () => {
     setSearch("");
-    setInstitutions(props.institutions);
+    setcourses(props.courses);
   };
 
   return (
     <>
       <Head>
-        <title>Explore Your Educational Journey with Fundi Bot - Find the Best Colleges & Courses</title>
-        <meta
-          name="description"
-          content="Fundi Bot is your go-to platform for discovering top universities and colleges. Explore a wide range of courses and unlock your academic potential today!"
-        />
+        <title>Create Next App</title>
+        <meta name="description" content="Generated by create next app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="float-add d-flex flex-column justify-content-centern align-items-center">
-        <small>Can't find your institution? Click here to add it</small>
-        <Button href="/add/institution" className="mt-3 w-25" size="sm">
-          Add{" "}
-        </Button>
-      </div>
-      <main style={{ background: "#dadfdf" }}>
+      <main style={{background:"#dadfdf"}}>
         <div className="d-flex flex-column justify-content-center align-items-center">
-          <Image src="/logo.png" width="200" height="100" />
-          <p>Find Your Future: Explore Colleges & Courses!</p>
+          <Image src="/logo.png" width="400" height="200" />
+          <div>Find Your Future: Explore Colleges & Courses!</div>
         </div>
 
         <Row className="d-flex flex-row justify-content-center">
@@ -231,9 +222,9 @@ export default function Home(props) {
               <Col md={10}>
                 <Card
                   style={{ width: "100%", background: "none", border: "none" }}
-                  className="mb-3 text-center"
+                  className="mb-3"
                 >
-                  <div className="d-flex flex-row w-100 justify-content-center">
+                  <div className="d-flex flex-row w-100">
                     {navItems.map((item, index) => (
                       <Fragment key={index}>
                         <a
@@ -247,8 +238,8 @@ export default function Home(props) {
                     ))}
                   </div>
 
-                  <div className="d-flex flex-row w-100 justify-content-center">
-                    <Col md={12} xs={11}>
+                  <div className="d-flex flex-row w-100">
+                    <Col md={12}>
                       <Form.Control
                         type="text"
                         placeholder="Search"
@@ -257,25 +248,24 @@ export default function Home(props) {
                         className="mr-2"
                       />
                     </Col>
+                    <br />
+                    
                   </div>
+                  <small className="text-muted mt-3">Found {courses.length} courses from {uniq(courses.map(c => c.institution.institution)).length} Institutions</small>
                 </Card>
 
                 <Table striped bordered hover className="w-100 h-100">
                   <thead>
                     <tr>
                       <th>#</th>
+                      <th>course</th>
                       <th>Institution</th>
-                      <th>Region</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {institutions.map((c, index) => (
-                      <CollapsibleTableRow
-                        key={index}
-                        institution={c}
-                        index={index + 1}
-                      />
+                    {courses.map((c, index) => (
+                      <CollapsibleTableRow key={index} course={c} index={index} />
                     ))}
                   </tbody>
                 </Table>

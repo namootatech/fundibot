@@ -7,6 +7,12 @@
   min-height: 100vh;
 }
 
+.main input{
+  color: grey;
+}
+.main label{
+  font-weight: 500;
+}
 .description {
   display: inherit;
   justify-content: inherit;
@@ -75,6 +81,7 @@
 .center {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   position: relative;
   padding: 4rem 0;
