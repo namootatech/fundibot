@@ -21,7 +21,7 @@ const institutionTypes = ["University", "College", "Institute", "School"];
 
 export const getServerSideProps = async ({ query }) => {
   const response = await axios.get(
-    `${process.env.NEXT_SITE_URL}/api/institution?id=${query.id}`
+    `https://fundibot.touch.net.za/api/institution?id=${query.id}`
   );
 
   const institution = response.data;
