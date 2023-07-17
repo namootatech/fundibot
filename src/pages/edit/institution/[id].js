@@ -68,7 +68,7 @@ export default function EditInstitutionPage(props) {
   const doRequest = async () => {
       try {
        const response =  await axios.post(
-            `http://localhost:3001/api/edit/institution?id=${props.institution._id}`,
+            `${process.env.NEXT_SITE_URL}/api/edit/institution?id=${props.institution._id}`,
             institution
           )
         

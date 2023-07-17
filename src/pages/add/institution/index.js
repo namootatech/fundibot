@@ -64,7 +64,7 @@ export default function EditInstitutionPage(props) {
   const doRequest = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:3001/api/add/institution`,
+        `${process.env.NEXT_SITE_URL}/api/add/institution`,
         institution
       );
       // empty all data and show success message

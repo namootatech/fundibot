@@ -35,7 +35,7 @@ const navItems = [
 
 export const getServerSideProps = async () => {
   const institutions = await axios.get(
-    "http://localhost:3001/api/institutions"
+    `${process.env.NEXT_SITE_URL}/api/institutions`
   );
   return {
     props: {
