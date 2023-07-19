@@ -68,7 +68,7 @@ export default function EditInstitutionPage(props) {
   const doRequest = async () => {
       try {
        const response =  await axios.post(
-            `${process.env.NEXT_SITE_URL}/api/edit/institution?id=${props.institution._id}`,
+            `${process.env.NEXT_PUBLIC_SITE_URL}/api/edit/institution?id=${props.institution._id}`,
             institution
           )
         
@@ -107,7 +107,7 @@ export default function EditInstitutionPage(props) {
       }
   }
   const submit = async (e) => {
-    const confirm = process.env.NEXT_PUBLIC_PASSWORD;
+    const confirm = process.env.NEXT_PUBLIC_PUBLIC_PASSWORD;
     let password = await prompt('Enter password', "");
     e.preventDefault();
     password === confirm ? await doRequest() : alert('Wrong password');
