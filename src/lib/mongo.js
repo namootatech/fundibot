@@ -2,7 +2,7 @@
 
 const { MongoClient } = require('mongodb');
 
-const uri = process.env.NEXT_MONGODB_URI;
+const uri = process.env.NEXT_PUBLIC_MONGODB_URI;
 const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -11,7 +11,7 @@ const options = {
 let client
 let clientPromise
 
-if (!process.env.NEXT_MONGODB_URI) {
+if (!process.env.NEXT_PUBLIC_MONGODB_URI) {
   throw new Error('Add Mongo URI to Environment vars')
 }
 
