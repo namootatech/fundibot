@@ -1,21 +1,36 @@
 import clientPromise from "@/lib/mongo";
+import logger from "@/lib/logger";
 
 export default async function handler(req, res) {
-  try{
-    if (req.method === 'GET') {
+  try {
+    if (req.method === "GET") {
       // Process a POST request
       const client = await clientPromise;
       const db = client.db("development");
-      const institutions = await db.collection("institutions").find({}).toArray();
-      res.json(institutions);
-  
+      logger.info(req.query)
+      logger.info(req.query.page)
+      const page = parseInt(req.query.page, 10);
+      logger.info(`** Fetching institutions page:, ${page}`);
+      const limit = 10;
+      const skip = page * limit;
+      const institutions = await db
+        .collection("institutions")
+        .find({})
+        .skip(skip)
+        .limit(limit)
+        .toArray();
+      const total = await db
+        .collection("institutions")
+        .find({ })
+        .count();
+      logger.info(`** Found , ${total},  institutions`);
+      res.json({institutions, total});
     } else {
-      // Handle any other HTTP method
-      res.status(405).json({message: "Method not allowed"})
+      logger.info("** Method not allowed ", req.method);
+      res.status(405).json({ message: "Method not allowed" });
     }
-  }
-  catch(e){
-    console.log(e)
-    res.send(e)
+  } catch (e) {
+    logger.error(e)
+    res.status(405).json({message: "Something went wrong", error: e})
   }
 }
