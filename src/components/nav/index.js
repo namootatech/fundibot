@@ -13,7 +13,7 @@ font-family: 'Bebas Neue', sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   color: #032248;
-  font-size: 32px;
+  font-size: 18px;
 `;
 
 
@@ -24,14 +24,16 @@ font-family: 'Bebas Neue', sans-serif;
   border-radius: 10px;
   right: 0;
   float: right;
-  width: 300px;
-  height: 100px;
+  width: 90px;
+  height: 40px;
   position:absolute;
   margin-left: 1rem;
-  margin-right: 1rem;
+  margin-right: 3rem;
   text-transform: uppercase;
-  font-size:32px;
+  font-size:18px;
   font-weight: bold;
+  border:none;
+  outline:none;
 `;
 
 const SignupButton = styled.button`
@@ -40,21 +42,22 @@ font-family: 'Bebas Neue', sans-serif;
   color: #032248;
   border-radius: 10px;
   border: none;
-  right: calc(300px + 1rem);
+  right: calc(150px + 1rem);
   float: right;
-  width: 300px;
-  height: 100px;
+  width: 80px;
+  height: 30px;
   position:absolute;
   margin-left: 1rem;
   margin-right: 1rem;
   text-transform: uppercase;
-  font-size:32px;
+  font-size:18px;
   font-weight: bold;
 `;
 
 const NavContainer = styled.div`
     position:fixed;
     width:100%;
+    z-index: 1;
 `;
 const Navigation = () => {
   const isAuthenticated = false;
@@ -62,12 +65,12 @@ const Navigation = () => {
   return (
     <NavContainer>
     <Navbar bg="white" expand="lg">
-      <Navbar.Brand as={Link} to="/">
-        <Image src="/lg.png" width={600} height={200} />
+      <Navbar.Brand as={Link} href="/">
+        <Image src="/lg.png" width={250} height={100} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav.Link as={Link} to="/schools">
+        <Nav.Link as={Link} href="/about">
           <StyledSpan>About Us</StyledSpan>
         </Nav.Link>
         <Nav.Link as={Link} to="/schools">
