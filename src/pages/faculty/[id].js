@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { useParams } from 'next/navigation'
+import Footer from "@/components/footer";
 
 
 const StyledMain = styled.main`
@@ -150,7 +151,7 @@ export default function Home({
                       </div>
                       <div className="card-footer">
                         <Link
-                          href={`/faculty?u=${university._id}&f=${faculty.id}`}
+                          href={`/programme/${p._id}?uni=${university._id}`}
                           className="btn btn-dark"
                         >
                           See if you qualify
@@ -171,6 +172,7 @@ export default function Home({
           <br />
         </Container>
       </StyledMain>
+      <Footer />
     </>
   );
 }
