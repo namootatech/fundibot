@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navigation from "@/components/nav";
 import styled from "styled-components";
 import Image from "next/image";
+import Footer from "@/components/footer";
 
 const StyledMain = styled.main`
   height: 100vh;
@@ -132,7 +133,10 @@ export default function Home(props) {
             ))}
           </LinkButtonContainer>
         </div>
+        
       </StyledMain>
+      <Footer />
+      
     </>
   );
 }

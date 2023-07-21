@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import Footer from "@/components/footer";
 
 const StyledMain = styled.main`
   height: auto;
@@ -179,6 +180,7 @@ export default function Home({ university }) {
           <br />
         </Container>
       </StyledMain>
+      <Footer/>
     </>
   );
 }

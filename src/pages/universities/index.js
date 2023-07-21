@@ -4,12 +4,13 @@ import styled from "styled-components";
 import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
+import Footer from "@/components/footer";
 
 const StyledMain = styled.main`
   height: auto;
   width: 100vw;
   background: #f8f8f9;
-  padding-top: 20rem;
+  padding-top: 10rem;
 `;
 
 const Container = styled.div`
@@ -214,6 +215,7 @@ export default function Home(props) {
           </div>
         </Container>
       </StyledMain>
+      <Footer/>
     </>
   );
 }

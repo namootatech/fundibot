@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Navigation from "@/components/nav";
 import styled from "styled-components";
+import Footer from "@/components/footer";
 
 const StyledMain = styled.main`
   height: auto;
@@ -74,7 +75,7 @@ export default function About(props) {
                 learning knows no bounds! Founded with a passion for
                 transforming the way students access higher education
                 information, FundiBot is on a mission to empower learners
-                worldwide and enrich their academic journeys.
+                nationwide and enrich their academic journeys.
               </p>
               <p>
                 Our platform is designed to help you find the right university
@@ -146,6 +147,7 @@ export default function About(props) {
           </div>
         </div>
       </StyledMain>
+      <Footer />
     </>
   );
 }

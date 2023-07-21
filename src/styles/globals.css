@@ -122,3 +122,16 @@ a {
   margin-top: 5px !important;
   padding: 2px;
 }
+
+section{
+  background: #334456;
+    color: #fff;
+}
+
+footer{
+  background: #212c37;
+}
+footer a{
+  color: #fff;
+  text-decoration: none;
+}
