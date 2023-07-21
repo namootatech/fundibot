@@ -1,0 +1,286 @@
+[
+    {
+        "code": "afrk-hl",
+        "name": "Afrikaans Home Language"
+    },
+    {
+        "code": "eng-hl",
+        "name": "English Home Language"
+    },
+    {
+        "code": "ndeb-hl",
+        "name": "IsiNdebele Home Language"
+    },
+    {
+        "code": "xho-hl",
+        "name": "IsiXhosa Home Language"
+    },
+    {
+        "code": "zulu-hl",
+        "name": "IsiZulu Home Language"
+    },
+    {
+        "code": "spe-hl",
+        "name": "Sepedi Home Language"
+    },
+    {
+        "code": "sotho-hl",
+        "name": "Sesotho Home Language"
+    },
+    {
+        "code": "tswana-hl",
+        "name": "Setswana Home Language"
+    },
+    {
+        "code": "swati-hl",
+        "name": "Siswati Home Language"
+    },
+    {
+        "code": "venda-hl",
+        "name": "Tshivenda Home Language"
+    },
+    {
+        "code": "tsonga-hl",
+        "name": "Xitsonga Home Language"
+    },
+    {
+        "code": "afrk-fal",
+        "name": "Afrikaans First Additional Language"
+    },
+    {
+        "code": "eng-fal",
+        "name": "English First Additional Language"
+    },
+    {
+        "code": "ndeb-fal",
+        "name": "IsiNdebele First Additional Language"
+    },
+    {
+        "code": "xho-fal",
+        "name": "IsiXhosa First Additional Language"
+    },
+    {
+        "code": "zulu-fal",
+        "name": "IsiZulu First Additional Language"
+    },
+    {
+        "code": "spe-fal",
+        "name": "Sepedi First Additional Language"
+    },
+    {
+        "code": "sotho-fal",
+        "name": "Sesotho First Additional Language"
+    },
+    {
+        "code": "tswana-fal",
+        "name": "Setswana First Additional Language"
+    },
+    {
+        "code": "swati-fal",
+        "name": "Siswati First Additional Language"
+    },
+    {
+        "code": "venda-fal",
+        "name": "Tshivenda First Additional Language"
+    },
+    {
+        "code": "tsonga-fal",
+        "name": "Xitsonga First Additional Language"
+    },
+    {
+        "code": "afrk-sal",
+        "name": "Afrikaans Second Additional Language"
+    },
+    {
+        "code": "eng-sal",
+        "name": "English Second Additional Language"
+    },
+    {
+        "code": "ndeb-sal",
+        "name": "IsiNdebele Second Additional Language"
+    },
+    {
+        "code": "xho-sal",
+        "name": "IsiXhosa Second Additional Language"
+    },
+    {
+        "code": "zulu-sal",
+        "name": "IsiZulu Second Additional Language"
+    },
+    {
+        "code": "spe-sal",
+        "name": "Sepedi Second Additional Language"
+    },
+    {
+        "code": "sotho-sal",
+        "name": "Sesotho Second Additional Language"
+    },
+    {
+        "code": "tswana-sal",
+        "name": "Setswana Second Additional Language"
+    },
+    {
+        "code": "swati-sal",
+        "name": "Siswati Second Additional Language"
+    },
+    {
+        "code": "venda-sal",
+        "name": "Tshivenda Second Additional Language"
+    },
+    {
+        "code": "tsonga-sal",
+        "name": "Xitsonga Second Additional Language"
+    },
+    {
+        "code": "acc",
+        "name": "Accounting"
+    },
+    {
+        "code": "agrc-manp-pra",
+        "name": "Agricultural Management Practices"
+    },
+    {
+        "code": "agrc-sci",
+        "name": "Agricultural Science"
+    },
+    {
+        "code": "agrc-tech",
+        "name": "Agricultural Technology"
+    },
+    {
+        "code": "bus-stu",
+        "name": "Business Studies"
+    },
+    {
+        "code": "civ-tech",
+        "name": "Civil Technology"
+    },
+    {
+        "code": "cat",
+        "name": "Computer Applications Technology"
+    },
+    {
+        "code": "con-stu",
+        "name": "Consumer Studies"
+    },
+    {
+        "code": "danc-stu",
+        "name": "Dance Studies"
+    },
+    {
+        "code": "des-stu",
+        "name": "Design Studies"
+    },
+    {
+        "code": "drama",
+        "name": "Dramatic Arts"
+    },
+    {
+        "code": "eco",
+        "name": "Economics"
+    },
+    {
+        "code": "elec-tech",
+        "name": "Electrical Technology"
+    },
+    {
+        "code": "eng-graph-des",
+        "name": "Engineering Graphics and Design"
+    },
+    {
+        "code": "eq-stu",
+        "name": "Equine Studies"
+    },
+    {
+        "code": "geo",
+        "name": "Geography"
+    },
+    {
+        "code": "his",
+        "name": "History"
+    },
+    {
+        "code": "hosp-stu",
+        "name": "Hospitality Studies"
+    },
+    {
+        "code": "inf-tech",
+        "name": "Information Technology"
+    },
+    {
+        "code": "life-ori",
+        "name": "Life Orientation"
+    },
+    {
+        "code": "life-sci",
+        "name": "Life Sciences"
+    },
+    {
+        "code": "marn-sci",
+        "name": "Marine Sciences"
+    },
+    {
+        "code": "mart-eco",
+        "name": "Maritime Economics"
+    },
+    {
+        "code": "math-lit",
+        "name": "Mathematical Literacy"
+    },
+    {
+        "code": "math-pure",
+        "name": "Mathematics"
+    },
+    {
+        "code": "mech-tech",
+        "name": "Mechanical Technology"
+    },
+    {
+        "code": "music",
+        "name": "Music"
+    },
+    {
+        "code": "naut-sci",
+        "name": "Nautical Science"
+    },
+    {
+        "code": "physical-sci",
+        "name": "Physical Sciences"
+    },
+    {
+        "code": "rel-stu",
+        "name": "Religion Studies"
+    },
+    {
+        "code": "sport-sci",
+        "name": "Sport and Exercise Science"
+    },
+    {
+        "code": "tech-math",
+        "name": "Technical Mathematics"
+    },
+    {
+        "code": "tech-sci",
+        "name": "Technical Sciences"
+    },
+    {
+        "code": "tech-civil-tech",
+        "name": "Technical: Civil Technology"
+    },
+    {
+        "code": "tech-elec-tech",
+        "name": "Technical: Electrical Technology"
+    },
+    {
+        "code": "tech-mech-tech",
+        "name": "Technical: Mechanical Technology"
+    },
+    {
+        "code": "tour",
+        "name": "Tourism"
+    },
+    {
+        "code": "vis-art",
+        "name": "Visual Arts"
+    }
+]
