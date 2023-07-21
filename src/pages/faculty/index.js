@@ -9,7 +9,7 @@ import Footer from "@/components/footer";
 const StyledMain = styled.main`
   height: auto;
   width: 100vw;
-  background: #f8f8f9;
+  background: #f3f3f3;
   padding-top: 20rem;
 `;
 
@@ -19,6 +19,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+    margin: 0rem 0rem;
+  }
 `;
 
 const Card = styled.div`
@@ -97,7 +101,7 @@ const Card = styled.div`
 `;
 
 const Button = styled.a`
-  background: #032248;
+  background: #2b3035;
   color: white;
   border-radius: 10px;
   width: 9rem;
@@ -216,7 +220,7 @@ export default function Home(props) {
         </Container>
       </StyledMain>
       <Footer/>
-      
+
     </>
   );
 }

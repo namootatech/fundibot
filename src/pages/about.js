@@ -38,7 +38,7 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-  background: #032248;
+  background: #2b3035;
   color: white;
   border-radius: 10px;
   width: 15rem;

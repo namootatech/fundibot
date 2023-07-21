@@ -5,11 +5,19 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "@/components/footer";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
+import BsCard from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 const StyledMain = styled.main`
   height: auto;
   width: 100vw;
-  background: #f8f8f9;
+  background: #f4f4f4;
   padding-top: 10rem;
 `;
 
@@ -19,6 +27,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+    margin: 0rem 0rem;
+  }
 `;
 
 const Card = styled.div`
@@ -26,7 +38,7 @@ const Card = styled.div`
   .card-body {
     padding: 0;
     padding-left: 1rem;
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -86,7 +98,7 @@ const Card = styled.div`
     margin-bottom: 0px;
     color: #636568;
     font-weight: 100;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
   h2 {
     font-size: 1.2rem;
@@ -95,23 +107,6 @@ const Card = styled.div`
     font-weight: 400;
   }
 `;
-
-const Button = styled.a`
-  background: #032248;
-  color: white;
-  border-radius: 10px;
-  width: 9rem;
-  height: 2.3rem;
-  font-size: 12px;
-  margin-bottom: 0.1rem;
-  border:none;
-  outline:none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration:none;
-`;
-
 
 export const getServerSideProps = async ({ query }) => {
   const response = await axios.get(
@@ -124,7 +119,7 @@ export const getServerSideProps = async ({ query }) => {
   return {
     props: {
       universities,
-      total
+      total,
     },
   };
 };
@@ -132,7 +127,7 @@ export const getServerSideProps = async ({ query }) => {
 export default function Home(props) {
   const [page, setPage] = useState(0);
   const [universities, setUniversities] = useState(props.universities);
-  console.log("Universities", universities)
+  console.log("Universities", universities);
   return (
     <>
       <Head>
@@ -162,52 +157,88 @@ export default function Home(props) {
               </p>
             </div>
             <div className="col-md-12">
-              <div className="row">
-                <div className="row">
+            <div className="row">
                   {universities?.map((university) => (
-                    <div className="col-md-6">
-                      <Card className="card mb-4">
-                        <img
-                          src={university.campusImage}
-                          width={200}
-                          height={250}
-                        />
-                        <div className="card-body">
-                          <div className="card-section">
-                          <h2 className="card-title">{university.institution}</h2>
-                        <h3>{university.address.str}</h3>
+                    <div className="col-md-6 col-xs-12 col-sm-12">
+                      <BrowserView>
+                        <Card className="card mb-4">
+                          <img
+                            src={university.campusImage}
+                            width={200}
+                            height={250}
+                          />
+                          <div className="card-body">
+                            <div className="card-section">
+                              <h2 className="card-title">
+                                {university.institution}
+                              </h2>
+                              <h3>{university.address.str}</h3>
+                            </div>
+                            <div className="card-section-body">
+                              <p className="card-text">
+                                <strong>Contact Number: </strong>
+                                <a
+                                  href={`tel:${university.contact.contactNumber}`}
+                                >
+                                  {university.contact.contactNumber}
+                                </a>
+                              </p>
+                              <p className="card-text">
+                                <strong>Email: </strong>
+                                <a href={`mailto:${university.contact.email}`}>
+                                  {university.contact.email}
+                                </a>
+                              </p>
+                              <p className="card-text">
+                                <strong>Wesbite: </strong>
+                                <a href={university.contact.website}>
+                                  {university.contact.website}
+                                </a>
+                              </p>
+                            </div>
+                            <div className="card-section-footer">
+                              <Button href={`/universities/${university._id}`}>
+                                View More details
+                              </Button>
+                            </div>
                           </div>
-                          <div className="card-section-body">
+                        </Card>
+                      </BrowserView>
+                      <MobileView>
+                        <BsCard className="my-4">
+                          <BsCard.Img variant="top" src={university.campusImage} />
+                          <BsCard.Body>
+                            <BsCard.Title>{university.institution}</BsCard.Title>
                             <p className="card-text">
-                              <strong>Contact Number: </strong>
-                              <a href={`tel:${university.contact.contactNumber}`}>
-                                {university.contact.contactNumber}
-                              </a>
-                            </p>
-                            <p className="card-text">
-                              <strong>Email: </strong>
-                              <a href={`mailto:${university.contact.email}`}>
-                                {university.contact.email}
-                              </a>
-                            </p>
-                            <p className="card-text">
-                              <strong>Wesbite: </strong>
-                              <a href={university.contact.website}>
-                                {university.contact.website}
-                              </a>
-                            </p>
-                          </div>
-                          <div className="card-section-footer">
-                            <Button href={`/universities/${university._id}`}>
-                              View More details
-                            </Button>
-                          </div>
-                        </div>
-                      </Card>
+                                <strong>Contact Number: </strong>
+                                <br/>
+                                <a
+                                  href={`tel:${university.contact.contactNumber}`}
+                                >
+                                  {university.contact.contactNumber}
+                                </a>
+                              </p>
+                              <p className="card-text">
+                                <strong>Email: </strong>
+                                <br/>
+                                <a href={`mailto:${university.contact.email}`}>
+                                  {university.contact.email}
+                                </a>
+                              </p>
+                              <p className="card-text">
+                                <strong>Wesbite: </strong>
+                                <br/>
+                                <a href={university.contact.website}>
+                                  {university.contact.website}
+                                </a>
+                              </p>
+                            <Button variant="dark">View More details</Button>
+                          </BsCard.Body>
+                        </BsCard>
+                      </MobileView>
                     </div>
                   ))}
                 </div>
-              </div>
             </div>
           </div>
           <div className="col-md-6">
@@ -215,7 +246,7 @@ export default function Home(props) {
           </div>
         </Container>
       </StyledMain>
-      <Footer/>
+      <Footer />
     </>
   );
 }

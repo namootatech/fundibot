@@ -7,7 +7,11 @@ import Footer from "@/components/footer";
 const StyledMain = styled.main`
   height: 100vh;
   width: 100vw;
-  background: #032248bf;
+  background: #212529eb;
+  margin-top: 6rem;
+  @media (max-width: 768px) {
+    padding-top: 10rem;
+  }
 `;
 
 const HeroHead = styled.h1`
@@ -15,12 +19,18 @@ const HeroHead = styled.h1`
   font-weight: 600;
   color: white;
   margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+        font-size: 1.5rem;
+  }
 `;
 
 const HeroSubHead = styled.h3`
   font-size: 1.5rem;
   font-weight: 400;
   color: white;
+  @media (max-width: 768px) {
+        font-size: .7rem;
+  }
 `;
 
 const Hero = styled.div`
@@ -42,6 +52,10 @@ const StyledInputContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  @media (max-width: 768px) {
+            width: 80vw;
+    height: 4rem;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -56,6 +70,10 @@ const StyledInput = styled.input`
   &::placeholder {
     color: rgba(230, 230, 230, 1);
   }
+  @media (max-width: 768px) {
+    margin-left: 0;
+    width: 70%;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -66,7 +84,11 @@ border: 4px solid #12c085;
 color: #eee;
 font-size: 16px;
 font-weight: 900;
-border-radius: 10px
+border-radius: 10px;
+@media (max-width: 768px) {
+  width: 20% !important;
+  border-radius: 10px !important;
+}
 `;
 
 const LinkButtonContainer = styled.div`
@@ -76,6 +98,16 @@ const LinkButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 `;
 
 const LinkButton = styled.a`

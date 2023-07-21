@@ -16,7 +16,7 @@ import Footer from "@/components/footer";
 const StyledMain = styled.main`
   height: 100vh;
   width: 100vw;
-  background: #f8f8f9a6;
+  background: #f3f3f3a6;
   padding-top: 10rem;
 `;
 

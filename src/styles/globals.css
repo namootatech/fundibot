@@ -96,6 +96,7 @@ body {
   font-family: "Poppins", sans-serif !important;
 }
 
+
 a {
   color: inherit;
   text-decoration: none;
@@ -124,14 +125,31 @@ a {
 }
 
 section{
-  background: #334456;
+  background: #343a40;
     color: #fff;
 }
 
 footer{
-  background: #212c37;
+  background: #2b3035;
 }
 footer a{
   color: #fff;
   text-decoration: none;
+}
+
+.image-container {
+
+  width: 100%;
+
+  
+}
+.image-container > div {
+  position: unset !important;
+}
+.image-container  .image {
+  width: auto !important;
+}
+
+.nav-button-container{
+ padding-top: 0 !important;
 }

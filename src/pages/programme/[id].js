@@ -19,7 +19,7 @@ import Footer from "@/components/footer";
 const StyledMain = styled.main`
   height: auto;
   width: 100vw;
-  background: #f8f8f9;
+  background: #f3f3f3;
   padding-top: 10rem;
 `;
 
@@ -29,6 +29,13 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+    margin: 0rem 0rem;
+  }
+  ul{
+    padding-left: 0!important;
+  }
 `;
 
 const getSubName = (sub) =>

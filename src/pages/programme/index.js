@@ -9,7 +9,7 @@ import Footer from "@/components/footer";
 const StyledMain = styled.main`
   height: auto;
   width: 100vw;
-  background: #f8f8f9;
+  background: #f3f3f3;
   padding-top: 20rem;
 `;
 
@@ -97,7 +97,7 @@ const Card = styled.div`
 `;
 
 const Button = styled.a`
-  background: #032248;
+  background: #2b3035;
   color: white;
   border-radius: 10px;
   width: 9rem;
