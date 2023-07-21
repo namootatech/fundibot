@@ -79,7 +79,7 @@ const Navigation = () => {
   return (
       <Navbar  className="bg-body-tertiary mb-3 " fixed="top" expand={"sm"}>
           <Container fluid>
-            <Navbar.Brand href="#"><img src="/lg.png" width="250" height="100" /></Navbar.Brand>
+            <Navbar.Brand href="/"><img src="/lg.png" width="250" height="100" /></Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand`}

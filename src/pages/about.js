@@ -7,25 +7,22 @@ const StyledMain = styled.main`
   height: auto;
   width: 100vw;
   background: #fff;
-  padding-top: 20rem;
+  padding-top: 10rem;
   .entry {
     font-size: 50px;
     font-weight: 100;
     margin-top: 2rem;
   }
   p {
-    font-size: 45px;
     font-weight: 100;
     margin-top: 3rem;
-    color: #042248;
+    color: #212529;
   }
   h1 {
-    font-size: 10rem;
-    color: #042248;
+    color: #212529;
   }
   h2 {
-    font-size: 5rem;
-    color: #042248;
+    color: #212529;
   }
 `;
 
@@ -35,6 +32,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+    margin: 0rem 0rem;
+  }
 `;
 
 const Button = styled.button`
@@ -67,17 +68,17 @@ export default function About(props) {
 
       <StyledMain>
         <div className="container">
-          <div className="row w-100">
-            <div className="col-md-12">
-              <h1>Empowering Education, Enriching Lives</h1>
-              <p className="entry">
+          <div className="w-100 d-flex flex-row justify-content-center align-items-center">
+            <div className="col-md-8">
+              <h1 className="display-2">Empowering Education, Enriching Lives</h1>
+              <p className="display-6">
                 Welcome to FundiBot, where innovation meets education, and
                 learning knows no bounds! Founded with a passion for
                 transforming the way students access higher education
                 information, FundiBot is on a mission to empower learners
                 nationwide and enrich their academic journeys.
               </p>
-              <p>
+              <p className="lead">
                 Our platform is designed to help you find the right university
                 or college for your needs. We provide detailed information on
                 each institution, including their location, contact details,
@@ -87,7 +88,7 @@ export default function About(props) {
               <br />
               <br />
               <h2>Our Vision</h2>
-              <p>
+             <p className="lead">
                 Our Vision At FundiBot, we envision a world where education is
                 accessible, personalized, and empowering for every learner. We
                 believe that knowledge should not be confined to the pages of
@@ -99,7 +100,7 @@ export default function About(props) {
               <br />
               <br />
               <h2>Our Mission</h2>
-              <p>
+             <p className="lead">
                 Our mission is simple yet profound: to guide and support
                 learners at every stage of their education journey. We strive to
                 provide learners with comprehensive, up-to-date, and accurate
@@ -109,19 +110,8 @@ export default function About(props) {
                 make informed decisions about your future.
               </p>{" "}
               <br />
-              <h2>Empowering Student Journeys</h2>
-              <p>
-                At the heart of FundiBot lies a deep understanding of the
-                challenges students face when navigating the world of higher
-                education. With the support and expertise of Ilithiyana
-                Academics, FundiBot has been tailored to provide valuable
-                insights and personalized guidance, ensuring that students make
-                informed decisions about their academic pursuits.
-              </p>
-              <br />
-              <br />
               <h2>Our Tech Innovators</h2>
-              <p>
+             <p className="lead">
                 At FundiBot, we are proud to be backed by the expertise and
                 dedication of the Midas Touch Technologies team, a dynamic tech
                 solutions entity based in the heart of the Eastern Cape.
@@ -138,7 +128,7 @@ export default function About(props) {
               <br />
               <br />
               <br />
-              <h2>Unlock Your Educational Potential with FundiBot!</h2>
+              <h2 className="display-1">Unlock Your Educational Potential with FundiBot!</h2>
               <br/>
               <br/>
             </div>
