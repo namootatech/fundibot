@@ -1,22 +1,23 @@
 import Head from "next/head";
 import Navigation from "@/components/nav";
 import styled from "styled-components";
+import Image from "next/image";
 
 const StyledMain = styled.main`
   height: 100vh;
   width: 100vw;
-  background: #032248a1;
+  background: #032248bf;
 `;
 
 const HeroHead = styled.h1`
-font-size: 82px;
-font-weight: 600;
-color: white;
-margin-bottom: 1.5rem;
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
 `;
 
 const HeroSubHead = styled.h3`
-  font-size: 50px;
+  font-size: 1.5rem;
   font-weight: 400;
   color: white;
 `;
@@ -31,9 +32,9 @@ const Hero = styled.div`
 `;
 
 const StyledInputContainer = styled.div`
-  margin-top: 3rem;
-  width: 1450px;
-  height: 157px;
+  margin-top: 1rem;
+    width: 50rem;
+    height: 5rem;
   background: white;
   border-radius: 10px;
   display: flex;
@@ -43,33 +44,31 @@ const StyledInputContainer = styled.div`
 `;
 
 const StyledInput = styled.input`
-  margin: 0px 20px;
+  margin: 0px 10px;
   margin-top: 5px;
   width: 85%;
   height: 90%;
-  font-size: 42px;
+  font-size: 22px;
   border: none;
-  outline:none;
+  outline: none;
   padding-left: 10px;
   &::placeholder {
-    color: #c2c2c2;
+    color: rgba(230, 230, 230, 1);
   }
 `;
 
 const StyledButton = styled.button`
-  background: #eef1f5;
-  width: 15%;
-  height: 100%;
-  border: 2px solid #eef1f5;
-  color: #65717e;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  font-size: 52px;
-  font-weight: 900;
+background: #12c085;
+width: 10%;
+height: 70%;
+border: 4px solid #12c085;
+color: #eee;
+font-size: 16px;
+font-weight: 900;
+border-radius: 10px
 `;
 
 const LinkButtonContainer = styled.div`
-  margin-top: 3rem;
   width: 1050px;
   height: 107px;
   display: flex;
@@ -79,18 +78,18 @@ const LinkButtonContainer = styled.div`
 `;
 
 const LinkButton = styled.a`
-  width: 300px;
-  height: 100px;
-  border-radius: 10px;
-  background-color: #fff;
-  color: #032248;
-  margin-right: 52px;
-  text-decoration: none;
-  font-size: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+width: 8rem;
+height: 3rem;
+border-radius: 10px;
+border: 3px solid #fff;
+color: #fff;
+margin-right: 25px;
+text-decoration: none;
+font-size: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 `;
 
 const navItems = [
@@ -99,7 +98,6 @@ const navItems = [
   { name: "Courses", href: "/courses" },
   { name: "Schools", href: "/schools" },
 ];
-
 
 export default function Home(props) {
   return (
@@ -120,7 +118,8 @@ export default function Home(props) {
       <Navigation />
 
       <StyledMain>
-        <Hero>
+        <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100" >
+          <Image src="/icon.png" width={150} height={150} />
           <HeroHead>Discover your path</HeroHead>
           <HeroSubHead>with personalized learning recommendations</HeroSubHead>
           <StyledInputContainer>
@@ -132,8 +131,8 @@ export default function Home(props) {
               <LinkButton href={n.href}>{n.name}</LinkButton>
             ))}
           </LinkButtonContainer>
-        </Hero>
+        </div>
       </StyledMain>
     </>
   );
-};
+}
