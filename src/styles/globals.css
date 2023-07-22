@@ -155,7 +155,7 @@ nextjs-portal {
 }
 
 /* Tables on Galaxy fold sized phones and smaller */
-@media (max-width: 320px) {
+@media (max-width: 375px) {
   tbody,
   td,
   tfoot,
