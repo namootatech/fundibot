@@ -5,24 +5,21 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
 import { Row } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
-
-import schoolSubjects from "@/data/south_african_hischool_subjects_json.json";
-import { BsFillCheckSquareFill } from "react-icons/bs";
-import { FaWindowClose } from "react-icons/fa";
-import { isEmpty } from "ramda";
+import Cookies from "js-cookie";
 import Footer from "@/components/footer";
 import AddFacultyModal from "@/components/modals/faculty/add";
 import AddCampusModal from "@/components/modals/campus/add";
 import AddContactModal from "@/components/modals/acommodationContacts/add";
 import institutionTypes from "@/data/institution_types.json";
+import Toast from "react-bootstrap/Toast";
+import ToastContainer from "react-bootstrap/ToastContainer";
+import { useRouter } from "next/router";
 
 const StyledMain = styled.main`
   height: auto;
@@ -33,8 +30,13 @@ const StyledMain = styled.main`
 `;
 
 const InstitutionForm = () => {
+  // get logged in user from js-cookie
+  const user = Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null;
+  const router = useRouter();
+
   const [showAddFacultyModal, setShowAddFacultyModal] = useState(false);
   const [showAddCampusModal, setShowAddCampusModal] = useState(false);
+  const [notifications, setNotifications] = useState([]);
   const [
     showAddAccommodationContactModal,
     setShowAddAccommodationContactModal,
@@ -115,10 +117,38 @@ const InstitutionForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here, you can handle the form submission and perform any necessary actions with the formData
-    console.log(formData);
+    try {
+      // Here, you can handle the form submission and perform any necessary actions with the formData
+      console.log(formData);
+      const data = {
+        ...formData,
+        createdBy: { id: user._id, name: `${user.firstName} ${user.lastName}` },
+        createdAt: new Date(),
+        modifiers: [
+          {
+            id: user._id,
+            name: `${user.firstName} ${user.lastName}`,
+            date: new Date(),
+          },
+        ],
+      };
+      //await axios.post("http://localhost:5000/api/institutions", data);
+      setNotifications((prevNotifications) => [
+        ...prevNotifications,
+        { type: "success", message: "Institution added successfully" },
+      ]);
+      setTimeout(() => {
+        router.push("/admin");
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+      setNotifications((prevNotifications) => [
+        ...prevNotifications,
+        { type: "error", message: error.message },
+      ]);
+    }
   };
 
   console.log(formData);
@@ -136,6 +166,37 @@ const InstitutionForm = () => {
       </Head>
 
       <Navigation />
+
+      <ToastContainer
+        position="top-end"
+        className="p-3"
+        style={{ zIndex: 1031, position: "fixed" }}
+      >
+        {notifications.length > 0
+          ? notifications.map((notification) => (
+              <Toast
+                onClose={() => setNotifications([])}
+                show={true}
+                delay={4000}
+                autohide
+                bg="light"
+              >
+                <Toast.Header>
+                  <strong
+                    className={
+                      notification.type === "error"
+                        ? "me-auto text-danger text-capitalize"
+                        : "me-auto text-capitalize"
+                    }
+                  >
+                    {notification.type}
+                  </strong>
+                </Toast.Header>
+                <Toast.Body>{notification.message}</Toast.Body>
+              </Toast>
+            ))
+          : null}
+      </ToastContainer>
 
       <StyledMain>
         <div className="container my-5">
@@ -253,6 +314,9 @@ const InstitutionForm = () => {
                         <label htmlFor="campusImage" className="form-label">
                           Campus Image
                         </label>
+                        <p className="text-muted">
+                          Please provide a link to the main campus' image.
+                        </p>
                         <input
                           type="text"
                           className="form-control"
