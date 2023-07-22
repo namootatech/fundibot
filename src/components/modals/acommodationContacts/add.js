@@ -2,6 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
+import uuid from "uuid";
 
 const AddContactModal = ({ show, handleClose, handleAddContact }) => {
   const [name, setContactName] = useState("");
@@ -21,7 +22,7 @@ const AddContactModal = ({ show, handleClose, handleAddContact }) => {
   };
 
   const saveDetails = () => {
-    handleAddContact({ name, email, contactNumber });
+    handleAddContact({ id: uuid.v4(), name, email, contactNumber });
     handleClose();
   };
 

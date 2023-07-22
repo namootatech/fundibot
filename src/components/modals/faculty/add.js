@@ -2,6 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
+import uuid from "uuid";
 
 const AddFacultyModal = ({ show, handleClose, handleAddFaculty }) => {
   const [faculty, setFacultyName] = useState("");
@@ -16,7 +17,7 @@ const AddFacultyModal = ({ show, handleClose, handleAddFaculty }) => {
   };
 
   const saveDetails = () => {
-    handleAddFaculty({ name: faculty, description });
+    handleAddFaculty({ id: uuid.v4(), name: faculty, description });
     handleClose();
   };
 

@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import provicesJson from "@/data/provinces.json";
+import uuid from "uuid";
 
 const AddCampusModal = ({ show, handleClose, handleAddCampus }) => {
   const [name, setCampusName] = useState("");
@@ -26,7 +27,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus }) => {
   };
 
   const saveDetails = () => {
-    handleAddCampus({ name, contactNumber, email, address });
+    handleAddCampus({ id: uuid.v4(), name, contactNumber, email, address });
     handleClose();
   };
 
