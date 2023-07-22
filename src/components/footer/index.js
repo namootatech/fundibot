@@ -79,7 +79,7 @@ const Footer = () => {
                   <a href="https://touch.net.za">www.touch.net.za</a>
                 </li>
                 <li className="mb-2">
-                  <a href="mailto:aya@touch.net.za">aya@youch.net.za</a>
+                  <a href="mailto:aya@touch.net.za">aya@touch.net.za</a>
                 </li >
                 <li className="mb-2">
                   <a href="tel:0672023083">+27 67 202 3083</a>
