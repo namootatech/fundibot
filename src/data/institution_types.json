@@ -1,0 +1,34 @@
+[
+  {
+    "id": "public_university",
+    "name": "Public University"
+  },
+  {
+    "id": "public_university_of_technology",
+    "name": "Public University of Technology"
+  },
+  {
+    "id": "private_university",
+    "name": "Private University"
+  },
+  {
+    "id": "private_university_of_technology",
+    "name": "Private University of Technology"
+  },
+  {
+    "id": "private_higher_education_institution",
+    "name": "Private Higher Education Institution"
+  },
+  {
+    "id": "public_higher_education_institution",
+    "name": "Public Higher Education Institution"
+  },
+  {
+    "id": "public_college",
+    "name": "Public College"
+  },
+  {
+    "id": "private_college",
+    "name": "Private College"
+  }
+]
