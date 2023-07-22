@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Spinner from 'react-bootstrap/Spinner';
+import Spinner from "react-bootstrap/Spinner";
 import { useRouter } from "next/navigation";
 import Footer from "@/components/footer";
 
@@ -88,7 +88,7 @@ export default function Register(props) {
   }, [email, password, passwordConfirmation]);
 
   return (
-    <>
+    <div>
       <Head>
         <title>Register | Fundi Bot</title>
         <meta
@@ -186,11 +186,16 @@ export default function Register(props) {
                     </Form.Group>
                   </Form>
                   <br />
-                  <Button variant="primary" type="submit" onClick={submit} className="mr-4">
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    onClick={submit}
+                    className="mr-4"
+                  >
                     Submit{" "}
                     {loading && (
-                    <Spinner animation="border" size="sm" variant="light" />
-                  )}
+                      <Spinner animation="border" size="sm" variant="light" />
+                    )}
                   </Button>
                 </div>
               </div>
@@ -198,8 +203,7 @@ export default function Register(props) {
           </Row>
         </Container>
       </StyledMain>
-      <Footer/>
-    </>
-    
+      <Footer />
+    </div>
   );
 }
