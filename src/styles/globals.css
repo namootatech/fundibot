@@ -153,3 +153,15 @@ footer a {
 nextjs-portal {
   /* display: none; */
 }
+
+/* Tables on Galaxy fold sized phones and smaller */
+@media (max-width: 320px) {
+  tbody,
+  td,
+  tfoot,
+  th,
+  thead,
+  tr {
+    font-size: 10px !important;
+  }
+}
