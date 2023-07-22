@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import InputGroup from "react-bootstrap/InputGroup";
-import Spinner from 'react-bootstrap/Spinner';
+import Spinner from "react-bootstrap/Spinner";
 
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
@@ -47,7 +47,7 @@ export default function Register(props) {
       );
       console.log("Setting cookie", response.data);
       Cookies.set("user", JSON.stringify(response.data), { expires: 1 });
-      router.push("/");
+      router.push("/admin/guidelines");
     } catch (axiosError) {
       setLoading(false);
       const error = axiosError.response.data.error;
@@ -71,7 +71,7 @@ export default function Register(props) {
   }, [email]);
 
   return (
-    <>
+    <div>
       <Head>
         <title>Register | Fundi Bot</title>
         <meta
@@ -123,7 +123,7 @@ export default function Register(props) {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                       />
-                      
+
                       <InputGroup.Text
                         id="basic-addon2"
                         onClick={toggleShowPass}
@@ -131,26 +131,28 @@ export default function Register(props) {
                         {showPass ? <BsEyeSlashFill /> : <BsEyeFill />}
                       </InputGroup.Text>
                       <Form.Control.Feedback type="invalid">
-                      {errors.find((err) => err.param === "password")?.msg}
-                    </Form.Control.Feedback>
+                        {errors.find((err) => err.param === "password")?.msg}
+                      </Form.Control.Feedback>
                     </InputGroup>
-                    
                   </Form>
-                  <Button variant="primary" type="submit" onClick={submit} className="mr-4">
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    onClick={submit}
+                    className="mr-4"
+                  >
                     Submit{" "}
                     {loading && (
-                    <Spinner animation="border" size="sm" variant="light" />
-                  )}
-                  </Button>
-                  {" "}
-                  
+                      <Spinner animation="border" size="sm" variant="light" />
+                    )}
+                  </Button>{" "}
                 </div>
               </div>
             </Col>
           </Row>
         </Container>
       </StyledMain>
-      <Footer/>
-    </>
+      <Footer />
+    </div>
   );
 }
