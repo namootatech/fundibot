@@ -50,7 +50,7 @@ const Button = styled.button`
 
 export default function About(props) {
   return (
-    <>
+    <div>
       <Head>
         <title>
           Explore Your Educational Journey with Fundi Bot - Find the Best
@@ -70,7 +70,9 @@ export default function About(props) {
         <div className="container">
           <div className="w-100 d-flex flex-row justify-content-center align-items-center">
             <div className="col-md-8">
-              <h1 className="display-2">Empowering Education, Enriching Lives</h1>
+              <h1 className="display-2">
+                Empowering Education, Enriching Lives
+              </h1>
               <p className="display-6">
                 Welcome to FundiBot, where innovation meets education, and
                 learning knows no bounds! Founded with a passion for
@@ -88,7 +90,7 @@ export default function About(props) {
               <br />
               <br />
               <h2>Our Vision</h2>
-             <p className="lead">
+              <p className="lead">
                 Our Vision At FundiBot, we envision a world where education is
                 accessible, personalized, and empowering for every learner. We
                 believe that knowledge should not be confined to the pages of
@@ -100,7 +102,7 @@ export default function About(props) {
               <br />
               <br />
               <h2>Our Mission</h2>
-             <p className="lead">
+              <p className="lead">
                 Our mission is simple yet profound: to guide and support
                 learners at every stage of their education journey. We strive to
                 provide learners with comprehensive, up-to-date, and accurate
@@ -111,7 +113,7 @@ export default function About(props) {
               </p>{" "}
               <br />
               <h2>Our Tech Innovators</h2>
-             <p className="lead">
+              <p className="lead">
                 At FundiBot, we are proud to be backed by the expertise and
                 dedication of the Midas Touch Technologies team, a dynamic tech
                 solutions entity based in the heart of the Eastern Cape.
@@ -128,16 +130,17 @@ export default function About(props) {
               <br />
               <br />
               <br />
-              <h2 className="display-1">Unlock Your Educational Potential with FundiBot!</h2>
-              <br/>
-              <br/>
+              <h2 className="display-1">
+                Unlock Your Educational Potential with FundiBot!
+              </h2>
+              <br />
+              <br />
             </div>
           </div>
-          <div className="col-md-6">
-          </div>
+          <div className="col-md-6"></div>
         </div>
       </StyledMain>
       <Footer />
-    </>
+    </div>
   );
 }
