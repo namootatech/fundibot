@@ -5,9 +5,8 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { useParams } from 'next/navigation'
+import { useParams } from "next/navigation";
 import Footer from "@/components/footer";
-
 
 const StyledMain = styled.main`
   height: auto;
@@ -51,28 +50,28 @@ const subNames = {
   "xho-fal": "IsiXhosa First Additional Language",
   "physical-sci": "Physical Sciences",
   "life-sci": "Life Sciences",
-  "geo": "Geography",
-  "history": "History",
+  geo: "Geography",
+  history: "History",
   "bus-studies": "Business Studies",
-  "acc": "Accounting",
-  "eco": "Economics",
-  "tour": "Tourism",
-  "cat": "Computer Applications Technology",
-  "it": "Information Technology",
-  "drama": "Dramatic Arts",
-  "music": "Music",
-  "art": "Visual Arts",
-  "dance": "Dance Studies",
+  acc: "Accounting",
+  eco: "Economics",
+  tour: "Tourism",
+  cat: "Computer Applications Technology",
+  it: "Information Technology",
+  drama: "Dramatic Arts",
+  music: "Music",
+  art: "Visual Arts",
+  dance: "Dance Studies",
   "life-ori": "Life Orientation",
   "phy-ed": "Physical Education",
   "rel-studies": "Religious Studies",
-  "agric": "Agricultural Sciences",
+  agric: "Agricultural Sciences",
   "civil-tech": "Civil Technology",
   "mech-tech": "Mechanical Technology",
   "elec-tech": "Electrical Technology",
   "eng-tech": "Engineering Graphics and Design",
-  "hospitality": "Hospitality Studies",
-}
+  hospitality: "Hospitality Studies",
+};
 const getSubName = (sub) => {
   return subNames[sub] ? subNames[sub] : sub;
 };
@@ -81,22 +80,22 @@ export const getServerSideProps = async ({ query }) => {
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_SITE_URL}/api/faculty?id=${query.id}&uni=${query.uni}`
   );
-  
-  const { institution, faculty, programmes } = response.data
- console.log(query)
+
+  const { institution, faculty, programmes } = response.data;
+  console.log(query);
   return {
     props: {
-      university:institution, faculty, programmes 
+      university: institution,
+      faculty,
+      programmes,
     },
   };
 };
 
-export default function Home({
-  university, faculty, programmes 
-}) {
+export default function Home({ university, faculty, programmes }) {
   return (
-    <>
-     <Head>
+    <div>
+      <Head>
         <title>{university.name} - FundiBot</title>
         <meta
           name="description"
@@ -131,27 +130,43 @@ export default function Home({
                         <p className="card-text text-muted">
                           Takes {p.duration.years} years to complete.
                         </p>
-                        <h6 className="card-text"> Which careers could this lead me to? </h6>
+                        <h6 className="card-text">
+                          {" "}
+                          Which careers could this lead me to?{" "}
+                        </h6>
                         <p className="card-text text-muted">
                           {p.careers.join(", ")}
                         </p>
-                        <h6 className="card-text"> Which subjects do you need? </h6>
-                        {p.subjectCriteria.find((c) => c.type === "guaranteed").subjects.map((s) => (
-                          <p className="card-text text-muted">
-                            Level {s.level} in{" "}
-                            {s.select === 1 && s.select === s.from.length ? "this subject" : <span>{s.select === 1 ? "one of" : "all of"} these {s.from.length} subjects:</span>} 
-                            <ul>
-                              {s.from.map((sub) => (
-                                <li>{getSubName(sub)}</li>
-                              ))}
-                            </ul>
-                          </p>
-                        ))}
-                        <h6 className="card-text">How many APS points do I need to qualify?</h6>
+                        <h6 className="card-text">
+                          {" "}
+                          Which subjects do you need?{" "}
+                        </h6>
+                        {p.subjectCriteria
+                          .find((c) => c.type === "guaranteed")
+                          .subjects.map((s) => (
+                            <p className="card-text text-muted">
+                              Level {s.level} in{" "}
+                              {s.select === 1 && s.select === s.from.length ? (
+                                "this subject"
+                              ) : (
+                                <span>
+                                  {s.select === 1 ? "one of" : "all of"} these{" "}
+                                  {s.from.length} subjects:
+                                </span>
+                              )}
+                              <ul>
+                                {s.from.map((sub) => (
+                                  <li>{getSubName(sub)}</li>
+                                ))}
+                              </ul>
+                            </p>
+                          ))}
+                        <h6 className="card-text">
+                          How many APS points do I need to qualify?
+                        </h6>
                         <p className="card-text text-muted">
                           {p.apsCriteria.minimum} APS points
                         </p>
-
                       </div>
                       <div className="card-footer">
                         <Link
@@ -166,8 +181,6 @@ export default function Home({
                 ))}
               </div>
             </div>
-            
-            
           </div>
           <div className="col-md-6 mb-4">
             <p className="text-muted"> FundiBot by Midas Touch Technologies</p>
@@ -177,7 +190,7 @@ export default function Home({
         </Container>
       </StyledMain>
       <Footer />
-    </>
+    </div>
   );
 }
 

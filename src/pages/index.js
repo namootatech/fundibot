@@ -20,7 +20,7 @@ const HeroHead = styled.h1`
   color: white;
   margin-bottom: 1.5rem;
   @media (max-width: 768px) {
-        font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -29,7 +29,7 @@ const HeroSubHead = styled.h3`
   font-weight: 400;
   color: white;
   @media (max-width: 768px) {
-        font-size: .7rem;
+    font-size: 0.7rem;
   }
 `;
 
@@ -44,8 +44,8 @@ const Hero = styled.div`
 
 const StyledInputContainer = styled.div`
   margin-top: 1rem;
-    width: 50rem;
-    height: 5rem;
+  width: 50rem;
+  height: 5rem;
   background: white;
   border-radius: 10px;
   display: flex;
@@ -53,7 +53,7 @@ const StyledInputContainer = styled.div`
   align-items: center;
   flex-direction: row;
   @media (max-width: 768px) {
-            width: 80vw;
+    width: 80vw;
     height: 4rem;
   }
 `;
@@ -77,18 +77,18 @@ const StyledInput = styled.input`
 `;
 
 const StyledButton = styled.button`
-background: #12c085;
-width: 10%;
-height: 70%;
-border: 4px solid #12c085;
-color: #eee;
-font-size: 16px;
-font-weight: 900;
-border-radius: 10px;
-@media (max-width: 768px) {
-  width: 20% !important;
-  border-radius: 10px !important;
-}
+  background: #12c085;
+  width: 10%;
+  height: 70%;
+  border: 4px solid #12c085;
+  color: #eee;
+  font-size: 16px;
+  font-weight: 900;
+  border-radius: 10px;
+  @media (max-width: 768px) {
+    width: 20% !important;
+    border-radius: 10px !important;
+  }
 `;
 
 const LinkButtonContainer = styled.div`
@@ -111,18 +111,18 @@ const LinkButtonContainer = styled.div`
 `;
 
 const LinkButton = styled.a`
-width: 8rem;
-height: 3rem;
-border-radius: 10px;
-border: 3px solid #fff;
-color: #fff;
-margin-right: 25px;
-text-decoration: none;
-font-size: 1rem;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 10px;
+  border: 3px solid #fff;
+  color: #fff;
+  margin-right: 25px;
+  text-decoration: none;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const navItems = [
@@ -134,7 +134,7 @@ const navItems = [
 
 export default function Home(props) {
   return (
-    <>
+    <div>
       <Head>
         <title>
           Explore Your Educational Journey with Fundi Bot - Find the Best
@@ -151,7 +151,7 @@ export default function Home(props) {
       <Navigation />
 
       <StyledMain>
-        <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100" >
+        <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100">
           <Image src="/icon.png" width={150} height={150} />
           <HeroHead>Discover your path</HeroHead>
           <HeroSubHead>with personalized learning recommendations</HeroSubHead>
@@ -165,10 +165,8 @@ export default function Home(props) {
             ))}
           </LinkButtonContainer>
         </div>
-        
       </StyledMain>
       <Footer />
-      
-    </>
+    </div>
   );
 }

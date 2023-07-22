@@ -53,7 +53,7 @@ export const getServerSideProps = async ({ query }) => {
 export default function Home({ university }) {
   console.log(university);
   return (
-    <>
+    <div>
       <Head>
         <title>{university.name} - FundiBot</title>
         <meta
@@ -136,7 +136,12 @@ export default function Home({ university }) {
               {university.accomodation?.isOffered ? (
                 <div className="mt-4">
                   <p>Accomodation Information </p>
-                  <a className="btn btn-dark" href={university.accomodation?.link}>Open</a>
+                  <a
+                    className="btn btn-dark"
+                    href={university.accomodation?.link}
+                  >
+                    Open
+                  </a>
                 </div>
               ) : (
                 ""
@@ -144,37 +149,42 @@ export default function Home({ university }) {
               {university.accomodation?.pricing?.isProvided ? (
                 <div className="mt-4 mb-4">
                   <p>Pricing Information</p>
-                  <a className="btn btn-dark" href={university.accomodation?.pricing}>Open</a>
+                  <a
+                    className="btn btn-dark"
+                    href={university.accomodation?.pricing}
+                  >
+                    Open
+                  </a>
                 </div>
               ) : (
                 ""
               )}
-              {university.accomodation?.isOffered ? 
+              {university.accomodation?.isOffered ? (
                 <div className="row mt-4">
-                    <h3>Contacts</h3>
-                    {university.accomodation.contacts.map(c => (
-                        <div className="col-md-4 mt-3 mb-3">
-                        <div className="card h-100">
-                          <div className="card-body">
-                            <h5 className="card-title">{c?.name}</h5>
-                            <a
-                              href={`tel:${c?.contactNumber}`}
-                              className="card-text"
-                            >
-                              {c?.contactNumber}
-                            </a>
-                            <br/>
-                            <a href={`mailto:${c?.email}`} className="card-text">
-                                {c?.email}
-                            </a>
-                          </div>
+                  <h3>Contacts</h3>
+                  {university.accomodation.contacts.map((c) => (
+                    <div className="col-md-4 mt-3 mb-3">
+                      <div className="card h-100">
+                        <div className="card-body">
+                          <h5 className="card-title">{c?.name}</h5>
+                          <a
+                            href={`tel:${c?.contactNumber}`}
+                            className="card-text"
+                          >
+                            {c?.contactNumber}
+                          </a>
+                          <br />
+                          <a href={`mailto:${c?.email}`} className="card-text">
+                            {c?.email}
+                          </a>
                         </div>
                       </div>
-                    ))}
+                    </div>
+                  ))}
                 </div>
-                : ""}
-
-                   
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div className="col-md-6 mb-4">
@@ -184,8 +194,8 @@ export default function Home({ university }) {
           <br />
         </Container>
       </StyledMain>
-      <Footer/>
-    </>
+      <Footer />
+    </div>
   );
 }
 

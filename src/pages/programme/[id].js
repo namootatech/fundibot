@@ -33,8 +33,8 @@ const Container = styled.div`
     padding-left: 2rem;
     margin: 0rem 0rem;
   }
-  ul{
-    padding-left: 0!important;
+  ul {
+    padding-left: 0 !important;
   }
 `;
 
@@ -191,7 +191,7 @@ export default function Home({ university, programme }) {
   }, [subjects]);
 
   return (
-    <>
+    <div>
       <Head>
         <title>{university.name} - FundiBot</title>
         <meta
@@ -383,8 +383,8 @@ export default function Home({ university, programme }) {
           <br />
         </Container>
       </StyledMain>
-      <Footer/>
-    </>
+      <Footer />
+    </div>
   );
 }
 

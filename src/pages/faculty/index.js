@@ -30,7 +30,7 @@ const Card = styled.div`
   .card-body {
     padding: 0;
     padding-left: 1rem;
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -90,7 +90,7 @@ const Card = styled.div`
     margin-bottom: 0px;
     color: #636568;
     font-weight: 100;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
   h2 {
     font-size: 1.2rem;
@@ -108,14 +108,13 @@ const Button = styled.a`
   height: 2.3rem;
   font-size: 12px;
   margin-bottom: 0.1rem;
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration:none;
+  text-decoration: none;
 `;
-
 
 export const getServerSideProps = async ({ query }) => {
   const response = await axios.get(
@@ -128,7 +127,7 @@ export const getServerSideProps = async ({ query }) => {
   return {
     props: {
       universities,
-      total
+      total,
     },
   };
 };
@@ -136,9 +135,9 @@ export const getServerSideProps = async ({ query }) => {
 export default function Home(props) {
   const [page, setPage] = useState(0);
   const [universities, setUniversities] = useState(props.universities);
-  console.log("Universities", universities)
+  console.log("Universities", universities);
   return (
-    <>
+    <div>
       <Head>
         <title>
           Explore Your Educational Journey with Fundi Bot - Find the Best
@@ -178,13 +177,17 @@ export default function Home(props) {
                         />
                         <div className="card-body">
                           <div className="card-section">
-                          <h2 className="card-title">{university.institution}</h2>
-                        <h3>{university.address.str}</h3>
+                            <h2 className="card-title">
+                              {university.institution}
+                            </h2>
+                            <h3>{university.address.str}</h3>
                           </div>
                           <div className="card-section-body">
                             <p className="card-text">
                               <strong>Contact Number: </strong>
-                              <a href={`tel:${university.contact.contactNumber}`}>
+                              <a
+                                href={`tel:${university.contact.contactNumber}`}
+                              >
                                 {university.contact.contactNumber}
                               </a>
                             </p>
@@ -219,9 +222,8 @@ export default function Home(props) {
           </div>
         </Container>
       </StyledMain>
-      <Footer/>
-
-    </>
+      <Footer />
+    </div>
   );
 }
 

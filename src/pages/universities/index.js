@@ -129,7 +129,7 @@ export default function Home(props) {
   const [universities, setUniversities] = useState(props.universities);
   console.log("Universities", universities);
   return (
-    <>
+    <div>
       <Head>
         <title>
           Explore Your Educational Journey with Fundi Bot - Find the Best
@@ -157,88 +157,97 @@ export default function Home(props) {
               </p>
             </div>
             <div className="col-md-12">
-            <div className="row">
-                  {universities?.map((university) => (
-                    <div className="col-md-6 col-xs-12 col-sm-12">
-                      <BrowserView>
-                        <Card className="card mb-4">
-                          <img
-                            src={university.campusImage}
-                            width={200}
-                            height={250}
-                          />
-                          <div className="card-body">
-                            <div className="card-section">
-                              <h2 className="card-title">
-                                {university.institution}
-                              </h2>
-                              <h3>{university.address.str}</h3>
-                            </div>
-                            <div className="card-section-body">
-                              <p className="card-text">
-                                <strong>Contact Number: </strong>
-                                <a
-                                  href={`tel:${university.contact.contactNumber}`}
-                                >
-                                  {university.contact.contactNumber}
-                                </a>
-                              </p>
-                              <p className="card-text">
-                                <strong>Email: </strong>
-                                <a href={`mailto:${university.contact.email}`}>
-                                  {university.contact.email}
-                                </a>
-                              </p>
-                              <p className="card-text">
-                                <strong>Wesbite: </strong>
-                                <a href={university.contact.website}>
-                                  {university.contact.website}
-                                </a>
-                              </p>
-                            </div>
-                            <div className="card-section-footer">
-                              <Button href={`/universities/${university._id}`}>
-                                View More details
-                              </Button>
-                            </div>
+              <div className="row">
+                {universities?.map((university) => (
+                  <div className="col-md-6 col-xs-12 col-sm-12">
+                    <BrowserView>
+                      <Card className="card mb-4">
+                        <img
+                          src={university.campusImage}
+                          width={200}
+                          height={250}
+                        />
+                        <div className="card-body">
+                          <div className="card-section">
+                            <h2 className="card-title">
+                              {university.institution}
+                            </h2>
+                            <h3>{university.address.str}</h3>
                           </div>
-                        </Card>
-                      </BrowserView>
-                      <MobileView>
-                        <BsCard className="my-4">
-                          <BsCard.Img variant="top" src={university.campusImage} />
-                          <BsCard.Body>
-                            <BsCard.Title>{university.institution}</BsCard.Title>
+                          <div className="card-section-body">
                             <p className="card-text">
-                                <strong>Contact Number: </strong>
-                                <br/>
-                                <a
-                                  href={`tel:${university.contact.contactNumber}`}
-                                >
-                                  {university.contact.contactNumber}
-                                </a>
-                              </p>
-                              <p className="card-text">
-                                <strong>Email: </strong>
-                                <br/>
-                                <a href={`mailto:${university.contact.email}`}>
-                                  {university.contact.email}
-                                </a>
-                              </p>
-                              <p className="card-text">
-                                <strong>Wesbite: </strong>
-                                <br/>
-                                <a href={university.contact.website}>
-                                  {university.contact.website}
-                                </a>
-                              </p>
-                            <Button variant="dark">View More details</Button>
-                          </BsCard.Body>
-                        </BsCard>
-                      </MobileView>
-                    </div>
-                  ))}
-                </div>
+                              <strong>Contact Number: </strong>
+                              <a
+                                href={`tel:${university.contact.contactNumber}`}
+                              >
+                                {university.contact.contactNumber}
+                              </a>
+                            </p>
+                            <p className="card-text">
+                              <strong>Email: </strong>
+                              <a href={`mailto:${university.contact.email}`}>
+                                {university.contact.email}
+                              </a>
+                            </p>
+                            <p className="card-text">
+                              <strong>Wesbite: </strong>
+                              <a href={university.contact.website}>
+                                {university.contact.website}
+                              </a>
+                            </p>
+                          </div>
+                          <div className="card-section-footer">
+                            <Button
+                              variant="dark"
+                              href={`/universities/${university._id}`}
+                            >
+                              View More details
+                            </Button>
+                          </div>
+                        </div>
+                      </Card>
+                    </BrowserView>
+                    <MobileView>
+                      <BsCard className="my-4">
+                        <BsCard.Img
+                          variant="top"
+                          src={university.campusImage}
+                        />
+                        <BsCard.Body>
+                          <BsCard.Title>{university.institution}</BsCard.Title>
+                          <p className="card-text">
+                            <strong>Contact Number: </strong>
+                            <br />
+                            <a href={`tel:${university.contact.contactNumber}`}>
+                              {university.contact.contactNumber}
+                            </a>
+                          </p>
+                          <p className="card-text">
+                            <strong>Email: </strong>
+                            <br />
+                            <a href={`mailto:${university.contact.email}`}>
+                              {university.contact.email}
+                            </a>
+                          </p>
+                          <p className="card-text">
+                            <strong>Wesbite: </strong>
+                            <br />
+                            <a href={university.contact.website}>
+                              {university.contact.website}
+                            </a>
+                          </p>
+                          <Button
+                            variant="dark"
+                            href={`/universities/${university._id}`}
+                          >
+                            View More details
+                          </Button>
+                        </BsCard.Body>
+                      </BsCard>
+                    </MobileView>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <div className="col-md-6">
@@ -247,7 +256,7 @@ export default function Home(props) {
         </Container>
       </StyledMain>
       <Footer />
-    </>
+    </div>
   );
 }
 
