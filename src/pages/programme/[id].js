@@ -13,7 +13,7 @@ import Table from "react-bootstrap/Table";
 import schoolSubjects from "@/data/south_african_hischool_subjects_json.json";
 import { BsFillCheckSquareFill } from "react-icons/bs";
 import { FaWindowClose } from "react-icons/fa";
-import { isEmpty } from "ramda";
+import { isEmpty, isNil } from "ramda";
 import Footer from "@/components/footer";
 
 const StyledMain = styled.main`
@@ -135,6 +135,88 @@ const AddSubjectModal = ({ show, handleClose, handleAddSubject }) => {
   );
 };
 
+const hasSubject = (criteria, subject) => {
+  return criteria.subjects.find((s) => s.id === subject.id) !== undefined;
+};
+
+const getSubLevelForCiteria = (criteria, subject) => {
+  if (isEmpty(criteria)) return 0;
+  if (isNil(subject)) return 0;
+  const sub = criteria.subjects.find((s) => s.id === subject.id);
+  return !isNil(sub) ? sub.level : 0;
+};
+
+const renderAllSubjects = (
+  criteria,
+  subjects,
+  subjectsWithoutCriteria,
+  isOrBlock
+) => {
+  return criteria.subjects.map((sub) => {
+    let studentSubject = subjects.find((s) => s.id === sub.id);
+    const acquiredLevel = !isNil(studentSubject) ? studentSubject.level : 0;
+    const levelMatches = acquiredLevel >= sub.level;
+
+    if (isNil(studentSubject) && sub.id === "any-000") {
+      studentSubject = anySubjectNotInCriteria(subjects, criteria);
+    }
+    return (
+      <tr
+        className={
+          levelMatches
+            ? `${isOrBlock ? "or-block" : ""} table-success text-white`
+            : `${isOrBlock ? "or-block" : ""}  text-white table-danger`
+        }
+      >
+        <td>
+          {levelMatches ? (
+            <BsFillCheckSquareFill className="text-success mx-4" />
+          ) : (
+            <FaWindowClose className="text-danger mx-4" />
+          )}
+          {getSubName(isNil(studentSubject) ? sub.id : studentSubject.id)}
+        </td>
+        <td>{acquiredLevel}</td>
+        <td>{sub.level}</td>
+      </tr>
+    );
+  });
+};
+
+const renderAnySubjects = (criteria, subjects, subjectsWithoutCriteria) => {
+  const subjectsThatAreInCriteria = subjects.filter(
+    (s) => criteria.subjects.find((c) => c.id === s.id) !== undefined
+  );
+  if (isEmpty(subjectsThatAreInCriteria)) {
+    return renderAllSubjects(criteria, subjects, subjectsWithoutCriteria, true);
+  }
+  return subjectsThatAreInCriteria.map((sub) => {
+    const levelMatches =
+      sub.level >= criteria.subjects.find((c) => c.id === sub.id).level;
+
+    return (
+      <tr
+        className={
+          levelMatches
+            ? "or-block table-success text-white"
+            : "or-block text-white table-danger"
+        }
+      >
+        <td>
+          {levelMatches ? (
+            <BsFillCheckSquareFill className="text-success mx-4" />
+          ) : (
+            <FaWindowClose className="text-danger mx-4" />
+          )}
+          {getSubName(sub.id)}
+        </td>
+        <td>{sub.level}</td>
+        <td>{criteria.subjects.find((c) => c.id === sub.id).level}</td>
+      </tr>
+    );
+  });
+};
+
 export default function Home({ university, programme }) {
   const [show, setShow] = useState(false);
   const [subjects, setSubjects] = useState([]);
@@ -148,10 +230,6 @@ export default function Home({ university, programme }) {
   const toggleModal = () => setShow(!show);
   console.log(programme);
 
-  const guranteedAdmissionCriteria = programme.subjectCriteria.find(
-    (c) => c.type === "guaranteed"
-  ).subjects;
-  console.log("guranteedAdmissionCriteria", guranteedAdmissionCriteria);
   const meetsSubjectCriteria = (criteria) => {
     console.log("-----");
     console.log(
@@ -183,11 +261,11 @@ export default function Home({ university, programme }) {
 
   useEffect(() => {
     console.log(subjects);
-    const criteriaEvaluation = guranteedAdmissionCriteria.map((c) =>
-      meetsSubjectCriteria(c)
-    );
-    console.log("criteriaEvaluation", criteriaEvaluation);
-    setStudentQualifies(criteriaEvaluation.every((c) => c === true));
+    // const criteriaEvaluation = programme.criterias.map((c) =>
+    //   meetsSubjectCriteria(c)
+    // );
+    // console.log("criteriaEvaluation", criteriaEvaluation);
+    // setStudentQualifies(criteriaEvaluation.every((c) => c === true));
   }, [subjects]);
 
   return (
@@ -247,133 +325,76 @@ export default function Home({ university, programme }) {
                 handleClose={handleClose}
                 handleAddSubject={handleAddSubject}
               />
-              {!isEmpty(subjects) && (
-                <div className="row ">
-                  <div className="col-md-12 mt-4">
-                    <Table striped bordered hover>
-                      <thead>
+
+              <div className="row ">
+                <div className="col-md-12 mt-4">
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr>
+                        <th>Subject</th>
+                        <th>Level</th>
+                        <th>Pass Mark</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {subjects.map((sub) => (
                         <tr>
-                          <th>Subject</th>
-                          <th>Level</th>
-                          <th>Pass Mark</th>
+                          <td>{getSubName(sub.id)}</td>
+                          <td>{sub.level}</td>
+                          <td>{sub.passMark}</td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {subjects.map((sub) => (
-                          <tr>
-                            <td>{getSubName(sub.id)}</td>
-                            <td>{sub.level}</td>
-                            <td>{sub.passMark}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                    <div className="row mt-4">
-                      <div className="col-md-6 mt-4">
-                        <p className="text-center mt-4">
-                          To qualify for this course, you need to meet the
-                          following criteria:
-                        </p>
-                        <ul>
-                          {guranteedAdmissionCriteria.map((c, index) => (
-                            <Table stripped bordered size="sm">
-                              <thead className="table-dark">
-                                <tr>
-                                  <th>Criteria {index + 1}</th>
-                                </tr>
-                              </thead>
-                              <thead className="table-secondary">
-                                <tr>
-                                  <th>
-                                    {c.select} of these subjects at level{" "}
-                                    {c.level} and above
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {c.from.map((s) => (
-                                  <tr>
-                                    <td>{getSubName(s)}</td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </Table>
+                      ))}
+                    </tbody>
+                  </Table>
+                  <div className="row mt-4">
+                    <div className="col-md-12 mt-4">
+                      <p className="text-center mt-4">
+                        Based on the subject you entered, here's how you match
+                        up:
+                      </p>
+                      <ul>
+                        <Table stripped bordered size="sm">
+                          <thead>
+                            <tr>
+                              <th>Subject</th>
+                              <th>Your Level</th>
+                              <th>Required Level</th>
+                            </tr>
+                          </thead>
+                          {programme.criterias.map((criteria, index) => (
+                            <tbody>
+                              {criteria.type === "all"
+                                ? renderAllSubjects(criteria, subjects)
+                                : renderAnySubjects(criteria, subjects)}
+                            </tbody>
                           ))}
-                        </ul>
-                      </div>
-                      <div className="col-md-6 mt-4">
-                        <p className="text-center mt-4">
-                          Based on the subject you entered, here's how you match
-                          up:
-                        </p>
-                        <ul>
-                          {guranteedAdmissionCriteria.map((c, index) => (
-                            <Table stripped bordered size="sm">
-                              <thead className="table-dark">
-                                <tr>
-                                  <th>Criteria {index + 1}</th>
-                                </tr>
-                              </thead>
-                              {subjects.filter(
-                                (s) =>
-                                  c.from.includes(s.id) && s.level >= c.level
-                              ).length >= c.select ? (
-                                <tr className="table-success">
-                                  <td>
-                                    {subjects
-                                      .filter(
-                                        (s) =>
-                                          c.from.includes(s.id) &&
-                                          s.level >= c.level
-                                      )
-                                      .map((s) => (
-                                        <p>
-                                          <BsFillCheckSquareFill
-                                            size="1.5rem"
-                                            color="green"
-                                          />{" "}
-                                          {getSubName(s.id)} at level {s.level}
-                                        </p>
-                                      ))}
-                                  </td>
-                                </tr>
-                              ) : (
-                                <tr>
-                                  <td>
-                                    <FaWindowClose size="2rem" color="red" />
-                                    None
-                                  </td>
-                                </tr>
-                              )}
-                            </Table>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="col-md-12 text-center mt-4">
-                        <p>
-                          <strong>
-                            Based on the information you entered, you{" "}
-                            {studentQualifies ? (
-                              <h1>
-                                <span className="mt-3 mb-3 lead badge badge-lg bg-success">
-                                  QUALIFY
-                                </span>
-                              </h1>
-                            ) : (
-                              <h3>
-                                <span className="mt-3 mb-3 lead badge badge-lg bg-danger">
-                                  DO NOT QUALIFY
-                                </span>
-                              </h3>
-                            )}{" "}
-                            for this course!
-                          </strong>
-                        </p>
-                      </div>
+                        </Table>
+                      </ul>
+                    </div>
+                    <div className="col-md-12 text-center mt-4">
+                      <p>
+                        <strong>
+                          Based on the information you entered, you{" "}
+                          {studentQualifies ? (
+                            <h1>
+                              <span className="mt-3 mb-3 lead badge badge-lg bg-success">
+                                QUALIFY
+                              </span>
+                            </h1>
+                          ) : (
+                            <h3>
+                              <span className="mt-3 mb-3 lead badge badge-lg bg-danger">
+                                DO NOT QUALIFY
+                              </span>
+                            </h3>
+                          )}{" "}
+                          for this course!
+                        </strong>
+                      </p>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
           <div className="col-md-6 mb-4">
