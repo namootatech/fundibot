@@ -7,6 +7,8 @@ import axios from "axios";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import Footer from "@/components/footer";
+import schoolSubjects from "@/data/south_african_hischool_subjects_json.json";
+import Table from "react-bootstrap/Table";
 
 const StyledMain = styled.main`
   height: auto;
@@ -72,9 +74,8 @@ const subNames = {
   "eng-tech": "Engineering Graphics and Design",
   hospitality: "Hospitality Studies",
 };
-const getSubName = (sub) => {
-  return subNames[sub] ? subNames[sub] : sub;
-};
+const getSubName = (sub) =>
+  schoolSubjects.find((s) => s.code === sub)?.name || sub;
 
 export const getServerSideProps = async ({ query }) => {
   const response = await axios.get(
@@ -137,35 +138,49 @@ export default function Home({ university, faculty, programmes }) {
                         <p className="card-text text-muted">
                           {p.careers.join(", ")}
                         </p>
-                        <h6 className="card-text">
+                        <h6 className="card-text my-4">
                           {" "}
                           Which subjects do you need?{" "}
                         </h6>
-                        {p.subjectCriteria
-                          .find((c) => c.type === "guaranteed")
-                          .subjects.map((s) => (
-                            <p className="card-text text-muted">
-                              Level {s.level} in{" "}
-                              {s.select === 1 && s.select === s.from.length ? (
-                                "this subject"
-                              ) : (
-                                <span>
-                                  {s.select === 1 ? "one of" : "all of"} these{" "}
-                                  {s.from.length} subjects:
-                                </span>
-                              )}
-                              <ul>
-                                {s.from.map((sub) => (
-                                  <li>{getSubName(sub)}</li>
-                                ))}
-                              </ul>
-                            </p>
-                          ))}
+                        {p.criterias.map((c) => (
+                          <Table size="sm">
+                            <thead>
+                              <tr className="table-dark">
+                                <th>
+                                  {c?.type === "all"
+                                    ? "All of these subjects"
+                                    : "Any of these subjects at these levels"}
+                                </th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <Table>
+                                <thead>
+                                  <tr>
+                                    <th colSpan={4}>Subject</th>
+                                    <th colSpan={1}>Level</th>
+                                    <th colSpan={1}>Minimum Pass Mark</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {c.subjects.map((sub, index) => (
+                                    <tr>
+                                      <td colSpan={4}>{getSubName(sub?.id)}</td>
+                                      <td colSpan={1}>{sub?.level}</td>
+                                      <td colSpan={1}>{sub?.passMark}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </Table>
+                            </tbody>
+                          </Table>
+                        ))}
                         <h6 className="card-text">
                           How many APS points do I need to qualify?
                         </h6>
                         <p className="card-text text-muted">
-                          {p.apsCriteria.minimum} APS points
+                          {p.aps} APS points
                         </p>
                       </div>
                       <div className="card-footer">
