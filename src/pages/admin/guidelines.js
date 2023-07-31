@@ -15,6 +15,7 @@ import { BsFillCheckSquareFill } from "react-icons/bs";
 import { FaWindowClose } from "react-icons/fa";
 import { isEmpty } from "ramda";
 import Footer from "@/components/footer";
+import Cookies from "js-cookie";
 
 const StyledMain = styled.main`
   height: auto;
@@ -39,6 +40,7 @@ const Container = styled.div`
 `;
 
 export default function Home({ university, programme }) {
+  const user = JSON.parse(Cookies.get("user") || "{}");
   return (
     <div>
       <Head>
@@ -57,9 +59,11 @@ export default function Home({ university, programme }) {
         <Container>
           <div className="d-flex flex-column justify-content-center align-items-center w-100">
             <div className="col-md-10 mb-4">
-              <Button variant="dark" href="/admin" mb="3">
-                Go to my dashbaord
-              </Button>
+              {user._id && (
+                <Button variant="dark" href={`/admin/${user._id}`} mb="3">
+                  Go to my dashbaord
+                </Button>
+              )}
               <br />
               <h1 className="display-4 my-4">Data Provider Guidelines</h1>
               <h2 className="display-6">Empowering Education with FundiBot</h2>
