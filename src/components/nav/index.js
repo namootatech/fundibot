@@ -1,6 +1,6 @@
 // create a  Nav component
 
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from "next/router";
 import Image from "next/image";
 import styled from "styled-components";
@@ -69,15 +69,23 @@ const Navigation = () => {
     setUser(null);
   };
 
-  if (!user) {
-    console.log(Cookies.get("user"));
-    const cookieUser = JSON.parse(Cookies.get("user") || "{}");
-    if (exists(cookieUser)) setUser(cookieUser);
-  }
+  useEffect(() => {
+    if (!user) {
+      console.log(Cookies.get("user"));
+      const cookieUser = JSON.parse(Cookies.get("user") || "{}");
+      if (exists(cookieUser)) setUser(cookieUser);
+    }
+  }, []);
+
   const isLoggedIn = user ? true : false;
 
   return (
-    <Navbar className="bg-body-tertiary mb-3 " fixed="top" expand={"sm"}>
+    <Navbar
+      className="bg-body-tertiary mb-3 "
+      fixed="top"
+      expand={"sm"}
+      style={{ boxShadow: "0px 0px 7px 0px rgba(74,74,74,0.47)" }}
+    >
       <Container fluid>
         <Navbar.Brand href="/">
           <img src="/lg.png" width="250" height="100" />
@@ -93,31 +101,29 @@ const Navigation = () => {
               Offcanvas
             </Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body>
+          <div>
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/contact">Contact</Nav.Link>
               <Nav.Link href="/blog">Blog</Nav.Link>
               {isLoggedIn && (
-                <Navbar.Collapse className="">
-                  <NavDropdown title="Options" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="/admin">Dashboard</NavDropdown.Item>
-                    <NavDropdown.Item href="/university/add">
-                      Add University
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/faculty/add">
-                      Add Faculty
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/programme/add">
-                      Add Programme
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-                  </NavDropdown>
-                </Navbar.Collapse>
+                <NavDropdown title="Options" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="/admin">Dashboard</NavDropdown.Item>
+                  <NavDropdown.Item href="/university/add">
+                    Add University
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/faculty/add">
+                    Add Faculty
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/programme/add">
+                    Add Programme
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+                </NavDropdown>
               )}
               {!isLoggedIn && (
-                <Fragment>
+                <div>
                   <Nav.Link href="signup" className="nav-button-container">
                     <Button variant="outline-dark" className="mr-3">
                       Sign up
@@ -126,10 +132,10 @@ const Navigation = () => {
                   <Nav.Link href="login" className="nav-button-container">
                     <Button variant="dark">Login</Button>
                   </Nav.Link>
-                </Fragment>
+                </div>
               )}
             </Nav>
-          </Offcanvas.Body>
+          </div>
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
