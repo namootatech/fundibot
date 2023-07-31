@@ -15,6 +15,8 @@ import { BsFillCheckSquareFill } from "react-icons/bs";
 import { FaWindowClose } from "react-icons/fa";
 import { isEmpty } from "ramda";
 import Footer from "@/components/footer";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 const StyledMain = styled.main`
   height: 100vh;
@@ -39,31 +41,7 @@ const Container = styled.div`
 `;
 
 export default function Home({ university, programme }) {
-  const [activeTab, setActiveTab] = useState("universities");
-
-  const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
-  };
-  // Sample data (replace with your actual data)
-  const [universities, setUniversities] = useState([
-    { id: 1, name: "University A", location: "City X" },
-    { id: 2, name: "University B", location: "City Y" },
-    // Add more university entries here
-  ]);
-
-  const [colleges, setColleges] = useState([
-    { id: 1, name: "College X", universityId: 1 },
-    { id: 2, name: "College Y", universityId: 2 },
-    // Add more college entries here
-  ]);
-
-  const [campuses, setCampuses] = useState([
-    { id: 1, name: "Campus A", collegeId: 1 },
-    { id: 2, name: "Campus B", collegeId: 2 },
-    // Add more campus entries here
-  ]);
-
-  const [programs, setPrograms] = useState([]);
+  const user = JSON.parse(Cookies.get("user") || "{}");
   return (
     <div>
       <Head>
@@ -80,203 +58,34 @@ export default function Home({ university, programme }) {
 
       <StyledMain>
         <div className="container mt-5">
-          <div className="container mt-5 h-100">
-            <h2 className="text-dark mb-4">Dashboard</h2>
-            <div className="row mb-4">
-              <div className="col-md-3 col-xs-12 col-sm-12">
-                <button
-                  type="button"
-                  className={`btn btn-outline-dark btn-block w-100 ${
-                    activeTab === "universities" ? "active" : ""
-                  }`}
-                  onClick={() => handleTabClick("universities")}
-                >
-                  Universities
-                </button>
-              </div>
-              <div className="col-md-3 col-xs-12 col-sm-1">
-                <button
-                  type="button"
-                  className={`btn btn-outline-dark btn-block w-100 ${
-                    activeTab === "colleges" ? "active" : ""
-                  }`}
-                  onClick={() => handleTabClick("colleges")}
-                >
-                  Colleges
-                </button>
-              </div>
-              <div className="col-md-3 col-xs-12 col-sm-1">
-                <button
-                  type="button"
-                  className={`btn btn-outline-dark btn-block  w-100 ${
-                    activeTab === "campuses" ? "active" : ""
-                  }`}
-                  onClick={() => handleTabClick("campuses")}
-                >
-                  Campuses
-                </button>
-              </div>
-              <div className="col-md-3 col-xs-12 col-sm-1">
-                <button
-                  type="button"
-                  className={`btn btn-outline-dark btn-block w-100 ${
-                    activeTab === "programs" ? "active" : ""
-                  }`}
-                  onClick={() => handleTabClick("programs")}
-                >
-                  Programs
-                </button>
-              </div>
-            </div>
-
-            {/* Render the appropriate content based on the activeTab state */}
-            {activeTab === "universities" && (
-              <div>
-                <h3 className="text-dark">Universities</h3>
-                <div className="mb-3">
-                  <Link
-                    href="/admin/institution/add"
-                    className="btn btn-success"
-                  >
-                    Add University
-                  </Link>
-                </div>
-                {universities.length > 0 ? (
-                  <ul className="list-group">
-                    {universities.map((university) => (
-                      <li
-                        key={university.id}
-                        className="list-group-item d-flex justify-content-between align-items-center"
-                      >
-                        {university.name}
-                        <div>
-                          <button className="btn btn-sm btn-outline-primary mx-1">
-                            Edit
-                          </button>
-                          <button className="btn btn-sm btn-outline-danger mx-1">
-                            Delete
-                          </button>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-muted">
-                    You have not added any university entries yet.
-                  </p>
-                )}
-              </div>
-            )}
-
-            {activeTab === "colleges" && (
-              <div>
-                <h3 className="text-dark">Colleges</h3>
-                <div className="mb-3">
-                  <Link
-                    href="/admin/institution/add"
-                    className="btn btn-success"
-                  >
-                    Add College
-                  </Link>
-                </div>
-                <ul className="list-group mb-4">
-                  {colleges.length > 0 ? (
-                    <ul className="list-group">
-                      {colleges.map((college) => (
-                        <li
-                          key={college.id}
-                          className="list-group-item d-flex justify-content-between align-items-center"
-                        >
-                          {college.name}
-                          <div>
-                            <button className="btn btn-sm btn-outline-primary mx-1">
-                              Edit
-                            </button>
-                            <button className="btn btn-sm btn-outline-danger mx-1">
-                              Delete
-                            </button>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-muted">
-                      You have not added any college entries yet.
+          {/* if user is logged in route them to /admin/id else show them a meesaage to login */}
+          <div className="row">
+            <div className="col-md-12">
+              <h1 className="text-center">Data provider</h1>
+              <p className="text-center">
+                Welcome to the data provider page. Here you can add, edit and
+                delete data for the FundiBot platform.
+              </p>
+              {user._id ? (
+                <div className="text-center">
+                  <p> You are currently logged in As</p>
+                  <pre>
+                    <p>
+                      Username: {user.firstName} {user.lastName}
                     </p>
-                  )}
-                </ul>
-              </div>
-            )}
-
-            {activeTab === "campuses" && (
-              <div>
-                <h3 className="text-dark">Campuses</h3>
-                <div className="mb-3">
-                  <a href="#addUniversity" className="btn btn-success">
-                    Add Campus
-                  </a>
+                    <p>Email: {user.email}</p>
+                  </pre>
+                  <p>Click her to go to your personal dashbaord</p>
+                  <Button href={`/admin/${user._id}`}>Go to dashboard</Button>
                 </div>
-                {campuses.length > 0 ? (
-                  <ul className="list-group">
-                    {campuses.map((campus) => (
-                      <li
-                        key={campus.id}
-                        className="list-group-item d-flex justify-content-between align-items-center"
-                      >
-                        {campus.name}
-                        <div>
-                          <button className="btn btn-sm btn-outline-primary mx-1">
-                            Edit
-                          </button>
-                          <button className="btn btn-sm btn-outline-danger mx-1">
-                            Delete
-                          </button>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-muted">
-                    You have not added any campus entries yet.
-                  </p>
-                )}
-              </div>
-            )}
-
-            {activeTab === "programs" && (
-              <div>
-                <h3 className="text-dark">Programme</h3>
-                <div className="mb-3">
-                  <a href="#addUniversity" className="btn btn-success">
-                    Add Programme
-                  </a>
+              ) : (
+                <div className="text-center">
+                  <p>You are not logged in</p>
+                  <p>Click here to login</p>
+                  <Button href="/admin/login">Login</Button>
                 </div>
-                {programs.length > 0 ? (
-                  <ul className="list-group">
-                    {programs.map((program) => (
-                      <li
-                        key={program.id}
-                        className="list-group-item d-flex justify-content-between align-items-center"
-                      >
-                        {program.name}
-                        <div>
-                          <button className="btn btn-sm btn-outline-primary mx-1">
-                            Edit
-                          </button>
-                          <button className="btn btn-sm btn-outline-danger mx-1">
-                            Delete
-                          </button>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-muted">
-                    You have not added any program entries yet.
-                  </p>
-                )}
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </StyledMain>
