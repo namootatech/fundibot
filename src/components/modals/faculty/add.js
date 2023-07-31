@@ -2,7 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const AddFacultyModal = ({ show, handleClose, handleAddFaculty }) => {
   const [faculty, setFacultyName] = useState("");
@@ -17,14 +17,14 @@ const AddFacultyModal = ({ show, handleClose, handleAddFaculty }) => {
   };
 
   const saveDetails = () => {
-    handleAddFaculty({ id: uuid.v4(), name: faculty, description });
+    handleAddFaculty({ id: uuidv4(), name: faculty, description });
     handleClose();
   };
 
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Select faculty</Modal.Title>
+        <Modal.Title>Add faculty</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
@@ -39,7 +39,7 @@ const AddFacultyModal = ({ show, handleClose, handleAddFaculty }) => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Description</Form.Label>
             <Form.Control
-              type="textarea"
+              as="textarea"
               placeholder="Enter short bio"
               onChange={handledescriptionChange}
               value={description}

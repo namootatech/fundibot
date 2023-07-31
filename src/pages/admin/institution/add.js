@@ -20,6 +20,7 @@ import institutionTypes from "@/data/institution_types.json";
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import { useRouter } from "next/router";
+import { assocPath } from "ramda";
 
 const StyledMain = styled.main`
   height: auto;
@@ -111,10 +112,10 @@ const InstitutionForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+    const path = name.split(".");
+    setFormData((prevFormData) => {
+      return assocPath(path, value, prevFormData);
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -134,7 +135,10 @@ const InstitutionForm = () => {
           },
         ],
       };
-      //await axios.post("http://localhost:5000/api/institutions", data);
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_SITE_URL}/api/institution/add`,
+        data
+      );
       setNotifications((prevNotifications) => [
         ...prevNotifications,
         { type: "success", message: "Institution added successfully" },
@@ -501,7 +505,7 @@ const InstitutionForm = () => {
                     <h4 className="my-4"> Campuses </h4>
                     <Button
                       variant="primary"
-                      onClick={handleShowAddFacultyModal}
+                      onClick={handleShowAddCampusModal}
                     >
                       Add Campus
                     </Button>
@@ -576,7 +580,7 @@ const InstitutionForm = () => {
                   <AddContactModal
                     show={showAddAccommodationContactModal}
                     handleClose={handleCloseAddAccommodationContactModal}
-                    handleAddAccomodationContact={handleAddAccomodationContact}
+                    handleAddContact={handleAddAccomodationContact}
                   />
 
                   {formData.accommodation.isOffered && (
