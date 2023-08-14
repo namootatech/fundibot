@@ -63,7 +63,7 @@ const InstitutionForm = () => {
       contactNumber: "",
       website: "",
     },
-    type: "",
+    type: "public_university",
     address: {
       street: "",
       suburb: "",
