@@ -88,7 +88,7 @@ body {
 }
 
 body {
-  background: url("./bg2.jpg") no-repeat center center fixed !important;
+  background: url("/bg2.jpg") no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
