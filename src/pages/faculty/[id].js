@@ -160,15 +160,18 @@ export default function Home({ university, faculty, programmes }) {
                                   <tr>
                                     <th colSpan={4}>Subject</th>
                                     <th colSpan={1}>Level</th>
-                                    <th colSpan={1}>Minimum Pass Mark</th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   {c.subjects.map((sub, index) => (
                                     <tr>
-                                      <td colSpan={4}>{getSubName(sub?.id)}</td>
+                                      <td
+                                        colSpan={4}
+                                        style={{ minWidth: "200px" }}
+                                      >
+                                        {getSubName(sub?.id)}
+                                      </td>
                                       <td colSpan={1}>{sub?.level}</td>
-                                      <td colSpan={1}>{sub?.passMark}</td>
                                     </tr>
                                   ))}
                                 </tbody>
