@@ -24,9 +24,17 @@ export default async function handler(req, res) {
         .limit(limit)
         .toArray();
 
+      const programmes = await db
+        .collection("programmes")
+        .find({ "createdBy.id": { $eq: creator } })
+        .skip(skip)
+        .limit(limit)
+        .toArray();
+
       const total = institutions.length;
       logger.info(`** Found , ${total},  institutions`);
-      res.json({ institutions, total });
+      logger.info(`** Found , ${programmes.length},  programmes`);
+      res.json({ institutions, programmes });
     } else {
       logger.info("** Method not allowed ", req.method);
       res.status(405).json({ message: "Method not allowed" });
