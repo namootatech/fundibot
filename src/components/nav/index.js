@@ -14,6 +14,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import InputGroup from "react-bootstrap/InputGroup";
+import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const StyledSpan = styled.span`
@@ -98,11 +100,11 @@ const Navigation = () => {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
-              Offcanvas
+              Menu
             </Offcanvas.Title>
           </Offcanvas.Header>
           <div>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
+            <Nav className="justify-content-end flex-grow-1 pe-3 px-4">
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/contact">Contact</Nav.Link>
               <Nav.Link href="/blog">Blog</Nav.Link>
@@ -123,16 +125,26 @@ const Navigation = () => {
                 </NavDropdown>
               )}
               {!isLoggedIn && (
-                <div>
-                  <Nav.Link href="signup" className="nav-button-container">
-                    <Button variant="outline-dark" className="mr-3">
-                      Sign up
-                    </Button>
-                  </Nav.Link>
-                  <Nav.Link href="login" className="nav-button-container">
-                    <Button variant="dark">Login</Button>
-                  </Nav.Link>
-                </div>
+                <>
+                  <Form inline>
+                    <Row>
+                      <Col xs="auto">
+                        <Button
+                          href="signup"
+                          variant="outline-dark"
+                          className="mr-3"
+                        >
+                          Sign up
+                        </Button>
+                      </Col>
+                      <Col xs="auto">
+                        <Button href="login" variant="dark">
+                          Login
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Form>
+                </>
               )}
             </Nav>
           </div>
