@@ -214,7 +214,7 @@ export default function Home(props) {
             </div>
           </div>
           <div className="col-md-6">
-            <p> some other div</p>
+            <p> </p>
           </div>
         </Container>
       </StyledMain>
