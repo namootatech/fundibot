@@ -8,7 +8,7 @@ const StyledMain = styled.main`
   height: 100vh;
   width: 100vw;
   background: #212529eb;
-  margin-top: 6rem;
+  margin-top: 2rem;
   @media (max-width: 768px) {
     padding-top: 10rem;
   }
@@ -127,7 +127,7 @@ const LinkButton = styled.a`
 
 const navItems = [
   { name: "Universities", href: "/universities" },
-  { name: "Colleges", href: "/universities" },
+  { name: "Colleges", href: "/colleges" },
   { name: "Courses", href: "/courses" },
   { name: "Schools", href: "/schools" },
 ];
