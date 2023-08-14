@@ -109,20 +109,25 @@ const Navigation = () => {
               <Nav.Link href="/contact">Contact</Nav.Link>
               <Nav.Link href="/blog">Blog</Nav.Link>
               {isLoggedIn && (
-                <NavDropdown title="Options" id="collasible-nav-dropdown">
-                  <NavDropdown.Item href="/admin">Dashboard</NavDropdown.Item>
-                  <NavDropdown.Item href="/university/add">
-                    Add University
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/faculty/add">
-                    Add Faculty
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/programme/add">
-                    Add Programme
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-                </NavDropdown>
+                <>
+                  <Nav.Link href="/admin">
+                    <strong>{user.email}</strong>
+                  </Nav.Link>
+                  <NavDropdown title="Options" id="collasible-nav-dropdown">
+                    <NavDropdown.Item href="/admin">Dashboard</NavDropdown.Item>
+                    <NavDropdown.Item href="/university/add">
+                      Add University
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/faculty/add">
+                      Add Faculty
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/programme/add">
+                      Add Programme
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+                  </NavDropdown>
+                </>
               )}
               {!isLoggedIn && (
                 <>
