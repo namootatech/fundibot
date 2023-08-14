@@ -1,15 +1,7 @@
 import clientPromise from "@/lib/mongo";
 import logger from "@/lib/logger";
 
-const universityInstitutionTypes = [
-  "university",
-  "public_university",
-  "public_university_of_technology",
-  "private_university",
-  "private_university_of_technology",
-  "private_higher_education_institution",
-  "public_higher_education_institution",
-];
+const collegeInstitutionTypes = ["public_college", "private_college"];
 
 export default async function handler(req, res) {
   try {
@@ -25,14 +17,11 @@ export default async function handler(req, res) {
       const skip = page * limit;
       const institutions = await db
         .collection("institutions")
-        .find({ type: { $in: universityInstitutionTypes } })
+        .find({ type: { $in: collegeInstitutionTypes } })
         .skip(skip)
         .limit(limit)
         .toArray();
-      const total = await db
-        .collection("institutions")
-        .find({ type: "university" })
-        .count();
+      const total = institutions.length;
       logger.info(`** Found , ${total},  institutions`);
       res.json({ institutions, total });
     } else {
