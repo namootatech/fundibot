@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
@@ -15,7 +14,6 @@ import ramda from "ramda";
 import provinces from "@/data/provinces.json";
 import Badge from "react-bootstrap/Badge";
 import Image from "next/image";
-const inter = Inter({ subsets: ["latin"] });
 
 const institutionTypes = ["University", "College", "Institute", "School"];
 

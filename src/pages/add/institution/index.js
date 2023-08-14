@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
@@ -15,42 +14,37 @@ import ramda from "ramda";
 import provinces from "@/data/provinces.json";
 import Badge from "react-bootstrap/Badge";
 import Image from "next/image";
-const inter = Inter({ subsets: ["latin"] });
 
 const institutionTypes = ["University", "College", "Institute", "School"];
 
-
-
 export default function EditInstitutionPage(props) {
-  const [institution, setInstitution] = useState(
-    {
-      institution: "",
-      region: "",
-      address: {
-        street: "",
-        city: "",
-        province: "",
-        country: "",
-        postalCode: "",
-      },
-      contact: {
-        phone: "",
-        email: "",
-        website: "",
-      },
-      bio: "",
-      logoUrl: "",
-      coverImageUrl: "",
-      type: "",
-      social: {
-        facebookUrl: "",
-        twitterUrl: "",
-        instagramUrl: "",
-        linkedinUrl: "",
-        youtubeUrl: "",
-      }
-    }
-  );
+  const [institution, setInstitution] = useState({
+    institution: "",
+    region: "",
+    address: {
+      street: "",
+      city: "",
+      province: "",
+      country: "",
+      postalCode: "",
+    },
+    contact: {
+      phone: "",
+      email: "",
+      website: "",
+    },
+    bio: "",
+    logoUrl: "",
+    coverImageUrl: "",
+    type: "",
+    social: {
+      facebookUrl: "",
+      twitterUrl: "",
+      instagramUrl: "",
+      linkedinUrl: "",
+      youtubeUrl: "",
+    },
+  });
 
   const setDetail = (key, value) => {
     setInstitution((prev) => {
@@ -104,9 +98,9 @@ export default function EditInstitutionPage(props) {
 
   const submit = async (e) => {
     const confirm = process.env.NEXT_PUBLIC_PUBLIC_PASSWORD;
-    let password = await prompt('Enter password', "");
+    let password = await prompt("Enter password", "");
     e.preventDefault();
-    password === confirm ? await doRequest() : alert('Wrong password');
+    password === confirm ? await doRequest() : alert("Wrong password");
   };
 
   return (
@@ -124,7 +118,6 @@ export default function EditInstitutionPage(props) {
         </div>
 
         <Container className="ml-3 mr-3">
-
           <Form>
             <Row className="mt-4 d-flex flex-row justify-content-center align-items-center">
               <Col md={10} sm={12}>
@@ -471,7 +464,7 @@ export default function EditInstitutionPage(props) {
                   Save
                 </Button>
                 <Button href="/" variant="secondary" className="ms-2">
-                    Cancel
+                  Cancel
                 </Button>
                 <br />
                 <br />
