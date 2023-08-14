@@ -17,13 +17,14 @@ import { flatten, isEmpty } from "ramda";
 import Footer from "@/components/footer";
 
 const StyledMain = styled.main`
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background: #f3f3f3;
   padding-top: 10rem;
 `;
 
 const universityInstitutionTypes = [
+  "university",
   "public_university",
   "public_university_of_technology",
   "private_university",
@@ -42,18 +43,18 @@ export const getServerSideProps = async ({ query }) => {
   return {
     props: {
       institutions: response.data.institutions,
-      total: response.data.total,
+      programmes: response.data.programmes,
     },
   };
 };
 
-export default function Home({ institutions, total }) {
+export default function Home({ institutions, programmes }) {
   const [activeTab, setActiveTab] = useState("universities");
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
-  // Sample data (replace with your actual data)
+
   const [universities, setUniversities] = useState(
     institutions.filter((institution) =>
       universityInstitutionTypes.includes(institution.type)
@@ -66,7 +67,8 @@ export default function Home({ institutions, total }) {
     )
   );
 
-  const [programs, setPrograms] = useState([]);
+  const [programs, setPrograms] = useState(programmes || []);
+
   return (
     <div>
       <Head>
@@ -179,7 +181,7 @@ export default function Home({ institutions, total }) {
                           key={college.id}
                           className="list-group-item d-flex justify-content-between align-items-center"
                         >
-                          {college.name}
+                          {college.institution}
                           <div>
                             <button className="btn btn-sm btn-outline-primary mx-1">
                               Edit
@@ -236,8 +238,8 @@ export default function Home({ institutions, total }) {
             )}
 
             {activeTab === "programs" && (
-              <div>
-                <h3 className="text-dark">Programme</h3>
+              <div className="my-4">
+                <h3 className="text-dark my-4">Programmes</h3>
                 {programs.length > 0 ? (
                   <ul className="list-group">
                     {programs.map((program) => (
@@ -264,21 +266,23 @@ export default function Home({ institutions, total }) {
                     </p>
                   </div>
                 )}
-                <div className="lead text-muted">
-                  You can add programmes to the following faculties on these
-                  universities
-                  {universities.length > 0 ? (
-                    <Table>
+                <div className="lead text-muted my-4">
+                  <p className="lead my-4">
+                    You can add programmes to the following faculties on these
+                    universities
+                  </p>
+                  {institutions.length > 0 ? (
+                    <Table borderless>
                       <thead>
                         <tr>
-                          <th>University</th>
+                          <th>Institution</th>
                           <th>Faculties</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {universities.map((university) => (
-                          <tr key={university.id}>
-                            <td>{university.institution}</td>
+                        {institutions.map((i) => (
+                          <tr key={i.id}>
+                            <td>{i.institution}</td>
                             <td>
                               <Table>
                                 <thead>
@@ -288,12 +292,12 @@ export default function Home({ institutions, total }) {
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  {university.faculties.map((faculty) => (
+                                  {i.faculties.map((faculty) => (
                                     <tr key={faculty.id}>
                                       <td>{faculty.name}</td>
                                       <td>
                                         <Button
-                                          href={`/admin/programme/add/${university._id}?faculty=${faculty.id}`}
+                                          href={`/admin/programme/add/${i._id}?faculty=${faculty.id}`}
                                           variant="outline-primary"
                                         >
                                           Add Programme
@@ -318,6 +322,7 @@ export default function Home({ institutions, total }) {
             )}
           </div>
         </div>
+        <br />
       </StyledMain>
       <Footer />
     </div>
