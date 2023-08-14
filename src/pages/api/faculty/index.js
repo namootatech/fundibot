@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     if (req.method === "GET") {
       // Process a POST request
       const client = await clientPromise;
-      const db = client.db("development");
+      const db = client.db(process.env.NEXT_PUBLIC_SELECTED_DB);
       const id = req.query.uni;
       logger.info(`** Fetching university:, ${id}`);
       const institution = await db
@@ -21,7 +21,10 @@ export default async function handler(req, res) {
       });
       logger.info(`** Found , ${faculty.name}`);
       //find programmes for faculty in db
-      const programmes = await db.collection("programmes").find({faculty: faculty.id.toString()}).toArray();
+      const programmes = await db
+        .collection("programmes")
+        .find({ faculty: faculty.id.toString() })
+        .toArray();
       logger.info(`** Found , ${programmes.length} programmes`);
       res.json({ institution, faculty, programmes });
     } else {

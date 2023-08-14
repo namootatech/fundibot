@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     if (req.method === "POST") {
       // Process a POST request
       const client = await clientPromise;
-      const db = client.db("development");
+      const db = client.db(process.env.NEXT_PUBLIC_SELECTED_DB);
       const data = req.body;
       logger.info(`** Adding programme:, ${data}`);
       const programmes = await db.collection("programmes").insertOne(data);

@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     if (req.method === "GET") {
       // Process a GET request
       const client = await clientPromise;
-      const db = client.db("development");
+      const db = client.db(process.env.NEXT_PUBLIC_SELECTED_DB);
       const { id } = req.query;
       console.log("finding id", id);
       const institution = await db

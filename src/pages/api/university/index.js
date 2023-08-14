@@ -8,10 +8,12 @@ export default async function handler(req, res) {
     if (req.method === "GET") {
       // Process a POST request
       const client = await clientPromise;
-      const db = client.db("development");
+      const db = client.db(process.env.NEXT_PUBLIC_SELECTED_DB);
       const id = req.query.id;
       logger.info(`** Fetching university:, ${id}`);
-      const institution = await db.collection("institutions").findOne({_id: new ObjectId(id)});
+      const institution = await db
+        .collection("institutions")
+        .findOne({ _id: new ObjectId(id) });
       logger.info(`** Found , ${institution.institution}`);
       res.json(assoc("name", institution.institution, institution));
     } else {
@@ -19,8 +21,8 @@ export default async function handler(req, res) {
       res.status(405).json({ message: "Method not allowed" });
     }
   } catch (e) {
-    console.log(e)
-    logger.error(e)
-    res.status(405).json({message: "Something went wrong", error: e})
+    console.log(e);
+    logger.error(e);
+    res.status(405).json({ message: "Something went wrong", error: e });
   }
 }

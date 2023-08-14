@@ -6,9 +6,9 @@ export default async function handler(req, res) {
     if (req.method === "GET") {
       // Process a POST request
       const client = await clientPromise;
-      const db = client.db("development");
-      logger.info(req.query)
-      logger.info(req.query.page)
+      const db = client.db(process.env.NEXT_PUBLIC_SELECTED_DB);
+      logger.info(req.query);
+      logger.info(req.query.page);
       const page = parseInt(req.query.page, 10);
       logger.info(`** Fetching institutions page:, ${page}`);
       const limit = 10;
@@ -19,18 +19,15 @@ export default async function handler(req, res) {
         .skip(skip)
         .limit(limit)
         .toArray();
-      const total = await db
-        .collection("institutions")
-        .find({ })
-        .count();
+      const total = await db.collection("institutions").find({}).count();
       logger.info(`** Found , ${total},  institutions`);
-      res.json({institutions, total});
+      res.json({ institutions, total });
     } else {
       logger.info("** Method not allowed ", req.method);
       res.status(405).json({ message: "Method not allowed" });
     }
   } catch (e) {
-    logger.error(e)
-    res.status(405).json({message: "Something went wrong", error: e})
+    logger.error(e);
+    res.status(405).json({ message: "Something went wrong", error: e });
   }
 }
