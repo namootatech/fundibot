@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navigation from "@/components/nav";
 import styled from "styled-components";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Fragment, use, useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -13,8 +13,14 @@ import Table from "react-bootstrap/Table";
 import schoolSubjects from "@/data/south_african_hischool_subjects_json.json";
 import { BsFillCheckSquareFill } from "react-icons/bs";
 import { FaWindowClose } from "react-icons/fa";
-import { isEmpty, isNil } from "ramda";
+import { insert, isEmpty, isNil, pipe, remove, set } from "ramda";
 import Footer from "@/components/footer";
+import {
+  RenderAllSubjects,
+  RenderAnySubjects,
+  AddSubjectModal,
+  getSubName,
+} from "@/components/programme";
 
 const StyledMain = styled.main`
   height: auto;
@@ -38,189 +44,12 @@ const Container = styled.div`
   }
 `;
 
-const getSubName = (sub) =>
-  schoolSubjects.find((s) => s.code === sub)?.name || sub;
-
-export const getServerSideProps = async ({ query }) => {
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/programme?id=${query.id}&uni=${query.uni}`
-  );
-
-  const { institution, programme } = response.data;
-  console.log(query);
-  return {
-    props: {
-      university: institution,
-      programme,
-    },
-  };
-};
-
-const levelRanges = {
-  1: [0, 30],
-  2: [30, 39],
-  3: [40, 49],
-  4: [50, 59],
-  5: [60, 69],
-  6: [70, 79],
-  7: [80, 100],
-};
-
-const AddSubjectModal = ({ show, handleClose, handleAddSubject }) => {
-  const [subject, setSubject] = useState("");
-  const [level, setLevel] = useState(0);
-  const [passMark, setPassMark] = useState(50);
-
-  const handleSubjectChange = (e) => {
-    setSubject(e.target.value);
-  };
-
-  const handlePassMarkChange = (e) => {
-    setPassMark(e.target.value);
-  };
-
-  useEffect(() => {
-    //set level based on pass mark
-    const level = Object.entries(levelRanges).find(([level, range]) => {
-      return passMark >= range[0] && passMark <= range[1];
-    })[0];
-    setLevel(level);
-  }, [passMark]);
-
-  const saveDetails = () => {
-    handleAddSubject({ id: subject, level, passMark });
-    handleClose();
-  };
-
-  return (
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Select subject</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Subject</Form.Label>
-            <Form.Control
-              as="select"
-              onChange={handleSubjectChange}
-              value={subject}
-            >
-              <option value="">Select subject</option>
-              {schoolSubjects.map((sub) => (
-                <option value={sub.code}>{sub.name}</option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Pass Mark</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter pass mark"
-              onChange={handlePassMarkChange}
-              value={passMark}
-            />
-          </Form.Group>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={saveDetails}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
-};
-
-const hasSubject = (criteria, subject) => {
-  return criteria.subjects.find((s) => s.id === subject.id) !== undefined;
-};
-
-const getSubLevelForCiteria = (criteria, subject) => {
-  if (isEmpty(criteria)) return 0;
-  if (isNil(subject)) return 0;
-  const sub = criteria.subjects.find((s) => s.id === subject.id);
-  return !isNil(sub) ? sub.level : 0;
-};
-
-const renderAllSubjects = (
-  criteria,
-  subjects,
-  subjectsWithoutCriteria,
-  isOrBlock
-) => {
-  return criteria.subjects.map((sub) => {
-    let studentSubject = subjects.find((s) => s.id === sub.id);
-    const acquiredLevel = !isNil(studentSubject) ? studentSubject.level : 0;
-    const levelMatches = acquiredLevel >= sub.level;
-
-    if (isNil(studentSubject) && sub.id === "any-000") {
-      studentSubject = anySubjectNotInCriteria(subjects, criteria);
-    }
-    return (
-      <tr
-        className={
-          levelMatches
-            ? `${isOrBlock ? "or-block" : ""} table-success text-white`
-            : `${isOrBlock ? "or-block" : ""}  text-white table-danger`
-        }
-      >
-        <td>
-          {levelMatches ? (
-            <BsFillCheckSquareFill className="text-success mx-4" />
-          ) : (
-            <FaWindowClose className="text-danger mx-4" />
-          )}
-          {getSubName(isNil(studentSubject) ? sub.id : studentSubject.id)}
-        </td>
-        <td>{acquiredLevel}</td>
-        <td>{sub.level}</td>
-      </tr>
-    );
-  });
-};
-
-const renderAnySubjects = (criteria, subjects, subjectsWithoutCriteria) => {
-  const subjectsThatAreInCriteria = subjects.filter(
-    (s) => criteria.subjects.find((c) => c.id === s.id) !== undefined
-  );
-  if (isEmpty(subjectsThatAreInCriteria)) {
-    return renderAllSubjects(criteria, subjects, subjectsWithoutCriteria, true);
-  }
-  return subjectsThatAreInCriteria.map((sub) => {
-    const levelMatches =
-      sub.level >= criteria.subjects.find((c) => c.id === sub.id).level;
-
-    return (
-      <tr
-        className={
-          levelMatches
-            ? "or-block table-success text-white"
-            : "or-block text-white table-danger"
-        }
-      >
-        <td>
-          {levelMatches ? (
-            <BsFillCheckSquareFill className="text-success mx-4" />
-          ) : (
-            <FaWindowClose className="text-danger mx-4" />
-          )}
-          {getSubName(sub.id)}
-        </td>
-        <td>{sub.level}</td>
-        <td>{criteria.subjects.find((c) => c.id === sub.id).level}</td>
-      </tr>
-    );
-  });
-};
-
-export default function Home({ university, programme }) {
+export default function Home(props) {
   const [show, setShow] = useState(false);
   const [subjects, setSubjects] = useState([]);
   const [studentQualifies, setStudentQualifies] = useState(false);
+  const [programme, setProgramme] = useState(props.programme);
+  const university = props.university;
 
   const handleAddSubject = (subject) => {
     setSubjects([...subjects, subject]);
@@ -228,46 +57,87 @@ export default function Home({ university, programme }) {
 
   const handleClose = () => setShow(false);
   const toggleModal = () => setShow(!show);
-  console.log(programme);
 
   const meetsSubjectCriteria = (criteria) => {
-    console.log("-----");
-    console.log(
-      "Checking criteria: select",
-      criteria.select,
-      "from",
-      criteria.from,
-      "level",
-      criteria.level
+    console.log("criteria", criteria);
+    const subjectsThatMeetCriteria = subjects.filter((s) =>
+      criteria.subjects.some((c) => c.id === s.id && s.level >= c.level)
     );
-    const requiredNumOfSubjects = criteria.select;
-    const subjectOptions = criteria.from;
-    const requiredSubjectLevel = criteria.level;
-    const studentHasAnyRequiredSubjects =
-      subjects.filter((s) => subjectOptions.includes(s.id)).length >=
-      requiredNumOfSubjects;
-    const studentHasRequiredSubjectLevel =
-      subjects.filter(
-        (s) => subjectOptions.includes(s.id) && s.level >= requiredSubjectLevel
-      ).length >= requiredNumOfSubjects;
-    console.log("qualifying subjects");
-    console.log(
-      subjects.filter(
-        (s) => subjectOptions.includes(s.id) && s.level >= requiredSubjectLevel
-      )
+    console.log("subjectsThatMeetCriteria", subjectsThatMeetCriteria);
+    return (
+      subjectsThatMeetCriteria.length >=
+      (criteria.type === "any" ? 1 : criteria.subjects.length)
     );
-    return studentHasAnyRequiredSubjects && studentHasRequiredSubjectLevel;
+  };
+
+  const studentQualifiesForProgramme = () => {
+    const criteriaThatHaveBeenMet = programme.criterias.filter((c) =>
+      meetsSubjectCriteria(c)
+    );
+    console.log("criteriaThatHaveBeenMet", criteriaThatHaveBeenMet);
+    console.log("programme.criterias", programme.criterias);
+
+    setStudentQualifies(
+      criteriaThatHaveBeenMet.length === programme.criterias.length
+    );
+    console.log(
+      "studentQualifies",
+      criteriaThatHaveBeenMet.length === programme.criterias.length
+    );
+  };
+
+  const updateCriteriaToMatchSelectedSubject = (
+    oldSubject,
+    newSubject,
+    criteria
+  ) => {
+    const subjectToUpdate = criteria.subjects.find(
+      (s) => s.id === oldSubject.id
+    );
+    const newSubjectToUpdate = {
+      ...subjectToUpdate,
+      id: newSubject.id,
+      hasBeenAssesed: true,
+    };
+    const index = criteria.subjects.findIndex((s) => s.id === oldSubject.id);
+    const newSubjects =
+      index > 0
+        ? pipe(
+            remove(index, index),
+            insert(index, newSubjectToUpdate)
+          )(criteria.subjects)
+        : pipe(
+            remove(0, 1),
+            insert(index, newSubjectToUpdate)
+          )(criteria.subjects);
+
+    const newCriteria = { ...criteria, subjects: newSubjects };
+    setProgramme({
+      ...programme,
+      criterias: programme.criterias.map((c) => {
+        if (c.id === criteria.id) {
+          return newCriteria;
+        }
+        return c;
+      }),
+    });
+  };
+
+  const updateSubject = (subject) => {
+    const newSubjects = subjects.map((s) => {
+      if (s.id === subject.id) {
+        return subject;
+      }
+      return s;
+    });
+    setSubjects(newSubjects);
   };
 
   useEffect(() => {
-    console.log(subjects);
-    // const criteriaEvaluation = programme.criterias.map((c) =>
-    //   meetsSubjectCriteria(c)
-    // );
-    // console.log("criteriaEvaluation", criteriaEvaluation);
-    // setStudentQualifies(criteriaEvaluation.every((c) => c === true));
+    studentQualifiesForProgramme();
   }, [subjects]);
 
+  const subjectsWithoutCriteria = subjects.filter((s) => !s.hasBeenAssesed);
   return (
     <div>
       <Head>
@@ -363,16 +233,38 @@ export default function Home({ university, programme }) {
                           </thead>
                           {programme.criterias.map((criteria, index) => (
                             <tbody>
-                              {criteria.type === "all"
-                                ? renderAllSubjects(criteria, subjects)
-                                : renderAnySubjects(criteria, subjects)}
+                              {criteria.type === "all" ? (
+                                <RenderAllSubjects
+                                  criteria={criteria}
+                                  subjects={subjects}
+                                  subjectsWithoutCriteria={
+                                    subjectsWithoutCriteria
+                                  }
+                                  updateSubject={updateSubject}
+                                  updateCriteriaToMatchSelectedSubject={
+                                    updateCriteriaToMatchSelectedSubject
+                                  }
+                                />
+                              ) : (
+                                <RenderAnySubjects
+                                  criteria={criteria}
+                                  subjects={subjects}
+                                  subjectsWithoutCriteria={
+                                    subjectsWithoutCriteria
+                                  }
+                                  updateSubject={updateSubject}
+                                  updateCriteriaToMatchSelectedSubject={
+                                    updateCriteriaToMatchSelectedSubject
+                                  }
+                                />
+                              )}
                             </tbody>
                           ))}
                         </Table>
                       </ul>
                     </div>
                     <div className="col-md-12 text-center mt-4">
-                      <p>
+                      <div>
                         <strong>
                           Based on the information you entered, you{" "}
                           {studentQualifies ? (
@@ -390,7 +282,7 @@ export default function Home({ university, programme }) {
                           )}{" "}
                           for this course!
                         </strong>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -409,9 +301,17 @@ export default function Home({ university, programme }) {
   );
 }
 
-/*
+export const getServerSideProps = async ({ query }) => {
+  const response = await axios.get(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/programme?id=${query.id}&uni=${query.uni}`
+  );
 
-                        
-
-                        
-                        */
+  const { institution, programme } = response.data;
+  console.log(query);
+  return {
+    props: {
+      university: institution,
+      programme,
+    },
+  };
+};

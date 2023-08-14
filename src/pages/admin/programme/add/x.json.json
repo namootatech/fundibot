@@ -1,0 +1,66 @@
+{
+  "_id": { "$oid": "64bc11648ec7b38864face84" },
+  "region": "Province",
+  "institution": "Test University",
+  "campusImage": "https://www.usnews.com/dims4/USNEWS/a993f4b/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F65%2F09a2103d862fb8eb15a9a6542c080b%2Fcollege-photo_8866.jpg",
+  "contact": {
+    "email": "ayabongaqwabi@gmail.com",
+    "contactNumber": "+27672023083",
+    "website": "www.test.ac.za"
+  },
+  "type": "private_university",
+  "address": {
+    "street": "1041 Pika Drive, Zone 3",
+    "suburb": "Zone 3",
+    "city": "City sm",
+    "postalCode": "5320",
+    "str": ""
+  },
+  "faculties": [
+    {
+      "id": "9a110418-8bb9-4883-8845-3b56bb240b56",
+      "name": "Tamara",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in diam id turpis egestas semper et eu risus. Suspendisse ac lobortis lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut varius, nisi ac scelerisque vehicula, est quam fringilla ex, eget tincidunt lectus mauris sed velit. Nulla facilisi. Phasellus varius metus non enim vestibulum auctor. Sed ultrices augue lacus, non pulvinar lectus dapibus vel. Aliquam nec turpis vehicula, venenatis dolor vel, dignissim leo. Mauris id dolor a elit fermentum viverra. In ut consequat orci. Fusce euismod ornare velit, commodo eleifend mi faucibus a. In sagittis, turpis et elementum pulvinar, ligula est feugiat dolor, ac vehicula ipsum nisi sed purus."
+    }
+  ],
+  "campuses": [
+    {
+      "id": "26bd61cb-604d-43b2-9ce3-f7634992a37b",
+      "name": "Maxwell",
+      "contactNumber": "0987654321",
+      "email": "ayabongaqwabi@gmail.com",
+      "address": {
+        "street": "1111 Ave",
+        "suburb": "Westosn",
+        "city": "Bomong",
+        "postalCode": "5320",
+        "province": "North West",
+        "str": "1111 Ave, Westosn, Bomong, 5320, "
+      }
+    }
+  ],
+  "accommodation": {
+    "isOffered": true,
+    "contacts": [
+      {
+        "id": "ded496cd-16d5-4f89-888f-e6875d9ce1bf",
+        "name": "Ayc Mint",
+        "email": "ayabongaqwabi@gmail.com",
+        "contactNumber": "0987654321"
+      }
+    ],
+    "pricing": { "isProvided": true, "url": "loink.com" },
+    "url": "sdsdsd.com"
+  },
+  "logo": "https://www.designevo.com/res/templates/thumb_small/red-encircled-torch-and-book-emblem.webp",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in diam id turpis egestas semper et eu risus. Suspendisse ac lobortis lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut varius, nisi ac scelerisque vehicula, est quam fringilla ex, eget tincidunt lectus mauris sed velit. Nulla facilisi. Phasellus varius metus non enim vestibulum auctor. Sed ultrices augue lacus, non pulvinar lectus dapibus vel. Aliquam nec turpis vehicula, venenatis dolor vel, dignissim leo. Mauris id dolor a elit fermentum viverra. In ut consequat orci. Fusce euismod ornare velit, commodo eleifend mi faucibus a. In sagittis, turpis et elementum pulvinar, ligula est feugiat dolor, ac vehicula ipsum nisi sed purus.",
+  "createdBy": { "id": "64bae005b43a0264b8ee0e18", "name": "Ayabonga Qwabi" },
+  "createdAt": "2023-07-22T17:26:57.461Z",
+  "modifiers": [
+    {
+      "id": "64bae005b43a0264b8ee0e18",
+      "name": "Ayabonga Qwabi",
+      "date": "2023-07-22T17:26:57.461Z"
+    }
+  ]
+}
