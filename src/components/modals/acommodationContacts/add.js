@@ -1,13 +1,25 @@
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const AddContactModal = ({ show, handleClose, handleAddContact }) => {
+const AddContactModal = ({ show, handleClose, handleAddContact, edit }) => {
   const [name, setContactName] = useState("");
   const [email, setEmail] = useState("");
   const [contactNumber, setContactNumber] = useState("");
+
+  useEffect(() => {
+    if (edit?.name) {
+      setContactName(edit?.name);
+    }
+    if (edit?.email) {
+      setEmail(edit?.email);
+    }
+    if (edit?.contactNumber) {
+      setContactNumber(edit?.contactNumber);
+    }
+  }, [edit]);
 
   const handleContactNameChange = (e) => {
     setContactName(e.target.value);
@@ -21,13 +33,25 @@ const AddContactModal = ({ show, handleClose, handleAddContact }) => {
     setEmail(e.target.value);
   };
 
+  const cleanState = () => {
+    setContactName("");
+    setContactNumber("");
+    setEmail("");
+  };
   const saveDetails = () => {
-    handleAddContact({ id: uuidv4(), name, email, contactNumber });
+    handleAddContact({ id: edit?.id || uuidv4(), name, email, contactNumber });
     handleClose();
+    cleanState();
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal
+      show={show}
+      onHide={() => {
+        handleClose();
+        cleanState();
+      }}
+    >
       <Modal.Header closeButton>
         <Modal.Title>Select faculty</Modal.Title>
       </Modal.Header>
@@ -64,7 +88,13 @@ const AddContactModal = ({ show, handleClose, handleAddContact }) => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            handleClose();
+            cleanState();
+          }}
+        >
           Close
         </Button>
         <Button variant="primary" onClick={saveDetails}>

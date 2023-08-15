@@ -32,6 +32,7 @@ import {
   slice,
   split,
   when,
+  path,
 } from "ramda";
 
 const truncate = pipe(
@@ -90,28 +91,36 @@ const InstitutionForm = () => {
   const handleShowAddAccommodationContactModal = () =>
     setShowAddAccommodationContactModal(true);
 
-  const showModal = cond([
-    [equals("faculties"), () => setShowAddFacultyModal(true)],
-    [equals("campuses"), () => setShowAddCampusModal(true)],
+  const toggleModal = cond([
+    [equals("faculties"), () => setShowAddFacultyModal(!showAddFacultyModal)],
+    [equals("campuses"), () => setShowAddCampusModal(!showAddCampusModal)],
+    [
+      equals("accommodation-contacts"),
+      () =>
+        setShowAddAccommodationContactModal(!showAddAccommodationContactModal),
+    ],
   ]);
 
   const editItem = (type, id) => {
-    const item = formData[type].find((typeItem) => typeItem.id === id);
+    const itemPath = type.split("-");
+    const itemsFromPath = path(itemPath, formData);
+    const item = itemsFromPath.find((i) => i.id === id);
+
     setEditItems({
       ...editItems,
       [type]: item,
     });
-    showModal(type);
+    toggleModal(type);
   };
 
   const deleteItem = (type, id) => {
-    const itemsWitoutItem = formData[type].filter(
+    const itemPath = type.split("-");
+    const itemsFromPath = path(itemPath, formData);
+    const itemsWitoutItem = itemsFromPath.filter(
       (typeItem) => typeItem.id !== id
     );
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [type]: itemsWitoutItem,
-    }));
+    const updatedFormData = assocPath(itemPath, itemsWitoutItem, formData);
+    setFormData(updatedFormData);
   };
 
   const [formData, setFormData] = useState({
@@ -147,29 +156,21 @@ const InstitutionForm = () => {
   });
 
   const addOrEdit = (type) => (item) => {
-    const itemAlreadyExists = formData[type].find((i) => i.id === item.id);
-    const updatedItemList = formData[type].map((dataItem) =>
+    const itemPath = type.split("-");
+    const itemsFromPath = path(itemPath, formData);
+    const itemAlreadyExists = itemsFromPath.find((i) => i.id === item.id);
+    const updatedItemList = itemsFromPath.map((dataItem) =>
       dataItem.id === item.id ? item : dataItem
     );
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [type]: itemAlreadyExists
-        ? updatedItemList
-        : [...prevFormData[type], item],
-    }));
+    const updatedFormData = assocPath(
+      itemPath,
+      itemAlreadyExists ? updatedItemList : [...itemsFromPath, item],
+      formData
+    );
+    setFormData(updatedFormData);
     setEditItems((prevEditItems) => ({
       ...prevEditItems,
       [type]: null,
-    }));
-  };
-
-  const handleAddAccomodationContact = (contact) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      accommodation: {
-        ...prevFormData.accommodation,
-        contacts: [...prevFormData.accommodation.contacts, contact],
-      },
     }));
   };
 
@@ -217,6 +218,8 @@ const InstitutionForm = () => {
       ]);
     }
   };
+
+  console.log(editItems);
 
   return (
     <div>
@@ -377,11 +380,8 @@ const InstitutionForm = () => {
                       {/* Campus Image */}
                       <div className="mb-3 col-md-6">
                         <label htmlFor="campusImage" className="form-label">
-                          Campus Image
+                          Campus Image Link
                         </label>
-                        <p className="text-muted">
-                          Please provide a link to the main campus' image.
-                        </p>
                         <input
                           type="text"
                           className="form-control"
@@ -516,7 +516,7 @@ const InstitutionForm = () => {
                   <Card.Body>
                     <AddFacultyModal
                       show={showAddFacultyModal}
-                      handleClose={handleCloseAddFacultyModal}
+                      handleClose={() => toggleModal("faculties")}
                       handleAddFaculty={addOrEdit("faculties")}
                       edit={editItems.faculties}
                     />
@@ -607,7 +607,7 @@ const InstitutionForm = () => {
                   <Card.Body>
                     <AddCampusModal
                       show={showAddCampusModal}
-                      handleClose={handleCloseAddCampusModal}
+                      handleClose={() => toggleModal("campuses")}
                       handleAddCampus={addOrEdit("campuses")}
                       edit={editItems.campuses}
                     />
@@ -773,8 +773,9 @@ const InstitutionForm = () => {
 
                   <AddContactModal
                     show={showAddAccommodationContactModal}
-                    handleClose={handleCloseAddAccommodationContactModal}
-                    handleAddContact={handleAddAccomodationContact}
+                    handleClose={() => toggleModal("accommodation-contacts")}
+                    handleAddContact={addOrEdit("accommodation-contacts")}
+                    edit={editItems["accommodation-contacts"]}
                   />
 
                   {formData.accommodation.isOffered && (
@@ -791,32 +792,124 @@ const InstitutionForm = () => {
                         Add Contact
                       </Button>
 
-                      <Table striped bordered hover dark className="mt-4">
-                        <thead className="table-dark">
-                          <tr>
-                            <th>Name</th>
-                            <th>Contact Number</th>
-                            <th>Email</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {formData.accommodation.contacts.length > 0 &&
-                            formData.accommodation.contacts.map((contact) => (
+                      <Mobile>
+                        {formData.accommodation.contacts.length > 0 &&
+                          formData.accommodation.contacts.map((contact) => (
+                            <Table bordered hover dark className="mt-4">
+                              <tbody>
+                                <tr>
+                                  <th className="table-dark"> Name</th>
+                                  <td>{contact.name}</td>
+                                </tr>
+                                <tr>
+                                  <th className="table-dark">Contact Number</th>
+                                  <td>{contact.contactNumber}</td>
+                                </tr>
+                                <tr>
+                                  <th className="table-dark">Email</th>
+                                  <td>{contact.email}</td>
+                                </tr>
+                                <tr>
+                                  <th className="table-dark">Actions</th>
+                                  <td>
+                                    <Button
+                                      variant="warning"
+                                      size="sm"
+                                      onClick={() =>
+                                        editItem(
+                                          "accommodation-contacts",
+                                          contact.id
+                                        )
+                                      }
+                                    >
+                                      Edit
+                                    </Button>
+                                    <Button
+                                      variant="danger"
+                                      className="mx-2"
+                                      size="sm"
+                                      onClick={() =>
+                                        deleteItem(
+                                          "accommodation-contacts",
+                                          contact.id
+                                        )
+                                      }
+                                    >
+                                      Delete
+                                    </Button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </Table>
+                          ))}
+                        <br />
+                        {formData.accommodation.contacts.length === 0 && (
+                          <Table bordered hover dark className="mt-4">
+                            <tbody>
                               <tr>
-                                <td>{contact.name}</td>
-                                <td>{contact.contactNumber}</td>
-                                <td>{contact.email}</td>
+                                <td>No contacts added yet</td>
                               </tr>
-                            ))}
-                          {formData.accommodation.contacts.length === 0 && (
-                            <tr colSpan="3">
-                              <td colSpan="3" className="text-muted">
-                                No contacts added yet.
-                              </td>
+                            </tbody>
+                          </Table>
+                        )}
+                      </Mobile>
+
+                      <Desktop>
+                        <Table striped bordered hover dark className="mt-4">
+                          <thead className="table-dark">
+                            <tr>
+                              <th>Name</th>
+                              <th>Contact Number</th>
+                              <th>Email</th>
+                              <th>Actions</th>
                             </tr>
-                          )}
-                        </tbody>
-                      </Table>
+                          </thead>
+                          <tbody>
+                            {formData.accommodation.contacts.length > 0 &&
+                              formData.accommodation.contacts.map((contact) => (
+                                <tr>
+                                  <td>{contact.name}</td>
+                                  <td>{contact.contactNumber}</td>
+                                  <td>{contact.email}</td>
+                                  <td>
+                                    <Button
+                                      variant="warning"
+                                      size="sm"
+                                      onClick={() =>
+                                        editItem(
+                                          "accommodation-contacts",
+                                          contact.id
+                                        )
+                                      }
+                                    >
+                                      Edit
+                                    </Button>
+                                    <Button
+                                      variant="danger"
+                                      className="mx-2"
+                                      size="sm"
+                                      onClick={() =>
+                                        deleteItem(
+                                          "accommodation-contacts",
+                                          contact.id
+                                        )
+                                      }
+                                    >
+                                      Delete
+                                    </Button>
+                                  </td>
+                                </tr>
+                              ))}
+                            {formData.accommodation.contacts.length === 0 && (
+                              <tr colSpan="3">
+                                <td colSpan="3" className="text-muted">
+                                  No contacts added yet.
+                                </td>
+                              </tr>
+                            )}
+                          </tbody>
+                        </Table>
+                      </Desktop>
 
                       {/* Accommodation Application URL */}
                       <div className="my-5">
