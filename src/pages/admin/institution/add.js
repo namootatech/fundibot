@@ -36,7 +36,7 @@ import {
 
 const truncate = pipe(
   split(""),
-  (a) => (a.length > 20 ? pipe(slice(0, 20), append("..."))(a) : a),
+  (a) => (a.length > 100 ? pipe(slice(0, 100), append("..."))(a) : a),
   join("")
 );
 
@@ -104,6 +104,16 @@ const InstitutionForm = () => {
     showModal(type);
   };
 
+  const deleteItem = (type, id) => {
+    const itemsWitoutItem = formData[type].filter(
+      (typeItem) => typeItem.id !== id
+    );
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [type]: itemsWitoutItem,
+    }));
+  };
+
   const [formData, setFormData] = useState({
     region: "",
     institution: "",
@@ -151,39 +161,6 @@ const InstitutionForm = () => {
       ...prevEditItems,
       [type]: null,
     }));
-  };
-
-  const handleAddFaculty = (faculty) => {
-    console.log("handling add faculty");
-    const facultyAlreadyExistsInList = formData.faculties.find(
-      (facultyInList) => facultyInList.id === faculty.id
-    );
-    const updatedFaculties = formData.faculties.map((facultyInList) =>
-      facultyInList.id === faculty.id ? faculty : facultyInList
-    );
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      faculties: facultyAlreadyExistsInList
-        ? updatedFaculties
-        : [...prevFormData.faculties, faculty],
-    }));
-    setFacultyToEdit(null);
-  };
-
-  const handleAddCampus = (campus) => {
-    const campusAlreadyExistsInList = formData.campuses.find(
-      (campusInList) => campusInList.id === campus.id
-    );
-    const updatedCampuses = formData.campuses.map((campusInList) =>
-      campusInList.id === campus.id ? campus : campusInList
-    );
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      campuses: campusAlreadyExistsInList
-        ? updatedCampuses
-        : [...prevFormData.campuses, campus],
-    }));
-    setCampusToEdit(null);
   };
 
   const handleAddAccomodationContact = (contact) => {
@@ -534,7 +511,7 @@ const InstitutionForm = () => {
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col md="12" xs="12">
                 <Card className="my-4">
                   <Card.Body>
                     <AddFacultyModal
@@ -557,7 +534,7 @@ const InstitutionForm = () => {
                         <tr>
                           <th>Faculty Name</th>
                           <th>Faculty Description</th>
-                          <th>Edit</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -567,19 +544,55 @@ const InstitutionForm = () => {
                               <td>{faculty.name}</td>
                               <td>{truncate(faculty.description)}</td>
                               <td>
-                                <Button
-                                  onClick={() =>
-                                    editItem("faculties", faculty.id)
-                                  }
-                                >
-                                  Edit
-                                </Button>
+                                <Mobile>
+                                  <Button
+                                    variant="warning"
+                                    size="sm"
+                                    className="w-100"
+                                    onClick={() =>
+                                      editItem("faculties", faculty.id)
+                                    }
+                                  >
+                                    Edit
+                                  </Button>
+                                  <Button
+                                    variant="danger"
+                                    size="sm"
+                                    className="w-100 my-1"
+                                    onClick={() =>
+                                      deleteItem("faculties", faculty.id)
+                                    }
+                                  >
+                                    Delete
+                                  </Button>
+                                </Mobile>
+                                <Desktop>
+                                  <Button
+                                    variant="warning"
+                                    size="sm"
+                                    onClick={() =>
+                                      editItem("faculties", faculty.id)
+                                    }
+                                  >
+                                    Edit
+                                  </Button>
+                                  <Button
+                                    variant="danger"
+                                    className="mx-1"
+                                    size="sm"
+                                    onClick={() =>
+                                      deleteItem("faculties", faculty.id)
+                                    }
+                                  >
+                                    Delete
+                                  </Button>
+                                </Desktop>
                               </td>
                             </tr>
                           ))}
                         {formData.faculties.length === 0 && (
-                          <tr colSpan="2">
-                            <td colSpan="2" className="text-muted">
+                          <tr colSpan="3">
+                            <td colSpan="3" className="text-muted">
                               No faculties added yet.
                             </td>
                           </tr>
@@ -609,42 +622,61 @@ const InstitutionForm = () => {
                     <Mobile>
                       {formData.campuses.length > 0 &&
                         formData.campuses.map((campus) => (
-                          <Table striped bordered hover dark className="mt-4">
-                            <thead className="table-dark">
-                              <tr></tr>
-                            </thead>
+                          <Table bordered hover dark className="mt-4">
                             <tbody>
                               <tr>
-                                <th> Name</th>
+                                <th className="table-dark"> Name</th>
                                 <td>{campus.name}</td>
                               </tr>
                               <tr>
-                                <th>Contact Number</th>
+                                <th className="table-dark">Contact Number</th>
                                 <td>{campus.contactNumber}</td>
                               </tr>
                               <tr>
-                                <th>Email</th>
+                                <th className="table-dark">Email</th>
                                 <td>{campus.email}</td>
                               </tr>
                               <tr>
-                                <th>Address</th>
+                                <th className="table-dark">Address</th>
                                 <td>{campus.address.str}</td>
                               </tr>
                               <tr>
-                                <th>Edit</th>
+                                <th className="table-dark">Actions</th>
                                 <td>
                                   <Button
+                                    variant="warning"
+                                    size="sm"
                                     onClick={() =>
                                       editItem("campuses", campus.id)
                                     }
                                   >
                                     Edit
                                   </Button>
+                                  <Button
+                                    variant="danger"
+                                    className="mx-2"
+                                    size="sm"
+                                    onClick={() =>
+                                      deleteItem("campuses", campus.id)
+                                    }
+                                  >
+                                    Delete
+                                  </Button>
                                 </td>
                               </tr>
                             </tbody>
                           </Table>
                         ))}
+                      <br />
+                      {formData.campuses.length === 0 && (
+                        <Table bordered hover dark className="mt-4">
+                          <tbody>
+                            <tr>
+                              <td>No campuses added yet</td>
+                            </tr>
+                          </tbody>
+                        </Table>
+                      )}
                     </Mobile>
 
                     <Desktop>
@@ -655,7 +687,7 @@ const InstitutionForm = () => {
                             <th>Contact Number</th>
                             <th>Email</th>
                             <th>Address</th>
-                            <th>Edit</th>
+                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -668,18 +700,31 @@ const InstitutionForm = () => {
                                 <td>{campus.address.str}</td>
                                 <td>
                                   <Button
+                                    variant="warning"
+                                    size="sm"
+                                    className="w-100"
                                     onClick={() =>
                                       editItem("campuses", campus.id)
                                     }
                                   >
                                     Edit
                                   </Button>
+                                  <Button
+                                    variant="danger"
+                                    className="my-2 w-100"
+                                    size="sm"
+                                    onClick={() =>
+                                      deleteItem("campuses", campus.id)
+                                    }
+                                  >
+                                    Delete
+                                  </Button>
                                 </td>
                               </tr>
                             ))}
                           {formData.campuses.length === 0 && (
-                            <tr colSpan="4">
-                              <td colSpan="4" className="text-muted">
+                            <tr colSpan="5">
+                              <td colSpan="5" className="text-muted">
                                 No campuses added yet.
                               </td>
                             </tr>
