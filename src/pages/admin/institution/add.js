@@ -13,9 +13,9 @@ import { Row } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Cookies from "js-cookie";
 import Footer from "@/components/footer";
-import AddFacultyModal from "@/components/modals/faculty/add";
-import AddCampusModal from "@/components/modals/campus/add";
-import AddContactModal from "@/components/modals/acommodationContacts/add";
+import FacultyModal from "@/components/modals/faculty/add";
+import CampusModal from "@/components/modals/campus/add";
+import ContactModal from "@/components/modals/acommodationContacts/add";
 import institutionTypes from "@/data/institution_types.json";
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
@@ -68,8 +68,8 @@ const InstitutionForm = () => {
   const user = Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null;
   const router = useRouter();
 
-  const [showAddFacultyModal, setShowAddFacultyModal] = useState(false);
-  const [showAddCampusModal, setShowAddCampusModal] = useState(false);
+  const [showFacultyModal, setShowFacultyModal] = useState(false);
+  const [showCampusModal, setShowCampusModal] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [editItems, setEditItems] = useState({
     faculties: null,
@@ -80,11 +80,11 @@ const InstitutionForm = () => {
     setShowAddAccommodationContactModal,
   ] = useState(false);
 
-  const handleCloseAddFacultyModal = () => setShowAddFacultyModal(false);
-  const handleShowAddFacultyModal = () => setShowAddFacultyModal(true);
+  const handleCloseFacultyModal = () => setShowFacultyModal(false);
+  const handleShowFacultyModal = () => setShowFacultyModal(true);
 
-  const handleCloseAddCampusModal = () => setShowAddCampusModal(false);
-  const handleShowAddCampusModal = () => setShowAddCampusModal(true);
+  const handleCloseCampusModal = () => setShowCampusModal(false);
+  const handleShowCampusModal = () => setShowCampusModal(true);
 
   const handleCloseAddAccommodationContactModal = () =>
     setShowAddAccommodationContactModal(false);
@@ -92,8 +92,8 @@ const InstitutionForm = () => {
     setShowAddAccommodationContactModal(true);
 
   const toggleModal = cond([
-    [equals("faculties"), () => setShowAddFacultyModal(!showAddFacultyModal)],
-    [equals("campuses"), () => setShowAddCampusModal(!showAddCampusModal)],
+    [equals("faculties"), () => setShowFacultyModal(!showFacultyModal)],
+    [equals("campuses"), () => setShowCampusModal(!showCampusModal)],
     [
       equals("accommodation-contacts"),
       () =>
@@ -514,18 +514,15 @@ const InstitutionForm = () => {
               <Col md="12" xs="12">
                 <Card className="my-4">
                   <Card.Body>
-                    <AddFacultyModal
-                      show={showAddFacultyModal}
+                    <FacultyModal
+                      show={showFacultyModal}
                       handleClose={() => toggleModal("faculties")}
                       handleAddFaculty={addOrEdit("faculties")}
                       edit={editItems.faculties}
                     />
 
                     <h4 className="my-4"> Faculties </h4>
-                    <Button
-                      variant="primary"
-                      onClick={handleShowAddFacultyModal}
-                    >
+                    <Button variant="primary" onClick={handleShowFacultyModal}>
                       Add Faculty
                     </Button>
 
@@ -605,17 +602,14 @@ const InstitutionForm = () => {
               <Col>
                 <Card className="my-4">
                   <Card.Body>
-                    <AddCampusModal
-                      show={showAddCampusModal}
+                    <CampusModal
+                      show={showCampusModal}
                       handleClose={() => toggleModal("campuses")}
                       handleAddCampus={addOrEdit("campuses")}
                       edit={editItems.campuses}
                     />
                     <h4 className="my-4"> Campuses </h4>
-                    <Button
-                      variant="primary"
-                      onClick={handleShowAddCampusModal}
-                    >
+                    <Button variant="primary" onClick={handleShowCampusModal}>
                       Add Campus
                     </Button>
 
@@ -771,7 +765,7 @@ const InstitutionForm = () => {
                     </label>
                   </div>
 
-                  <AddContactModal
+                  <ContactModal
                     show={showAddAccommodationContactModal}
                     handleClose={() => toggleModal("accommodation-contacts")}
                     handleAddContact={addOrEdit("accommodation-contacts")}

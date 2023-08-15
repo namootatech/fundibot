@@ -6,7 +6,7 @@ import provicesJson from "@/data/provinces.json";
 import { v4 as uuidv4 } from "uuid";
 import { set } from "ramda";
 
-const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
+const CampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
   const [name, setCampusName] = useState("");
   const [email, setEmail] = useState("");
   const [contactNumber, setContactNumber] = useState("");
@@ -61,11 +61,11 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Add Campus</Modal.Title>
+        <Modal.Title>Institution Campus</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
@@ -73,7 +73,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
               value={name}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="cellphoneNumber">
             <Form.Label>Contact Number</Form.Label>
             <Form.Control
               type="text"
@@ -83,7 +83,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="text"
@@ -93,7 +93,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="street">
             <Form.Label>Street</Form.Label>
             <Form.Control
               type="text"
@@ -108,7 +108,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
               value={address.street}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="suburb">
             <Form.Label>Suburb</Form.Label>
             <Form.Control
               type="text"
@@ -123,7 +123,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
               value={address.suburb}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="city">
             <Form.Label>City</Form.Label>
             <Form.Control
               type="text"
@@ -138,7 +138,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
               value={address.city}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="postalCode">
             <Form.Label>Postal Code</Form.Label>
             <Form.Control
               type="text"
@@ -153,7 +153,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
               value={address.postalCode}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="province">
             <Form.Label>Province</Form.Label>
             <Form.Select
               onChange={(e) =>
@@ -185,4 +185,4 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
   );
 };
 
-export default AddCampusModal;
+export default CampusModal;

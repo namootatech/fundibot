@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const AddContactModal = ({ show, handleClose, handleAddContact, edit }) => {
+const ContactModal = ({ show, handleClose, handleAddContact, edit }) => {
   const [name, setContactName] = useState("");
   const [email, setEmail] = useState("");
   const [contactNumber, setContactNumber] = useState("");
@@ -53,11 +53,11 @@ const AddContactModal = ({ show, handleClose, handleAddContact, edit }) => {
       }}
     >
       <Modal.Header closeButton>
-        <Modal.Title>Select faculty</Modal.Title>
+        <Modal.Title>Accomodation Contact</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
@@ -66,7 +66,7 @@ const AddContactModal = ({ show, handleClose, handleAddContact, edit }) => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="cellphoneNumber">
             <Form.Label>Contact Number</Form.Label>
             <Form.Control
               type="text"
@@ -76,7 +76,7 @@ const AddContactModal = ({ show, handleClose, handleAddContact, edit }) => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="text"
@@ -105,4 +105,4 @@ const AddContactModal = ({ show, handleClose, handleAddContact, edit }) => {
   );
 };
 
-export default AddContactModal;
+export default ContactModal;

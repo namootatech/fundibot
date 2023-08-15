@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const AddFacultyModal = ({ show, handleClose, handleAddFaculty, edit }) => {
+const FacultyModal = ({ show, handleClose, handleAddFaculty, edit }) => {
   console.log("edit", edit);
   const [faculty, setFacultyName] = useState("");
   const [description, setdescription] = useState("");
@@ -36,11 +36,11 @@ const AddFacultyModal = ({ show, handleClose, handleAddFaculty, edit }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Add faculty</Modal.Title>
+        <Modal.Title>Institution Faculty</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="facultyName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
@@ -48,7 +48,7 @@ const AddFacultyModal = ({ show, handleClose, handleAddFaculty, edit }) => {
               value={faculty}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="facultyDescription">
             <Form.Label>Description</Form.Label>
             <Form.Control
               as="textarea"
@@ -72,4 +72,4 @@ const AddFacultyModal = ({ show, handleClose, handleAddFaculty, edit }) => {
   );
 };
 
-export default AddFacultyModal;
+export default FacultyModal;
