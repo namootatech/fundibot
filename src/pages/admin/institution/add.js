@@ -20,7 +20,23 @@ import institutionTypes from "@/data/institution_types.json";
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import { useRouter } from "next/router";
-import { assocPath } from "ramda";
+import {
+  append,
+  assocPath,
+  concat,
+  ifElse,
+  join,
+  pipe,
+  slice,
+  split,
+  when,
+} from "ramda";
+
+const truncate = pipe(
+  split(""),
+  (a) => (a.length > 20 ? pipe(slice(0, 20), append("..."))(a) : a),
+  join("")
+);
 
 const StyledMain = styled.main`
   height: auto;
@@ -38,6 +54,7 @@ const InstitutionForm = () => {
   const [showAddFacultyModal, setShowAddFacultyModal] = useState(false);
   const [showAddCampusModal, setShowAddCampusModal] = useState(false);
   const [notifications, setNotifications] = useState([]);
+  const [facultyToEdit, setFacultyToEdit] = useState(null);
   const [
     showAddAccommodationContactModal,
     setShowAddAccommodationContactModal,
@@ -53,6 +70,12 @@ const InstitutionForm = () => {
     setShowAddAccommodationContactModal(false);
   const handleShowAddAccommodationContactModal = () =>
     setShowAddAccommodationContactModal(true);
+
+  const editFaculty = (facultyId) => {
+    const faculty = formData.faculties.find((f) => f.id === facultyId);
+    setFacultyToEdit(faculty);
+    setShowAddFacultyModal(true);
+  };
 
   const [formData, setFormData] = useState({
     region: "",
@@ -87,16 +110,34 @@ const InstitutionForm = () => {
   });
 
   const handleAddFaculty = (faculty) => {
+    console.log("handling add faculty");
+    const facultyAlreadyExistsInList = formData.faculties.find(
+      (facultyInList) => facultyInList.id === faculty.id
+    );
+    const updatedFaculties = formData.faculties.map((facultyInList) =>
+      facultyInList.id === faculty.id ? faculty : facultyInList
+    );
     setFormData((prevFormData) => ({
       ...prevFormData,
-      faculties: [...prevFormData.faculties, faculty],
+      faculties: facultyAlreadyExistsInList
+        ? updatedFaculties
+        : [...prevFormData.faculties, faculty],
     }));
+    setFacultyToEdit(null);
   };
 
   const handleAddCampus = (campus) => {
+    const campusAlreadyExistsInList = formData.campuses.find(
+      (campusInList) => campusInList.id === campus.id
+    );
+    const updatedCampuses = formData.campuses.map((campusInList) =>
+      campusInList.id === campus.id ? campus : campusInList
+    );
     setFormData((prevFormData) => ({
       ...prevFormData,
-      campuses: [...prevFormData.campuses, campus],
+      campuses: campusAlreadyExistsInList
+        ? updatedCampuses
+        : [...prevFormData.campuses, campus],
     }));
   };
 
@@ -154,8 +195,6 @@ const InstitutionForm = () => {
       ]);
     }
   };
-
-  console.log(formData);
 
   return (
     <div>
@@ -457,6 +496,7 @@ const InstitutionForm = () => {
                       show={showAddFacultyModal}
                       handleClose={handleCloseAddFacultyModal}
                       handleAddFaculty={handleAddFaculty}
+                      data={facultyToEdit}
                     />
 
                     <h4 className="my-4"> Faculties </h4>
@@ -472,6 +512,7 @@ const InstitutionForm = () => {
                         <tr>
                           <th>Faculty Name</th>
                           <th>Faculty Description</th>
+                          <th>Edit</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -479,7 +520,12 @@ const InstitutionForm = () => {
                           formData.faculties.map((faculty) => (
                             <tr>
                               <td>{faculty.name}</td>
-                              <td>{faculty.description}</td>
+                              <td>{truncate(faculty.description)}</td>
+                              <td>
+                                <Button onClick={() => editFaculty(faculty.id)}>
+                                  Edit
+                                </Button>
+                              </td>
                             </tr>
                           ))}
                         {formData.faculties.length === 0 && (

@@ -4,9 +4,20 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const AddFacultyModal = ({ show, handleClose, handleAddFaculty }) => {
+const AddFacultyModal = ({ show, handleClose, handleAddFaculty, data }) => {
+  console.log("data", data);
   const [faculty, setFacultyName] = useState("");
   const [description, setdescription] = useState("");
+  console.log("Faculty name:", faculty, "data name", data?.name);
+
+  useEffect(() => {
+    if (data?.name) {
+      setFacultyName(data?.name);
+    }
+    if (data?.description) {
+      setdescription(data?.description);
+    }
+  }, [data]);
 
   const handleFacultyChange = (e) => {
     setFacultyName(e.target.value);
@@ -17,8 +28,10 @@ const AddFacultyModal = ({ show, handleClose, handleAddFaculty }) => {
   };
 
   const saveDetails = () => {
-    handleAddFaculty({ id: uuidv4(), name: faculty, description });
+    handleAddFaculty({ id: data?.id || uuidv4(), name: faculty, description });
     handleClose();
+    setFacultyName("");
+    setdescription("");
   };
 
   return (

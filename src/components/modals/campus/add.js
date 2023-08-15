@@ -4,18 +4,19 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import provicesJson from "@/data/provinces.json";
 import { v4 as uuidv4 } from "uuid";
+import { set } from "ramda";
 
-const AddCampusModal = ({ show, handleClose, handleAddCampus }) => {
-  const [name, setCampusName] = useState("");
-  const [email, setEmail] = useState("");
-  const [contactNumber, setContactNumber] = useState("");
+const AddCampusModal = ({ show, handleClose, handleAddCampus, data }) => {
+  const [name, setCampusName] = useState(data?.name ?? "");
+  const [email, setEmail] = useState(data?.email ?? "");
+  const [contactNumber, setContactNumber] = useState(data?.contactNumber ?? "");
   const [address, setAddress] = useState({
-    street: "",
-    suburb: "",
-    city: "",
-    postalCode: "",
-    province: "",
-    str: "",
+    street: data?.address?.street ?? "",
+    suburb: data?.address?.suburb ?? "",
+    city: data?.address?.city ?? "",
+    postalCode: data?.address?.postalCode ?? "",
+    province: data?.address?.province ?? "",
+    str: data?.address?.str ?? "",
   });
 
   const handleNameChange = (e) => {
@@ -27,8 +28,25 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus }) => {
   };
 
   const saveDetails = () => {
-    handleAddCampus({ id: uuidv4(), name, contactNumber, email, address });
+    handleAddCampus({
+      id: data?.id ?? uuidv4(),
+      name,
+      contactNumber,
+      email,
+      address,
+    });
     handleClose();
+    setCampusName("");
+    setContactNumber("");
+    setEmail("");
+    setAddress({
+      street: "",
+      suburb: "",
+      city: "",
+      postalCode: "",
+      province: "",
+      str: "",
+    });
   };
 
   return (
