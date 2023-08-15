@@ -6,18 +6,27 @@ import provicesJson from "@/data/provinces.json";
 import { v4 as uuidv4 } from "uuid";
 import { set } from "ramda";
 
-const AddCampusModal = ({ show, handleClose, handleAddCampus, data }) => {
-  const [name, setCampusName] = useState(data?.name ?? "");
-  const [email, setEmail] = useState(data?.email ?? "");
-  const [contactNumber, setContactNumber] = useState(data?.contactNumber ?? "");
+const AddCampusModal = ({ show, handleClose, handleAddCampus, edit }) => {
+  const [name, setCampusName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
   const [address, setAddress] = useState({
-    street: data?.address?.street ?? "",
-    suburb: data?.address?.suburb ?? "",
-    city: data?.address?.city ?? "",
-    postalCode: data?.address?.postalCode ?? "",
-    province: data?.address?.province ?? "",
-    str: data?.address?.str ?? "",
+    street: "",
+    suburb: "",
+    city: "",
+    postalCode: "",
+    province: "",
+    str: "",
   });
+
+  useEffect(() => {
+    if (edit) {
+      setCampusName(edit?.name);
+      setEmail(edit.email);
+      setContactNumber(edit.contactNumber);
+      setAddress(edit.address);
+    }
+  }, [edit]);
 
   const handleNameChange = (e) => {
     setCampusName(e.target.value);
@@ -29,7 +38,7 @@ const AddCampusModal = ({ show, handleClose, handleAddCampus, data }) => {
 
   const saveDetails = () => {
     handleAddCampus({
-      id: data?.id ?? uuidv4(),
+      id: edit?.id || uuidv4(),
       name,
       contactNumber,
       email,

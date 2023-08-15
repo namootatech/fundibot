@@ -24,6 +24,8 @@ import {
   append,
   assocPath,
   concat,
+  cond,
+  equals,
   ifElse,
   join,
   pipe,
@@ -46,6 +48,20 @@ const StyledMain = styled.main`
   overflow: auto;
 `;
 
+const Mobile = styled.div`
+  display: none;
+  @media (max-width: 968px) {
+    display: block;
+  }
+`;
+
+const Desktop = styled.div`
+  display: none;
+  @media (min-width: 969px) {
+    display: block;
+  }
+`;
+
 const InstitutionForm = () => {
   // get logged in user from js-cookie
   const user = Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null;
@@ -54,7 +70,10 @@ const InstitutionForm = () => {
   const [showAddFacultyModal, setShowAddFacultyModal] = useState(false);
   const [showAddCampusModal, setShowAddCampusModal] = useState(false);
   const [notifications, setNotifications] = useState([]);
-  const [facultyToEdit, setFacultyToEdit] = useState(null);
+  const [editItems, setEditItems] = useState({
+    faculties: null,
+    campuses: null,
+  });
   const [
     showAddAccommodationContactModal,
     setShowAddAccommodationContactModal,
@@ -71,10 +90,18 @@ const InstitutionForm = () => {
   const handleShowAddAccommodationContactModal = () =>
     setShowAddAccommodationContactModal(true);
 
-  const editFaculty = (facultyId) => {
-    const faculty = formData.faculties.find((f) => f.id === facultyId);
-    setFacultyToEdit(faculty);
-    setShowAddFacultyModal(true);
+  const showModal = cond([
+    [equals("faculties"), () => setShowAddFacultyModal(true)],
+    [equals("campuses"), () => setShowAddCampusModal(true)],
+  ]);
+
+  const editItem = (type, id) => {
+    const item = formData[type].find((typeItem) => typeItem.id === id);
+    setEditItems({
+      ...editItems,
+      [type]: item,
+    });
+    showModal(type);
   };
 
   const [formData, setFormData] = useState({
@@ -109,6 +136,23 @@ const InstitutionForm = () => {
     description: "",
   });
 
+  const addOrEdit = (type) => (item) => {
+    const itemAlreadyExists = formData[type].find((i) => i.id === item.id);
+    const updatedItemList = formData[type].map((dataItem) =>
+      dataItem.id === item.id ? item : dataItem
+    );
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [type]: itemAlreadyExists
+        ? updatedItemList
+        : [...prevFormData[type], item],
+    }));
+    setEditItems((prevEditItems) => ({
+      ...prevEditItems,
+      [type]: null,
+    }));
+  };
+
   const handleAddFaculty = (faculty) => {
     console.log("handling add faculty");
     const facultyAlreadyExistsInList = formData.faculties.find(
@@ -139,6 +183,7 @@ const InstitutionForm = () => {
         ? updatedCampuses
         : [...prevFormData.campuses, campus],
     }));
+    setCampusToEdit(null);
   };
 
   const handleAddAccomodationContact = (contact) => {
@@ -495,8 +540,8 @@ const InstitutionForm = () => {
                     <AddFacultyModal
                       show={showAddFacultyModal}
                       handleClose={handleCloseAddFacultyModal}
-                      handleAddFaculty={handleAddFaculty}
-                      data={facultyToEdit}
+                      handleAddFaculty={addOrEdit("faculties")}
+                      edit={editItems.faculties}
                     />
 
                     <h4 className="my-4"> Faculties </h4>
@@ -522,7 +567,11 @@ const InstitutionForm = () => {
                               <td>{faculty.name}</td>
                               <td>{truncate(faculty.description)}</td>
                               <td>
-                                <Button onClick={() => editFaculty(faculty.id)}>
+                                <Button
+                                  onClick={() =>
+                                    editItem("faculties", faculty.id)
+                                  }
+                                >
                                   Edit
                                 </Button>
                               </td>
@@ -546,7 +595,8 @@ const InstitutionForm = () => {
                     <AddCampusModal
                       show={showAddCampusModal}
                       handleClose={handleCloseAddCampusModal}
-                      handleAddCampus={handleAddCampus}
+                      handleAddCampus={addOrEdit("campuses")}
+                      edit={editItems.campuses}
                     />
                     <h4 className="my-4"> Campuses </h4>
                     <Button
@@ -556,34 +606,87 @@ const InstitutionForm = () => {
                       Add Campus
                     </Button>
 
-                    <Table striped bordered hover dark className="mt-4">
-                      <thead className="table-dark">
-                        <tr>
-                          <th> Name</th>
-                          <th>Contact Number</th>
-                          <th>Email</th>
-                          <th>Address</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {formData.campuses.length > 0 &&
-                          formData.campuses.map((campus) => (
-                            <tr>
-                              <td>{campus.name}</td>
-                              <td>{campus.contactNumber}</td>
-                              <td>{campus.email}</td>
-                              <td>{campus.address.str}</td>
-                            </tr>
-                          ))}
-                        {formData.campuses.length === 0 && (
-                          <tr colSpan="4">
-                            <td colSpan="4" className="text-muted">
-                              No campuses added yet.
-                            </td>
+                    <Mobile>
+                      {formData.campuses.length > 0 &&
+                        formData.campuses.map((campus) => (
+                          <Table striped bordered hover dark className="mt-4">
+                            <thead className="table-dark">
+                              <tr></tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th> Name</th>
+                                <td>{campus.name}</td>
+                              </tr>
+                              <tr>
+                                <th>Contact Number</th>
+                                <td>{campus.contactNumber}</td>
+                              </tr>
+                              <tr>
+                                <th>Email</th>
+                                <td>{campus.email}</td>
+                              </tr>
+                              <tr>
+                                <th>Address</th>
+                                <td>{campus.address.str}</td>
+                              </tr>
+                              <tr>
+                                <th>Edit</th>
+                                <td>
+                                  <Button
+                                    onClick={() =>
+                                      editItem("campuses", campus.id)
+                                    }
+                                  >
+                                    Edit
+                                  </Button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </Table>
+                        ))}
+                    </Mobile>
+
+                    <Desktop>
+                      <Table striped bordered hover dark className="mt-4">
+                        <thead className="table-dark">
+                          <tr>
+                            <th> Name</th>
+                            <th>Contact Number</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Edit</th>
                           </tr>
-                        )}
-                      </tbody>
-                    </Table>
+                        </thead>
+                        <tbody>
+                          {formData.campuses.length > 0 &&
+                            formData.campuses.map((campus) => (
+                              <tr>
+                                <td>{campus.name}</td>
+                                <td>{campus.contactNumber}</td>
+                                <td>{campus.email}</td>
+                                <td>{campus.address.str}</td>
+                                <td>
+                                  <Button
+                                    onClick={() =>
+                                      editItem("campuses", campus.id)
+                                    }
+                                  >
+                                    Edit
+                                  </Button>
+                                </td>
+                              </tr>
+                            ))}
+                          {formData.campuses.length === 0 && (
+                            <tr colSpan="4">
+                              <td colSpan="4" className="text-muted">
+                                No campuses added yet.
+                              </td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </Table>
+                    </Desktop>
                   </Card.Body>
                 </Card>
               </Col>
