@@ -90,7 +90,7 @@ const Navigation = () => {
     >
       <Container fluid>
         <Navbar.Brand href="/">
-          <img src="/lg.png" width="250" height="100" />
+          <img src="/lg.png" width="200" height="80" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
         <Navbar.Offcanvas
