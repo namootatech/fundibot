@@ -88,7 +88,7 @@ export default function Home({ institutions, programmes }) {
           <div className="container mt-5 h-100">
             <h2 className="text-dark mb-4">Dashboard</h2>
             <div className="row mb-4">
-              <div className="col-md-3 col-xs-12 col-sm-12">
+              <div className="col-md-3 col-xs-12 col-sm-12 my-3">
                 <button
                   type="button"
                   className={`btn btn-outline-dark btn-block w-100 ${
@@ -99,7 +99,7 @@ export default function Home({ institutions, programmes }) {
                   Universities
                 </button>
               </div>
-              <div className="col-md-3 col-xs-12 col-sm-1">
+              <div className="col-md-3 col-xs-12 col-sm-1 my-3">
                 <button
                   type="button"
                   className={`btn btn-outline-dark btn-block w-100 ${
@@ -110,7 +110,7 @@ export default function Home({ institutions, programmes }) {
                   Colleges
                 </button>
               </div>
-              <div className="col-md-3 col-xs-12 col-sm-1">
+              <div className="col-md-3 col-xs-12 col-sm-1 my-3">
                 <button
                   type="button"
                   className={`btn btn-outline-dark btn-block w-100 ${
