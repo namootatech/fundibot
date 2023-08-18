@@ -144,9 +144,13 @@ export default function Home({ institutions, programmes }) {
                       >
                         {university.institution}
                         <div>
-                          <button className="btn btn-sm btn-outline-primary mx-1">
+                          <Button
+                            href={`/admin/institution/edit/${university._id}`}
+                            className="mx-1"
+                            variant="primary-outline"
+                          >
                             Edit
-                          </button>
+                          </Button>
                           <button className="btn btn-sm btn-outline-danger mx-1">
                             Delete
                           </button>
@@ -183,9 +187,13 @@ export default function Home({ institutions, programmes }) {
                         >
                           {college.institution}
                           <div>
-                            <button className="btn btn-sm btn-outline-primary mx-1">
+                            <Button
+                              href={`/admin/institution/edit/${college._id}`}
+                              className="mx-1"
+                              variant="primary-outline"
+                            >
                               Edit
-                            </button>
+                            </Button>
                             <button className="btn btn-sm btn-outline-danger mx-1">
                               Delete
                             </button>
