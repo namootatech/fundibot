@@ -19,7 +19,7 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 
 const StyledMain = styled.main`
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
   background: #f3f3f3;
   padding-top: 10rem;
