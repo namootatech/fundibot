@@ -106,8 +106,9 @@ const Navigation = () => {
           <div>
             <Nav className="justify-content-end flex-grow-1 pe-3 px-4">
               <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/contact">Contact</Nav.Link>
-              <Nav.Link href="/blog">Blog</Nav.Link>
+              <Nav.Link href="/universities">Universities</Nav.Link>
+              <Nav.Link href="/colleges">Colleges</Nav.Link>
+              <Nav.Link href="/schools">Schools</Nav.Link>
               {isLoggedIn && (
                 <>
                   <Nav.Link href="/admin">
@@ -115,14 +116,11 @@ const Navigation = () => {
                   </Nav.Link>
                   <NavDropdown title="Options" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="/admin">Dashboard</NavDropdown.Item>
-                    <NavDropdown.Item href="/university/add">
+                    <NavDropdown.Item href="/admin/institution/add">
                       Add University
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/faculty/add">
-                      Add Faculty
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="/programme/add">
-                      Add Programme
+                    <NavDropdown.Item href="/admin/institution/add">
+                      Add College
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
