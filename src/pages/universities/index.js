@@ -172,7 +172,9 @@ export default function Home(props) {
                             <h2 className="card-title">
                               {university.institution}
                             </h2>
-                            <h3>{university.address.str}</h3>
+                            <h3>
+                              {`${university.address.street}, ${university.address.city}, ${university.address.postalCode}`}{" "}
+                            </h3>
                           </div>
                           <div className="card-section-body">
                             <p className="card-text">
