@@ -98,6 +98,11 @@ export default function Home(props) {
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [filterValue, setFilterValue] = useState(null);
   const [schoolName, setSchoolName] = useState(null);
+  const [filterOpened, setFilterOpened] = useState(false);
+
+  const toggleFilterOpened = () => {
+    setFilterOpened(!filterOpened);
+  };
 
   const pages = Object.keys([
     ...Array(Math.round(schools.length / pageSize)),
@@ -170,7 +175,6 @@ export default function Home(props) {
 
   const years = uniq(originalSchools.map((s) => s.registrationDate));
   const cities = sortBy(identity, uniq(originalSchools.map((s) => s.city)));
-  console.log("schools", schools);
   return (
     <div>
       <Head>
@@ -196,55 +200,67 @@ export default function Home(props) {
               <p className="lead my-4">
                 Find a list of all the registered schools in South Africa
               </p>
+              <Mobile>
+                <Button
+                  variant="primary"
+                  className="my-4"
+                  onClick={toggleFilterOpened}
+                  size="sm"
+                >
+                  {filterOpened ? "Close Filters" : "Open Filters"}
+                </Button>
+              </Mobile>
             </div>
-            <Mobile>
-              <div className="d-flex flex-column">
-                <Col md={2} xs={12} className="bg-secondary text-light  p-3">
-                  <Form.Label>Select Page Size</Form.Label>
-                  <Form.Control
-                    as="select"
-                    onChange={changePageSize}
-                    selected={pageSize}
-                  >
-                    <option value={10}>10</option>
-                    <option value={20}>20</option>
-                    <option value={50}>50</option>
-                    <option value={100}>100</option>
-                  </Form.Control>
-                </Col>
-                <Col md={3} xs={12} className="bg-secondary text-light  p-3">
-                  <Form.Label>Search school</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter school name"
-                    onChange={(e) => {
-                      setSchoolName(e.target.value);
-                      debounceSearch(seacrh(e.target.value), 300);
-                    }}
-                  />
-                </Col>
-                <Col md={3} xs={12} className="bg-secondary text-light  p-3">
-                  <Form.Label>Find by city</Form.Label>
-                  <Form.Control type="text" placeholder="Enter school name" />
-                </Col>
-                <Col md={2} xs={12} className="bg-secondary text-light  p-3">
-                  <Form.Label>Filter by province</Form.Label>
-                  <Form.Control as="select" onChange={filterByProvince}>
-                    {provinces.map((p) => (
-                      <option value={p.code}>{p.name}</option>
-                    ))}
-                  </Form.Control>
-                </Col>
-                <Col md={2} xs={12} className="bg-secondary text-light p-3">
-                  <Form.Label>Filter by year</Form.Label>
-                  <Form.Control as="select" onChange={filterByYear}>
-                    {years.map((y) => (
-                      <option value={y}>{y}</option>
-                    ))}
-                  </Form.Control>
-                </Col>
-              </div>
-            </Mobile>
+            {filterOpened && (
+              <Mobile>
+                <div className="d-flex flex-column">
+                  <Col md={2} xs={12} className="py-3">
+                    <Form.Label>Select Page Size</Form.Label>
+                    <Form.Control
+                      as="select"
+                      onChange={changePageSize}
+                      selected={pageSize}
+                    >
+                      <option value={10}>10</option>
+                      <option value={20}>20</option>
+                      <option value={50}>50</option>
+                      <option value={100}>100</option>
+                    </Form.Control>
+                  </Col>
+                  <Col md={3} xs={12} className="py-3">
+                    <Form.Label>Search school</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter school name"
+                      onChange={(e) => {
+                        setSchoolName(e.target.value);
+                        debounceSearch(seacrh(e.target.value), 300);
+                      }}
+                    />
+                  </Col>
+                  <Col md={3} xs={12} className="py-3">
+                    <Form.Label>Find by city</Form.Label>
+                    <Form.Control type="text" placeholder="Enter school name" />
+                  </Col>
+                  <Col md={2} xs={12} className="py-3">
+                    <Form.Label>Filter by province</Form.Label>
+                    <Form.Control as="select" onChange={filterByProvince}>
+                      {provinces.map((p) => (
+                        <option value={p.code}>{p.name}</option>
+                      ))}
+                    </Form.Control>
+                  </Col>
+                  <Col md={2} xs={12} className="py-3">
+                    <Form.Label>Filter by year</Form.Label>
+                    <Form.Control as="select" onChange={filterByYear}>
+                      {years.map((y) => (
+                        <option value={y}>{y}</option>
+                      ))}
+                    </Form.Control>
+                  </Col>
+                </div>
+              </Mobile>
+            )}
             <Desktop>
               <div className="d-flex flex-row">
                 <Col md={2} xs={12} className="bg-secondary text-light  p-3">
@@ -319,7 +335,7 @@ export default function Home(props) {
                     <th>Name</th>
                     <th>City</th>
                     <th>Province</th>
-                    <th>Registered On</th>
+                    <th>Opened</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -342,28 +358,26 @@ export default function Home(props) {
                 </tbody>
               </Table>
             </div>
-            <div className="d-flex flex-row justify-content-center">
-              <Col md={4} xs={9}>
-                <Pagination>
-                  <Pagination.First onClick={() => viewPage(1)} />
-                  <Pagination.Prev
-                    onClick={() => viewPage(page - 1 === 0 ? 1 : page - 1)}
-                  />
-                  {pages.slice(page - 1, page + 4).map((p) => (
-                    <Pagination.Item
-                      className="table-dark"
-                      linkClassName={page === p ? "bg-dark text-light" : ""}
-                      active={page === p}
-                      onClick={() => viewPage(p)}
-                    >
-                      {p}
-                    </Pagination.Item>
-                  ))}
-                  <Pagination.Next onClick={() => viewPage(page + 1)} />
-                  <Pagination.Last onClick={() => viewPage(pages.length)} />
-                </Pagination>
-              </Col>
-            </div>
+            <Col md={4} xs={12}>
+              <Pagination>
+                <Pagination.First onClick={() => viewPage(1)} />
+                <Pagination.Prev
+                  onClick={() => viewPage(page - 1 === 0 ? 1 : page - 1)}
+                />
+                {pages.slice(page - 1, page + 3).map((p) => (
+                  <Pagination.Item
+                    className="table-dark"
+                    linkClassName={page === p ? "bg-dark text-light" : ""}
+                    active={page === p}
+                    onClick={() => viewPage(p)}
+                  >
+                    {p}
+                  </Pagination.Item>
+                ))}
+                <Pagination.Next onClick={() => viewPage(page + 1)} />
+                <Pagination.Last onClick={() => viewPage(pages.length)} />
+              </Pagination>
+            </Col>
           </div>
           <div className="col-md-6">
             <p> </p>
