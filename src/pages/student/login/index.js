@@ -92,7 +92,6 @@ export default function Register(props) {
             <Col md="6" className="my-5">
               <div className="card">
                 <div className="card-body">
-                  <h1 className="card-title">Welcome Back to FundiBot!</h1>
                   <p className="card-text ">
                     FundiBot is your gateway to a world of educational
                     possibilities. Log in and access your personalized learning

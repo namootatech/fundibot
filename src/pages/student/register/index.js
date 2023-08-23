@@ -117,7 +117,7 @@ export default function Register(props) {
   return (
     <div>
       <Head>
-        <title>Register | Fundi Bot</title>
+        <title>Learner | Signup | Fundi Bot</title>
         <meta
           name="description"
           content="By becoming a part of FundiBot, you'll gain access to personalized learning recommendations, course insights, and the latest updates from institutions across the country."
@@ -133,7 +133,7 @@ export default function Register(props) {
             <Col md="6" sm="12" xs="12" className="p-3">
               <Desktop>
                 <h1 className="display-6 px-5">
-                  <strong>Join the FundiBot Community!</strong>
+                  <strong>Learner </strong>| Signup
                 </h1>
                 <p className="lead p-5">
                   Welcome to FundiBot, where you can take the first step towards
@@ -164,7 +164,6 @@ export default function Register(props) {
             <Col md="6" sm="12" xs="12" className="p-3">
               <div className="card">
                 <div className="card-body">
-                  <h1 className="card-title">Register</h1>
                   <Form>
                     <Form.Group controlId="formBasicFirstName">
                       <Form.Label>First Name</Form.Label>
