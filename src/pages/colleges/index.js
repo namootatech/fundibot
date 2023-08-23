@@ -1,19 +1,11 @@
 import Head from "next/head";
 import Navigation from "@/components/nav";
 import styled from "styled-components";
-import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "@/components/footer";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from "react-device-detect";
-import BsCard from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import Link from "next/link";
 const StyledMain = styled.main`
   height: auto;
   width: 100vw;
@@ -108,6 +100,28 @@ const Card = styled.div`
   }
 `;
 
+const Heart = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: #d3d2d2a1;
+  border-bottom-left-radius: 10pc;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  svg {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    svg {
+      transform: scale(1.1);
+    }
+  }
+`;
+
 export const getServerSideProps = async ({ query }) => {
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_SITE_URL}/api/colleges?page=0`
@@ -149,7 +163,7 @@ export default function Home(props) {
         <Container>
           <div className="row w-100">
             <div className="col-md-6">
-              <h1 className="display-4">colleges </h1>
+              <h1 className="display-4">Colleges </h1>
               <p className="lead">
                 Fundi Bot is your go-to platform for discovering top colleges
                 and colleges. Explore a wide range of courses and unlock your
@@ -159,22 +173,31 @@ export default function Home(props) {
             <div className="col-md-12">
               <div className="row">
                 {colleges?.map((college) => (
-                  <div className="col-md-6 col-xs-12 col-sm-12">
-                    <BrowserView>
-                      <Card className="card mb-4">
-                        <img
-                          src={college.campusImage}
-                          width={200}
-                          height={250}
-                        />
-                        <div className="card-body">
-                          <div className="card-section">
-                            <h2 className="card-title">
+                  <div className="col-md-12 col-xs-12 col-sm-12">
+                    <div className="card my-2 p-4">
+                      <Heart>
+                        <AiOutlineHeart size={30} />
+                      </Heart>
+                      <div className="row no-gutters">
+                        <div className="col-sm-5">
+                          <img
+                            className="card-img"
+                            src={
+                              college.campusImage
+                                ? college.campusImage
+                                : "/campus_placeholder.png"
+                            }
+                            alt="Suresh Dasari Card"
+                          />
+                        </div>
+                        <div className="col-sm-7">
+                          <div className="card-body">
+                            <h5 className="card-title">
                               {college.institution}
-                            </h2>
-                            <h3>{college.address.str}</h3>
-                          </div>
-                          <div className="card-section-body">
+                            </h5>
+                            <p className="card-text">
+                              {`${college.address.street}, ${college.address.city}, ${college.address.postalCode}`}{" "}
+                            </p>
                             <p className="card-text">
                               <strong>Contact Number: </strong>
                               <a href={`tel:${college.contact.contactNumber}`}>
@@ -193,53 +216,16 @@ export default function Home(props) {
                                 {college.contact.website}
                               </a>
                             </p>
-                          </div>
-                          <div className="card-section-footer">
-                            <Button
-                              variant="dark"
+                            <Link
+                              className="btn btn-dark"
                               href={`/colleges/${college._id}`}
                             >
-                              View More details
-                            </Button>
+                              View more details
+                            </Link>
                           </div>
                         </div>
-                      </Card>
-                    </BrowserView>
-                    <MobileView>
-                      <BsCard className="my-4">
-                        <BsCard.Img variant="top" src={college.campusImage} />
-                        <BsCard.Body>
-                          <BsCard.Title>{college.institution}</BsCard.Title>
-                          <p className="card-text">
-                            <strong>Contact Number: </strong>
-                            <br />
-                            <a href={`tel:${college.contact.contactNumber}`}>
-                              {college.contact.contactNumber}
-                            </a>
-                          </p>
-                          <p className="card-text">
-                            <strong>Email: </strong>
-                            <br />
-                            <a href={`mailto:${college.contact.email}`}>
-                              {college.contact.email}
-                            </a>
-                          </p>
-                          <p className="card-text">
-                            <strong>Wesbite: </strong>
-                            <br />
-                            <a href={college.contact.website}>
-                              {college.contact.website}
-                            </a>
-                          </p>
-                          <Button
-                            variant="dark"
-                            href={`/colleges/${college._id}`}
-                          >
-                            View More details
-                          </Button>
-                        </BsCard.Body>
-                      </BsCard>
-                    </MobileView>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>

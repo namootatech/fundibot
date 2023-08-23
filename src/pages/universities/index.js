@@ -1,18 +1,9 @@
 import Head from "next/head";
 import Navigation from "@/components/nav";
 import styled from "styled-components";
-import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "@/components/footer";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from "react-device-detect";
-import BsCard from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Link from "next/link";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
@@ -183,100 +174,60 @@ export default function Home(props) {
               <div className="row">
                 {universities?.map((university) => (
                   <div className="col-md-12 col-xs-12 col-sm-12">
-                    <BrowserView>
-                      <div className="card my-2 p-4">
-                        <Heart>
-                          <AiOutlineHeart size={30} />
-                        </Heart>
-                        <div className="row no-gutters">
-                          <div className="col-sm-5">
-                            <img
-                              className="card-img"
-                              src={
-                                university.campusImage
-                                  ? university.campusImage
-                                  : "/campus_placeholder.png"
-                              }
-                              alt="Suresh Dasari Card"
-                            />
-                          </div>
-                          <div className="col-sm-7">
-                            <div className="card-body">
-                              <h5 className="card-title">
-                                {university.institution}
-                              </h5>
-                              <p className="card-text">
-                                {`${university.address.street}, ${university.address.city}, ${university.address.postalCode}`}{" "}
-                              </p>
-                              <p className="card-text">
-                                <strong>Contact Number: </strong>
-                                <a
-                                  href={`tel:${university.contact.contactNumber}`}
-                                >
-                                  {university.contact.contactNumber}
-                                </a>
-                              </p>
-                              <p className="card-text">
-                                <strong>Email: </strong>
-                                <a href={`mailto:${university.contact.email}`}>
-                                  {university.contact.email}
-                                </a>
-                              </p>
-                              <p className="card-text">
-                                <strong>Wesbite: </strong>
-                                <a href={university.contact.website}>
-                                  {university.contact.website}
-                                </a>
-                              </p>
-                              <Link
-                                className="btn btn-dark"
-                                href={`/universities/${university._id}`}
+                    <div className="card my-2 p-4">
+                      <Heart>
+                        <AiOutlineHeart size={30} />
+                      </Heart>
+                      <div className="row no-gutters">
+                        <div className="col-sm-5">
+                          <img
+                            className="card-img"
+                            src={
+                              university.campusImage
+                                ? university.campusImage
+                                : "/campus_placeholder.png"
+                            }
+                            alt="Suresh Dasari Card"
+                          />
+                        </div>
+                        <div className="col-sm-7">
+                          <div className="card-body">
+                            <h5 className="card-title">
+                              {university.institution}
+                            </h5>
+                            <p className="card-text">
+                              {`${university.address.street}, ${university.address.city}, ${university.address.postalCode}`}{" "}
+                            </p>
+                            <p className="card-text">
+                              <strong>Contact Number: </strong>
+                              <a
+                                href={`tel:${university.contact.contactNumber}`}
                               >
-                                View more details
-                              </Link>
-                            </div>
+                                {university.contact.contactNumber}
+                              </a>
+                            </p>
+                            <p className="card-text">
+                              <strong>Email: </strong>
+                              <a href={`mailto:${university.contact.email}`}>
+                                {university.contact.email}
+                              </a>
+                            </p>
+                            <p className="card-text">
+                              <strong>Wesbite: </strong>
+                              <a href={university.contact.website}>
+                                {university.contact.website}
+                              </a>
+                            </p>
+                            <Link
+                              className="btn btn-dark"
+                              href={`/universities/${university._id}`}
+                            >
+                              View more details
+                            </Link>
                           </div>
                         </div>
                       </div>
-                    </BrowserView>
-                    <MobileView>
-                      <BsCard className="my-4">
-                        <BsCard.Img
-                          variant="top"
-                          src={university.campusImage}
-                        />
-                        <BsCard.Body>
-                          <BsCard.Title>{university.institution}</BsCard.Title>
-                          <p className="card-text">
-                            <strong>Contact Number: </strong>
-                            <br />
-                            <a href={`tel:${university.contact.contactNumber}`}>
-                              {university.contact.contactNumber}
-                            </a>
-                          </p>
-                          <p className="card-text">
-                            <strong>Email: </strong>
-                            <br />
-                            <a href={`mailto:${university.contact.email}`}>
-                              {university.contact.email}
-                            </a>
-                          </p>
-                          <p className="card-text">
-                            <strong>Wesbite: </strong>
-                            <br />
-                            <a href={university.contact.website}>
-                              {university.contact.website}
-                            </a>
-                          </p>
-                          <Button
-                            variant="dark"
-                            href={`/universities/${university._id}`}
-                          >
-                            View More details
-                          </Button>
-                        </BsCard.Body>
-                      </BsCard>
-                    </MobileView>
+                    </div>
                   </div>
                 ))}
               </div>
