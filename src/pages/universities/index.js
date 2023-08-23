@@ -13,6 +13,7 @@ import {
 } from "react-device-detect";
 import BsCard from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Link from "next/link";
 
 const StyledMain = styled.main`
   height: auto;
@@ -159,55 +160,55 @@ export default function Home(props) {
             <div className="col-md-12">
               <div className="row">
                 {universities?.map((university) => (
-                  <div className="col-md-6 col-xs-12 col-sm-12">
+                  <div className="col-md-12 col-xs-12 col-sm-12">
                     <BrowserView>
-                      <Card className="card mb-4">
-                        <img
-                          src={university.campusImage}
-                          width={200}
-                          height={250}
-                        />
-                        <div className="card-body">
-                          <div className="card-section">
-                            <h2 className="card-title">
-                              {university.institution}
-                            </h2>
-                            <h3>
-                              {`${university.address.street}, ${university.address.city}, ${university.address.postalCode}`}{" "}
-                            </h3>
+                      <div className="card my-2 p-4">
+                        <div className="row no-gutters">
+                          <div className="col-sm-5">
+                            <img
+                              className="card-img"
+                              src={university.campusImage}
+                              alt="Suresh Dasari Card"
+                            />
                           </div>
-                          <div className="card-section-body">
-                            <p className="card-text">
-                              <strong>Contact Number: </strong>
-                              <a
-                                href={`tel:${university.contact.contactNumber}`}
+                          <div className="col-sm-7">
+                            <div className="card-body">
+                              <h5 className="card-title">
+                                {university.institution}
+                              </h5>
+                              <p className="card-text">
+                                {`${university.address.street}, ${university.address.city}, ${university.address.postalCode}`}{" "}
+                              </p>
+                              <p className="card-text">
+                                <strong>Contact Number: </strong>
+                                <a
+                                  href={`tel:${university.contact.contactNumber}`}
+                                >
+                                  {university.contact.contactNumber}
+                                </a>
+                              </p>
+                              <p className="card-text">
+                                <strong>Email: </strong>
+                                <a href={`mailto:${university.contact.email}`}>
+                                  {university.contact.email}
+                                </a>
+                              </p>
+                              <p className="card-text">
+                                <strong>Wesbite: </strong>
+                                <a href={university.contact.website}>
+                                  {university.contact.website}
+                                </a>
+                              </p>
+                              <Link
+                                className="btn btn-dark"
+                                href={`/universities/${university._id}`}
                               >
-                                {university.contact.contactNumber}
-                              </a>
-                            </p>
-                            <p className="card-text">
-                              <strong>Email: </strong>
-                              <a href={`mailto:${university.contact.email}`}>
-                                {university.contact.email}
-                              </a>
-                            </p>
-                            <p className="card-text">
-                              <strong>Wesbite: </strong>
-                              <a href={university.contact.website}>
-                                {university.contact.website}
-                              </a>
-                            </p>
-                          </div>
-                          <div className="card-section-footer">
-                            <Button
-                              variant="dark"
-                              href={`/universities/${university._id}`}
-                            >
-                              View More details
-                            </Button>
+                                View more details
+                              </Link>
+                            </div>
                           </div>
                         </div>
-                      </Card>
+                      </div>
                     </BrowserView>
                     <MobileView>
                       <BsCard className="my-4">
