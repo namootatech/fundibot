@@ -107,10 +107,22 @@ const Navigation = () => {
           </Offcanvas.Header>
           <div>
             <Nav className="justify-content-end flex-grow-1 pe-3 px-4">
-              <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/universities">Universities</Nav.Link>
-              <Nav.Link href="/colleges">Colleges</Nav.Link>
-              <Nav.Link href="/schools">Schools</Nav.Link>
+              <Link className="nav-link" href="/about">
+                About
+              </Link>
+
+              <Link className="nav-link" href="/universities">
+                Universities
+              </Link>
+
+              <Link className="nav-link" href="/colleges">
+                Colleges
+              </Link>
+
+              <Link className="nav-link" href="/schools">
+                Schools
+              </Link>
+
               {isLoggedIn && (
                 <>
                   <Nav.Link href="/admin">
