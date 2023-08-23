@@ -14,6 +14,7 @@ import {
 import BsCard from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 const StyledMain = styled.main`
   height: auto;
@@ -109,6 +110,13 @@ const Card = styled.div`
   }
 `;
 
+const Heart = styled.div`
+  position: absolute;
+  top: 10;
+  right: 0;
+  width: 50px;
+  height: 50px;
+`;
 export const getServerSideProps = async ({ query }) => {
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_SITE_URL}/api/universities?page=0`
@@ -163,11 +171,18 @@ export default function Home(props) {
                   <div className="col-md-12 col-xs-12 col-sm-12">
                     <BrowserView>
                       <div className="card my-2 p-4">
+                        <Heart>
+                          <AiOutlineHeart size={30} />
+                        </Heart>
                         <div className="row no-gutters">
                           <div className="col-sm-5">
                             <img
                               className="card-img"
-                              src={university.campusImage}
+                              src={
+                                university.campusImage
+                                  ? university.campusImage
+                                  : "/campus_placeholder.png"
+                              }
                               alt="Suresh Dasari Card"
                             />
                           </div>
