@@ -112,10 +112,24 @@ const Card = styled.div`
 
 const Heart = styled.div`
   position: absolute;
-  top: 10;
+  top: 0;
   right: 0;
   width: 50px;
   height: 50px;
+  background: #d3d2d2a1;
+  border-bottom-left-radius: 10pc;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  svg {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    svg {
+      transform: scale(1.1);
+    }
+  }
 `;
 export const getServerSideProps = async ({ query }) => {
   const response = await axios.get(
