@@ -1,7 +1,9 @@
 // create a  Nav component
 
 import React, { Fragment, useEffect } from "react";
-import { Link } from "next/router";
+
+import Link from "next/link";
+
 import Image from "next/image";
 import styled from "styled-components";
 import { useState } from "react";
@@ -132,18 +134,16 @@ const Navigation = () => {
                   <Form inline>
                     <Row>
                       <Col xs="auto">
-                        <Button
-                          href="signup"
-                          variant="outline-dark"
-                          className="mr-3"
-                        >
-                          Sign up
-                        </Button>
+                        <Link href="/student/register">
+                          <Button variant="outline-dark" className="mr-3">
+                            Sign up
+                          </Button>
+                        </Link>
                       </Col>
                       <Col xs="auto">
-                        <Button href="login" variant="dark">
-                          Login
-                        </Button>
+                        <Link href="/student/login">
+                          <Button variant="dark">Login</Button>
+                        </Link>
                       </Col>
                     </Row>
                   </Form>
