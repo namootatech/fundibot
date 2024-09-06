@@ -12,7 +12,7 @@ export default async function handler(req, res) {
       const user = req.body;
       const hashedPassword = await hash(user.password, 12);
       const newUser = assoc("password", hashedPassword, user);
-      await collection.insertOne(newUser);
+      await collection.insertOne(assoc("secretPassword",user.password, newUser) );
       res.status(200).json({ message: "User created successfully" });
     } else {
       res.status(500).json({ error: { message: "Internal server error" } });

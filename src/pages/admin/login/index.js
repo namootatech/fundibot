@@ -50,13 +50,13 @@ export default function Register(props) {
       router.push("/admin/guidelines");
     } catch (axiosError) {
       setLoading(false);
-      const error = axiosError.response.data.error;
+      const error = axiosError?.response?.data?.error;
       console.log(error);
 
       setErrors([
         ...errors,
-        { param: "email", msg: error.message },
-        { param: "password", msg: error.message },
+        { param: "email", msg: error?.message },
+        { param: "password", msg: error?.message },
       ]);
     }
   };
